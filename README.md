@@ -1,4 +1,4 @@
 OpenDrop
 ========
 
-Open Source Microvolume Spectrophotometer
+Open Source Digital Microfluidics Bio Lab
