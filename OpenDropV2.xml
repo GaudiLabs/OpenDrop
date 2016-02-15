@@ -1,0 +1,2767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/gaudi/Documents/Projekte/OpenDrop/OpenDropV2/OpenDropV2.sch</source>
+    <date>Wed 02 Dec 2015 09:23:30 PM CET</date>
+    <tool>Eeschema 0.201511241017+6328~38~ubuntu14.04.1-stable</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>OpenDrop Version 2</title>
+        <company/>
+        <rev>0.1</rev>
+        <date/>
+        <source>OpenDropV2.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="SW1">
+      <value>SW_PUSH</value>
+      <footprint>Buttons_Switches_SMD:SW_SPST_PTS645</footprint>
+      <libsource lib="device" part="SW_PUSH"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55DED5EE</tstamp>
+    </comp>
+    <comp ref="SW2">
+      <value>SW_PUSH</value>
+      <footprint>Buttons_Switches_SMD:SW_SPST_PTS645</footprint>
+      <libsource lib="device" part="SW_PUSH"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55DED675</tstamp>
+    </comp>
+    <comp ref="SW3">
+      <value>SW_PUSH</value>
+      <footprint>Buttons_Switches_SMD:SW_SPST_PTS645</footprint>
+      <libsource lib="device" part="SW_PUSH"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55DED6A5</tstamp>
+    </comp>
+    <comp ref="LED5">
+      <value>LED</value>
+      <footprint>GaudiLabsFootPrints:LED_SIDE</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55DED874</tstamp>
+    </comp>
+    <comp ref="LED2">
+      <value>LED</value>
+      <footprint>GaudiLabsFootPrints:LED_SIDE</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55DED8C9</tstamp>
+    </comp>
+    <comp ref="LED3">
+      <value>LED</value>
+      <footprint>GaudiLabsFootPrints:LED_SIDE</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55DED8FA</tstamp>
+    </comp>
+    <comp ref="LED4">
+      <value>LED</value>
+      <footprint>GaudiLabsFootPrints:LED_SIDE</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55DED94C</tstamp>
+    </comp>
+    <comp ref="FLUXL1">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B0F1</tstamp>
+    </comp>
+    <comp ref="FLUXL2">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B182</tstamp>
+    </comp>
+    <comp ref="FLUXL3">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B1C8</tstamp>
+    </comp>
+    <comp ref="FLUXL4">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B20D</tstamp>
+    </comp>
+    <comp ref="FLUXL5">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B255</tstamp>
+    </comp>
+    <comp ref="FLUXL6">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B2A0</tstamp>
+    </comp>
+    <comp ref="FLUXL7">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B2EE</tstamp>
+    </comp>
+    <comp ref="FLUXL8">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B341</tstamp>
+    </comp>
+    <comp ref="FLUXL9">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B869</tstamp>
+    </comp>
+    <comp ref="FLUXL10">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B86F</tstamp>
+    </comp>
+    <comp ref="FLUXL11">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B875</tstamp>
+    </comp>
+    <comp ref="FLUXL12">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B87B</tstamp>
+    </comp>
+    <comp ref="FLUXL13">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B881</tstamp>
+    </comp>
+    <comp ref="FLUXL14">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B887</tstamp>
+    </comp>
+    <comp ref="FLUXL15">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B88D</tstamp>
+    </comp>
+    <comp ref="FLUXL16">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6B893</tstamp>
+    </comp>
+    <comp ref="FLUXL17">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6BD59</tstamp>
+    </comp>
+    <comp ref="FLUXL18">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6BD5F</tstamp>
+    </comp>
+    <comp ref="FLUXL19">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6BD65</tstamp>
+    </comp>
+    <comp ref="FLUXL20">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6BD6B</tstamp>
+    </comp>
+    <comp ref="FLUXL21">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6BD71</tstamp>
+    </comp>
+    <comp ref="FLUXL22">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6BD77</tstamp>
+    </comp>
+    <comp ref="FLUXL23">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6BD7D</tstamp>
+    </comp>
+    <comp ref="FLUXL24">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6BD83</tstamp>
+    </comp>
+    <comp ref="FLUXL25">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6C421</tstamp>
+    </comp>
+    <comp ref="FLUXL26">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6C427</tstamp>
+    </comp>
+    <comp ref="FLUXL27">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6C42D</tstamp>
+    </comp>
+    <comp ref="FLUXL28">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6C433</tstamp>
+    </comp>
+    <comp ref="FLUXL29">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6C439</tstamp>
+    </comp>
+    <comp ref="FLUXL30">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6C43F</tstamp>
+    </comp>
+    <comp ref="FLUXL31">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6C445</tstamp>
+    </comp>
+    <comp ref="FLUXL32">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6C44B</tstamp>
+    </comp>
+    <comp ref="FLUXL33">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6F8E9</tstamp>
+    </comp>
+    <comp ref="FLUXL34">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6F8EF</tstamp>
+    </comp>
+    <comp ref="FLUXL35">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6F8F5</tstamp>
+    </comp>
+    <comp ref="FLUXL36">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6F8FB</tstamp>
+    </comp>
+    <comp ref="FLUXL37">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6F901</tstamp>
+    </comp>
+    <comp ref="FLUXL38">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6F907</tstamp>
+    </comp>
+    <comp ref="FLUXL39">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6F90D</tstamp>
+    </comp>
+    <comp ref="FLUXL40">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6F913</tstamp>
+    </comp>
+    <comp ref="FLUXL41">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6FE51</tstamp>
+    </comp>
+    <comp ref="FLUXL42">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6FE57</tstamp>
+    </comp>
+    <comp ref="FLUXL43">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6FE5D</tstamp>
+    </comp>
+    <comp ref="FLUXL44">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6FE63</tstamp>
+    </comp>
+    <comp ref="FLUXL45">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6FE69</tstamp>
+    </comp>
+    <comp ref="FLUXL46">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6FE6F</tstamp>
+    </comp>
+    <comp ref="FLUXL47">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6FE75</tstamp>
+    </comp>
+    <comp ref="FLUXL48">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E6FE7B</tstamp>
+    </comp>
+    <comp ref="FLUXL49">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E70571</tstamp>
+    </comp>
+    <comp ref="FLUXL50">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E70577</tstamp>
+    </comp>
+    <comp ref="FLUXL51">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E7057D</tstamp>
+    </comp>
+    <comp ref="FLUXL52">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E70583</tstamp>
+    </comp>
+    <comp ref="FLUXL53">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E70589</tstamp>
+    </comp>
+    <comp ref="FLUXL54">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E7058F</tstamp>
+    </comp>
+    <comp ref="FLUXL55">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E70595</tstamp>
+    </comp>
+    <comp ref="FLUXL57">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E7152D</tstamp>
+    </comp>
+    <comp ref="FLUXL58">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E71533</tstamp>
+    </comp>
+    <comp ref="FLUXL59">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E71539</tstamp>
+    </comp>
+    <comp ref="FLUXL60">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E7153F</tstamp>
+    </comp>
+    <comp ref="FLUXL61">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E71545</tstamp>
+    </comp>
+    <comp ref="FLUXL62">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E7154B</tstamp>
+    </comp>
+    <comp ref="FLUXL63">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E71551</tstamp>
+    </comp>
+    <comp ref="FLUXL64">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E71557</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>HV507</value>
+      <footprint>Housings_QFP:PQFP-80_14x20mm_Pitch0.8mm</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="HV507"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E7A647</tstamp>
+    </comp>
+    <comp ref="FLUXL56">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E7059B</tstamp>
+    </comp>
+    <comp ref="SW5">
+      <value>SPST</value>
+      <footprint>GaudiLabsFootPrints:Switch_On-On</footprint>
+      <libsource lib="device" part="SPST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55EB1878</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>DC_JACK</value>
+      <footprint>GaudiLabsFootPrints:DC_JACK_SMD</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="DC_JACK"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55EB27C8</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>100uF, 35V</value>
+      <footprint>Resistors_SMD:R_2512_HandSoldering</footprint>
+      <libsource lib="device" part="CP"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E85AFB</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>10uF, 25V</value>
+      <footprint>Capacitors_SMD:C_1210_HandSoldering</footprint>
+      <libsource lib="device" part="CP"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E85C3A</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>100nF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E85D1A</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>100nF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E85E67</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>MAX1771ESA</value>
+      <footprint>SMD_Packages:SOIC-8-N</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="MAX1771ESA"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E86256</tstamp>
+    </comp>
+    <comp ref="L1">
+      <value>100uH</value>
+      <footprint>GaudiLabsFootPrints:Inductor_18.54x15.24</footprint>
+      <libsource lib="device" part="INDUCTOR"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E86C79</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>ES2F</value>
+      <footprint>Diodes_SMD:DO-214AB</footprint>
+      <libsource lib="device" part="D"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E8737E</tstamp>
+    </comp>
+    <comp ref="T1">
+      <value>IRF 840S</value>
+      <footprint>GaudiLabsFootPrints:D2PAK</footprint>
+      <libsource lib="device" part="Q_NMOS_GDS"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E874A9</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>4u7, 250V</value>
+      <footprint>GaudiLabsFootPrints:C_SMD_12mm</footprint>
+      <libsource lib="device" part="CP"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E88142</tstamp>
+    </comp>
+    <comp ref="POT1">
+      <value>POT</value>
+      <footprint>Potentiometers:Potentiometer_Trimmer-Suntan-TSR-3386P</footprint>
+      <libsource lib="device" part="POT"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E8825C</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>1M5</value>
+      <footprint>Resistors_SMD:R_2512</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E8835F</tstamp>
+    </comp>
+    <comp ref="RSENSE1">
+      <value>0R050</value>
+      <footprint>Resistors_SMD:R_2010</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E8859C</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>8k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E886F3</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>100nF, 250V</value>
+      <footprint>Resistors_SMD:R_2512</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55E88837</tstamp>
+    </comp>
+    <comp ref="S1">
+      <value>OLED_DISPLAY</value>
+      <footprint>GaudiLabsFootPrints:OLED_096_1</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="OLED_DISPLAY"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55EA2554</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>1uF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55EA3D33</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>1uF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55EA3E7E</tstamp>
+    </comp>
+    <comp ref="C10">
+      <value>2.2uF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55EAF038</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>2.2uF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55EAF185</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>390k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55EAFBA3</tstamp>
+    </comp>
+    <comp ref="FLUXL68">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF56</tstamp>
+    </comp>
+    <comp ref="FLUXL71">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF5C</tstamp>
+    </comp>
+    <comp ref="FLUXL75">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF62</tstamp>
+    </comp>
+    <comp ref="FLUXL78">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF68</tstamp>
+    </comp>
+    <comp ref="FLUXL82">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF6E</tstamp>
+    </comp>
+    <comp ref="FLUXL85">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF74</tstamp>
+    </comp>
+    <comp ref="FLUXL89">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF7A</tstamp>
+    </comp>
+    <comp ref="FLUXL94">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF80</tstamp>
+    </comp>
+    <comp ref="FLUXL67">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF86</tstamp>
+    </comp>
+    <comp ref="FLUXL72">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF8C</tstamp>
+    </comp>
+    <comp ref="FLUXL74">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF92</tstamp>
+    </comp>
+    <comp ref="FLUXL79">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF98</tstamp>
+    </comp>
+    <comp ref="FLUXL83">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DF9E</tstamp>
+    </comp>
+    <comp ref="FLUXL86">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFA4</tstamp>
+    </comp>
+    <comp ref="FLUXL93">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFAA</tstamp>
+    </comp>
+    <comp ref="FLUXL90">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFB0</tstamp>
+    </comp>
+    <comp ref="FLUXL66">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFB6</tstamp>
+    </comp>
+    <comp ref="FLUXL70">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFBC</tstamp>
+    </comp>
+    <comp ref="FLUXL76">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFC2</tstamp>
+    </comp>
+    <comp ref="FLUXL80">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFC8</tstamp>
+    </comp>
+    <comp ref="FLUXL84">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFCE</tstamp>
+    </comp>
+    <comp ref="FLUXL87">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFD4</tstamp>
+    </comp>
+    <comp ref="FLUXL92">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFDA</tstamp>
+    </comp>
+    <comp ref="FLUXL91">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFE0</tstamp>
+    </comp>
+    <comp ref="FLUXL65">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFE6</tstamp>
+    </comp>
+    <comp ref="FLUXL69">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFEC</tstamp>
+    </comp>
+    <comp ref="FLUXL73">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFF2</tstamp>
+    </comp>
+    <comp ref="FLUXL77">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFF8</tstamp>
+    </comp>
+    <comp ref="FLUXL81">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0DFFE</tstamp>
+    </comp>
+    <comp ref="FLUXL88">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E004</tstamp>
+    </comp>
+    <comp ref="FLUXL96">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E00A</tstamp>
+    </comp>
+    <comp ref="FLUXL95">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E010</tstamp>
+    </comp>
+    <comp ref="FLUXL128">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E016</tstamp>
+    </comp>
+    <comp ref="FLUXL124">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E01C</tstamp>
+    </comp>
+    <comp ref="FLUXL120">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E022</tstamp>
+    </comp>
+    <comp ref="FLUXL116">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E028</tstamp>
+    </comp>
+    <comp ref="FLUXL112">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E02E</tstamp>
+    </comp>
+    <comp ref="FLUXL105">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E034</tstamp>
+    </comp>
+    <comp ref="FLUXL97">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E03A</tstamp>
+    </comp>
+    <comp ref="FLUXL98">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E040</tstamp>
+    </comp>
+    <comp ref="FLUXL127">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E046</tstamp>
+    </comp>
+    <comp ref="FLUXL123">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E04C</tstamp>
+    </comp>
+    <comp ref="FLUXL117">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E052</tstamp>
+    </comp>
+    <comp ref="FLUXL113">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E058</tstamp>
+    </comp>
+    <comp ref="FLUXL109">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E05E</tstamp>
+    </comp>
+    <comp ref="FLUXL106">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E064</tstamp>
+    </comp>
+    <comp ref="FLUXL102">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E06A</tstamp>
+    </comp>
+    <comp ref="FLUXL101">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E070</tstamp>
+    </comp>
+    <comp ref="FLUXL126">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E076</tstamp>
+    </comp>
+    <comp ref="FLUXL121">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E07C</tstamp>
+    </comp>
+    <comp ref="FLUXL119">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E082</tstamp>
+    </comp>
+    <comp ref="FLUXL114">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E088</tstamp>
+    </comp>
+    <comp ref="FLUXL110">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E08E</tstamp>
+    </comp>
+    <comp ref="FLUXL107">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E094</tstamp>
+    </comp>
+    <comp ref="FLUXL100">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E09A</tstamp>
+    </comp>
+    <comp ref="FLUXL125">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0A0</tstamp>
+    </comp>
+    <comp ref="FLUXL122">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0A6</tstamp>
+    </comp>
+    <comp ref="FLUXL118">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0AC</tstamp>
+    </comp>
+    <comp ref="FLUXL115">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0B2</tstamp>
+    </comp>
+    <comp ref="FLUXL111">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0B8</tstamp>
+    </comp>
+    <comp ref="FLUXL108">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0BE</tstamp>
+    </comp>
+    <comp ref="FLUXL104">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0C4</tstamp>
+    </comp>
+    <comp ref="FLUXL99">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0CA</tstamp>
+    </comp>
+    <comp ref="U4">
+      <value>HV507</value>
+      <footprint>Housings_QFP:PQFP-80_14x20mm_Pitch0.8mm</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="HV507"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0D0</tstamp>
+    </comp>
+    <comp ref="FLUXL103">
+      <value>FX</value>
+      <footprint>GaudiLabsFootPrints:FLUXL_PAD_2_75</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="FX"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55F0E0D6</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>ARDUINO_MICRO</value>
+      <footprint>GaudiLabsFootPrints:ARDUINO_MICRO_SMD</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="ARDUINO_MICRO"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55FC72A7</tstamp>
+    </comp>
+    <comp ref="LED6">
+      <value>LED</value>
+      <footprint>GaudiLabsFootPrints:LED_SIDE</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>55FCBB1C</tstamp>
+    </comp>
+    <comp ref="U5">
+      <value>ESP8266_SMD</value>
+      <footprint>GaudiLabsFootPrints:ESP8266_SMD</footprint>
+      <libsource lib="GaudiLabsPartsLibrary" part="ESP8266_SMD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>560143EE</tstamp>
+    </comp>
+    <comp ref="SW4">
+      <value>SW_PUSH</value>
+      <footprint>Buttons_Switches_SMD:SW_SPST_PTS645</footprint>
+      <libsource lib="device" part="SW_PUSH"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5602C943</tstamp>
+    </comp>
+    <comp ref="LED1">
+      <value>LED</value>
+      <footprint>LEDs:LED-0805</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>560B00B4</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>390</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>560B842F</tstamp>
+    </comp>
+    <comp ref="C11">
+      <value>100nF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5658DFBF</tstamp>
+    </comp>
+    <comp ref="R13">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565AB74D</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565ACB2E</tstamp>
+    </comp>
+    <comp ref="Q2">
+      <value>BSS138</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23</footprint>
+      <libsource lib="transistors" part="BSS138"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565B696F</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>BSS138</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23</footprint>
+      <libsource lib="transistors" part="BSS138"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565B91C1</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565C3159</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565C33C1</tstamp>
+    </comp>
+    <comp ref="R10">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565C8DD4</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>D_Small</value>
+      <footprint>Diodes_SMD:SOD-323</footprint>
+      <libsource lib="device" part="D_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565C940B</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565E2EF9</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>D_Small</value>
+      <footprint>Diodes_SMD:SOD-323</footprint>
+      <libsource lib="device" part="D_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565E3A05</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>390</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>56600637</tstamp>
+    </comp>
+    <comp ref="Q3">
+      <value>BSS138</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23</footprint>
+      <libsource lib="transistors" part="BSS138"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565AB267</tstamp>
+    </comp>
+    <comp ref="R14">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565C8A05</tstamp>
+    </comp>
+    <comp ref="D4">
+      <value>D_Small</value>
+      <footprint>Diodes_SMD:SOD-323</footprint>
+      <libsource lib="device" part="D_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565CA0F6</tstamp>
+    </comp>
+    <comp ref="SP1">
+      <value>SPEAKER</value>
+      <footprint>GaudiLabsFootPrints:SMD_PA12_Piezzo</footprint>
+      <libsource lib="device" part="SPEAKER"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565F65A4</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>CONN_01X01</value>
+      <footprint>Measurement_Points:Measurement_Point_Square-SMD-Pad_Small</footprint>
+      <libsource lib="conn" part="CONN_01X01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>566085AC</tstamp>
+    </comp>
+    <comp ref="P3">
+      <value>CONN_01X01</value>
+      <footprint>Measurement_Points:Measurement_Point_Square-SMD-Pad_Small</footprint>
+      <libsource lib="conn" part="CONN_01X01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>566090FF</tstamp>
+    </comp>
+    <comp ref="P2">
+      <value>CONN_01X01</value>
+      <footprint>Measurement_Points:Measurement_Point_Square-SMD-Pad_Small</footprint>
+      <libsource lib="conn" part="CONN_01X01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>56609430</tstamp>
+    </comp>
+    <comp ref="LED7">
+      <value>LED</value>
+      <footprint>GaudiLabsFootPrints:LED_SIDE</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5656DE94</tstamp>
+    </comp>
+    <comp ref="P5">
+      <value>CONN_01X01</value>
+      <footprint>Measurement_Points:Measurement_Point_Square-SMD-Pad_Small</footprint>
+      <libsource lib="conn" part="CONN_01X01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5657E963</tstamp>
+    </comp>
+    <comp ref="P4">
+      <value>CONN_01X01</value>
+      <footprint>Measurement_Points:Measurement_Point_Square-SMD-Pad_Small</footprint>
+      <libsource lib="conn" part="CONN_01X01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5657EBC4</tstamp>
+    </comp>
+    <comp ref="LED8">
+      <value>LED</value>
+      <footprint>LEDs:LED-0805</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>56574E4E</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>390</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>56574E5A</tstamp>
+    </comp>
+    <comp ref="C12">
+      <value>100nF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5657E41A</tstamp>
+    </comp>
+    <comp ref="C13">
+      <value>100nF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5657E59E</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>10k</value>
+      <footprint>GaudiLabsFootPrints:R_0805_HeatPad</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565C62F8</tstamp>
+    </comp>
+    <comp ref="R15">
+      <value>10k</value>
+      <footprint>GaudiLabsFootPrints:R_0805_HeatPad</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565C7E5C</tstamp>
+    </comp>
+    <comp ref="R16">
+      <value>10k</value>
+      <footprint>GaudiLabsFootPrints:R_0805_HeatPad</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565C80B9</tstamp>
+    </comp>
+    <comp ref="R17">
+      <value>10k</value>
+      <footprint>GaudiLabsFootPrints:R_0805_HeatPad</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>565C831B</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="GaudiLabsPartsLibrary" part="ARDUINO_MICRO">
+      <description>Arduino Micro shield</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ARDUINO_MICRO</field>
+      </fields>
+      <pins>
+        <pin num="1" name="MOSI" type="BiDi"/>
+        <pin num="2" name="RX_LED/SS" type="BiDi"/>
+        <pin num="3" name="1/TX" type="BiDi"/>
+        <pin num="4" name="0/RX" type="BiDi"/>
+        <pin num="5" name="RESET" type="BiDi"/>
+        <pin num="6" name="GND" type="power_in"/>
+        <pin num="7" name="2/SDA" type="BiDi"/>
+        <pin num="8" name="3(PWM)/SCL" type="BiDi"/>
+        <pin num="9" name="4/A6" type="BiDi"/>
+        <pin num="10" name="5(PWM)" type="BiDi"/>
+        <pin num="11" name="6(PWM)/A7" type="BiDi"/>
+        <pin num="12" name="7" type="BiDi"/>
+        <pin num="13" name="8/A8" type="BiDi"/>
+        <pin num="14" name="9(PWM)/A9" type="BiDi"/>
+        <pin num="15" name="10(PWM)/A10" type="BiDi"/>
+        <pin num="16" name="11(PWM)" type="BiDi"/>
+        <pin num="17" name="12/A11" type="BiDi"/>
+        <pin num="18" name="13(PWM)" type="BiDi"/>
+        <pin num="19" name="3.3V" type="power_in"/>
+        <pin num="20" name="AREF" type="power_in"/>
+        <pin num="21" name="A0" type="BiDi"/>
+        <pin num="22" name="A1" type="BiDi"/>
+        <pin num="23" name="A2" type="BiDi"/>
+        <pin num="24" name="A3" type="BiDi"/>
+        <pin num="25" name="A4" type="BiDi"/>
+        <pin num="26" name="A5" type="BiDi"/>
+        <pin num="27" name="NC" type="NotConnected"/>
+        <pin num="28" name="NC" type="NotConnected"/>
+        <pin num="29" name="+5V" type="power_in"/>
+        <pin num="30" name="RESET" type="BiDi"/>
+        <pin num="31" name="GND" type="power_in"/>
+        <pin num="32" name="VIN" type="power_in"/>
+        <pin num="33" name="MISO" type="BiDi"/>
+        <pin num="34" name="SCK" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="transistors" part="BSS138">
+      <description>50V Vds, 0.22A Id, N-Channel MOSFET, SOT-23</description>
+      <docs>http://www.fairchildsemi.com/ds/BS/BSS138.pdf</docs>
+      <footprints>
+        <fp>SOT-23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BSS138</field>
+        <field name="Footprint">SOT-23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C?</fp>
+        <fp>C_????_*</fp>
+        <fp>C_????</fp>
+        <fp>SMD*_c</fp>
+        <fp>Capacitor*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X01">
+      <description>Connector 01x01</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X01</fp>
+        <fp>Pin_Header_Angled_1X01</fp>
+        <fp>Socket_Strip_Straight_1X01</fp>
+        <fp>Socket_Strip_Angled_1X01</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X01</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="CP">
+      <description>Polarised capacitor</description>
+      <footprints>
+        <fp>CP*</fp>
+        <fp>Elko*</fp>
+        <fp>TantalC*</fp>
+        <fp>C*elec</fp>
+        <fp>c_elec*</fp>
+        <fp>SMD*_Pol</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="D">
+      <description>Diode</description>
+      <footprints>
+        <fp>Diode_*</fp>
+        <fp>D-Pak_TO252AA</fp>
+        <fp>*SingleDiode</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="GaudiLabsPartsLibrary" part="DC_JACK">
+      <description>DC PLUG</description>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">DC_JACK</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+        <pin num="2" name="2" type="input"/>
+        <pin num="3" name="3" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="D_Small">
+      <description>Diode</description>
+      <footprints>
+        <fp>Diode_*</fp>
+        <fp>D-Pak_TO252AA</fp>
+        <fp>*SingleDiode</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>*_Diode_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="GaudiLabsPartsLibrary" part="ESP8266_SMD">
+      <description>Arduino Micro shield</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ESP8266_SMD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="RX" type="input"/>
+        <pin num="2" name="VCC" type="power_in"/>
+        <pin num="3" name="GPIO-0" type="BiDi"/>
+        <pin num="4" name="RESET" type="input"/>
+        <pin num="5" name="GPIO-2" type="BiDi"/>
+        <pin num="6" name="CH_PD" type="BiDi"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="TX" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="GaudiLabsPartsLibrary" part="FX">
+      <description>Fluxl Pad</description>
+      <fields>
+        <field name="Reference">FLUXL</field>
+        <field name="Value">FX</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="GaudiLabsPartsLibrary" part="HV507">
+      <description>64-Channel High Voltage Push-Pull, PQFP-80</description>
+      <footprints>
+        <fp>PQFP*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">HV507</field>
+      </fields>
+      <pins>
+        <pin num="1" name="HV_OUT_41" type="input"/>
+        <pin num="2" name="HV_OUT_42" type="input"/>
+        <pin num="3" name="HV_OUT_43" type="BiDi"/>
+        <pin num="4" name="HV_OUT_44" type="BiDi"/>
+        <pin num="5" name="HV_OUT_45" type="BiDi"/>
+        <pin num="6" name="HV_OUT_46" type="BiDi"/>
+        <pin num="7" name="HV_OUT_47" type="BiDi"/>
+        <pin num="8" name="HV_OUT_48" type="BiDi"/>
+        <pin num="9" name="HV_OUT_49" type="BiDi"/>
+        <pin num="10" name="HV_OUT_50" type="BiDi"/>
+        <pin num="11" name="HV_OUT_51" type="BiDi"/>
+        <pin num="12" name="HV_OUT_52" type="BiDi"/>
+        <pin num="13" name="HV_OUT_53" type="BiDi"/>
+        <pin num="14" name="HV_OUT_54" type="BiDi"/>
+        <pin num="15" name="HV_OUT_55" type="BiDi"/>
+        <pin num="16" name="HV_OUT_56" type="BiDi"/>
+        <pin num="17" name="HV_OUT_57" type="BiDi"/>
+        <pin num="18" name="HV_OUT_58" type="BiDi"/>
+        <pin num="19" name="HV_OUT_59" type="3state"/>
+        <pin num="20" name="HV_OUT_60" type="3state"/>
+        <pin num="21" name="HV_OUT_61" type="3state"/>
+        <pin num="22" name="HV_OUT_62" type="3state"/>
+        <pin num="23" name="HV_OUT_63" type="3state"/>
+        <pin num="24" name="HV_OUT_64" type="3state"/>
+        <pin num="25" name="VPP" type="power_in"/>
+        <pin num="26" name="DIO_A" type="input"/>
+        <pin num="27" name="N/C" type="NotConnected"/>
+        <pin num="28" name="N/C" type="NotConnected"/>
+        <pin num="29" name="BL" type="input"/>
+        <pin num="30" name="POL" type="input"/>
+        <pin num="31" name="VDD" type="power_in"/>
+        <pin num="32" name="DIR" type="input"/>
+        <pin num="33" name="GND" type="power_in"/>
+        <pin num="34" name="HVGND" type="power_in"/>
+        <pin num="35" name="N/C" type="NotConnected"/>
+        <pin num="36" name="N/C" type="NotConnected"/>
+        <pin num="37" name="CLK" type="input"/>
+        <pin num="38" name="LE" type="input"/>
+        <pin num="39" name="DIO_B" type="input"/>
+        <pin num="40" name="VPP" type="input"/>
+        <pin num="41" name="HV_OUT_1" type="BiDi"/>
+        <pin num="42" name="HV_OUT_2" type="BiDi"/>
+        <pin num="43" name="HV_OUT_3" type="BiDi"/>
+        <pin num="44" name="HV_OUT_4" type="BiDi"/>
+        <pin num="45" name="HV_OUT_5" type="BiDi"/>
+        <pin num="46" name="HV_OUT_6" type="BiDi"/>
+        <pin num="47" name="HV_OUT_7" type="BiDi"/>
+        <pin num="48" name="HV_OUT_8" type="BiDi"/>
+        <pin num="49" name="HV_OUT_9" type="BiDi"/>
+        <pin num="50" name="HV_OUT_10" type="BiDi"/>
+        <pin num="51" name="HV_OUT_11" type="BiDi"/>
+        <pin num="52" name="HV_OUT_12" type="BiDi"/>
+        <pin num="53" name="HV_OUT_13" type="BiDi"/>
+        <pin num="54" name="HV_OUT_14" type="BiDi"/>
+        <pin num="55" name="HV_OUT_15" type="BiDi"/>
+        <pin num="56" name="HV_OUT_16" type="BiDi"/>
+        <pin num="57" name="HV_OUT_17" type="BiDi"/>
+        <pin num="58" name="HV_OUT_18" type="BiDi"/>
+        <pin num="59" name="HV_OUT_19" type="BiDi"/>
+        <pin num="60" name="HV_OUT_20" type="BiDi"/>
+        <pin num="61" name="HV_OUT_21" type="BiDi"/>
+        <pin num="62" name="HV_OUT_22" type="BiDi"/>
+        <pin num="63" name="HV_OUT_23" type="BiDi"/>
+        <pin num="64" name="HV_OUT_24" type="BiDi"/>
+        <pin num="65" name="HV_OUT_25" type="input"/>
+        <pin num="66" name="HV_OUT_26" type="input"/>
+        <pin num="67" name="HV_OUT_27" type="output"/>
+        <pin num="68" name="HV_OUT_28" type="output"/>
+        <pin num="69" name="HV_OUT_29" type="BiDi"/>
+        <pin num="70" name="HV_OUT_30" type="BiDi"/>
+        <pin num="71" name="HV_OUT_31" type="input"/>
+        <pin num="72" name="HV_OUT_32" type="BiDi"/>
+        <pin num="73" name="HV_OUT_33" type="BiDi"/>
+        <pin num="74" name="HV_OUT_34" type="output"/>
+        <pin num="75" name="HV_OUT_35" type="input"/>
+        <pin num="76" name="HV_OUT_36" type="BiDi"/>
+        <pin num="77" name="HV_OUT_37" type="input"/>
+        <pin num="78" name="HV_OUT_38" type="input"/>
+        <pin num="79" name="HV_OUT_39" type="input"/>
+        <pin num="80" name="HV_OUT_40" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="INDUCTOR">
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">INDUCTOR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="LED">
+      <footprints>
+        <fp>LED-3MM</fp>
+        <fp>LED-5MM</fp>
+        <fp>LED-10MM</fp>
+        <fp>LED-0603</fp>
+        <fp>LED-0805</fp>
+        <fp>LED-1206</fp>
+        <fp>LEDV</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="GaudiLabsPartsLibrary" part="MAX1771ESA">
+      <aliases>
+        <alias>MAX31855EASA</alias>
+      </aliases>
+      <description>Cold Junction K-type Termocouple Interface, SPI, SO8</description>
+      <docs>http://datasheets.maximintegrated.com/en/ds/MAX31855.pdf</docs>
+      <footprints>
+        <fp>SO*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MAX1771ESA</field>
+        <field name="Footprint">SO-8</field>
+      </fields>
+      <pins>
+        <pin num="1" name="EXT" type="output"/>
+        <pin num="2" name="VCC" type="power_in"/>
+        <pin num="3" name="FB" type="input"/>
+        <pin num="4" name="SHDN" type="passive"/>
+        <pin num="5" name="REF" type="input"/>
+        <pin num="6" name="AGND" type="power_in"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="CS" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="GaudiLabsPartsLibrary" part="OLED_DISPLAY">
+      <description>DISPLAY EA7123-12C</description>
+      <fields>
+        <field name="Reference">S</field>
+        <field name="Value">OLED_DISPLAY</field>
+      </fields>
+      <pins>
+        <pin num="1" name="NC_(GND)" type="power_in"/>
+        <pin num="2" name="C2P" type="power_in"/>
+        <pin num="3" name="C2N" type="input"/>
+        <pin num="4" name="C1P" type="input"/>
+        <pin num="5" name="C1N" type="input"/>
+        <pin num="6" name="VBAT" type="input"/>
+        <pin num="7" name="NC" type="power_in"/>
+        <pin num="8" name="VSS" type="power_in"/>
+        <pin num="9" name="VDD" type="input"/>
+        <pin num="10" name="BS0" type="input"/>
+        <pin num="11" name="BS1" type="input"/>
+        <pin num="12" name="BS2" type="input"/>
+        <pin num="13" name="CS" type="power_in"/>
+        <pin num="14" name="RES" type="power_in"/>
+        <pin num="15" name="D/C#_SA0" type="input"/>
+        <pin num="16" name="R/W#" type="input"/>
+        <pin num="17" name="E/RD#" type="input"/>
+        <pin num="18" name="D0_(SCL)" type="input"/>
+        <pin num="19" name="D1_(SA)" type="power_in"/>
+        <pin num="20" name="D2_(SDA)" type="power_in"/>
+        <pin num="21" name="D8" type="input"/>
+        <pin num="22" name="D4" type="input"/>
+        <pin num="23" name="D5" type="input"/>
+        <pin num="24" name="D6" type="input"/>
+        <pin num="25" name="D7" type="power_in"/>
+        <pin num="26" name="REF" type="power_in"/>
+        <pin num="27" name="VCOMH" type="input"/>
+        <pin num="28" name="VCC" type="input"/>
+        <pin num="29" name="SDA" type="input"/>
+        <pin num="30" name="NC_(GND)" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="POT">
+      <description>Potentionmetre</description>
+      <fields>
+        <field name="Reference">RV</field>
+        <field name="Value">POT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="Q_NMOS_GDS">
+      <description>Transistor N-MOSFET (general)</description>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NMOS_GDS</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="D" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>Resistor_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="SPEAKER">
+      <fields>
+        <field name="Reference">SP</field>
+        <field name="Value">SPEAKER</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+        <pin num="2" name="2" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="SPST">
+      <description>Interrupteur simple</description>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SPST</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+        <pin num="2" name="2" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="SW_PUSH">
+      <description>Button</description>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_PUSH</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="GaudiLabsPartsLibrary">
+      <uri>/home/gaudi/Documents/Projekte/KiCadLibrary/GaudiLabsPartsLibrary.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>/usr/share/kicad/library/device.lib</uri>
+    </library>
+    <library logical="transistors">
+      <uri>/usr/share/kicad/library/transistors.lib</uri>
+    </library>
+    <library logical="conn">
+      <uri>/usr/share/kicad/library/conn.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(FLUXL23-Pad1)">
+      <node ref="FLUXL23" pin="1"/>
+      <node ref="U2" pin="68"/>
+    </net>
+    <net code="2" name="Net-(FLUXL28-Pad1)">
+      <node ref="U2" pin="53"/>
+      <node ref="FLUXL28" pin="1"/>
+    </net>
+    <net code="3" name="Net-(FLUXL4-Pad1)">
+      <node ref="FLUXL4" pin="1"/>
+      <node ref="U2" pin="54"/>
+    </net>
+    <net code="4" name="Net-(FLUXL12-Pad1)">
+      <node ref="U2" pin="55"/>
+      <node ref="FLUXL12" pin="1"/>
+    </net>
+    <net code="5" name="Net-(FLUXL20-Pad1)">
+      <node ref="U2" pin="56"/>
+      <node ref="FLUXL20" pin="1"/>
+    </net>
+    <net code="6" name="Net-(FLUXL29-Pad1)">
+      <node ref="FLUXL29" pin="1"/>
+      <node ref="U2" pin="57"/>
+    </net>
+    <net code="7" name="Net-(FLUXL5-Pad1)">
+      <node ref="U2" pin="58"/>
+      <node ref="FLUXL5" pin="1"/>
+    </net>
+    <net code="8" name="Net-(FLUXL13-Pad1)">
+      <node ref="FLUXL13" pin="1"/>
+      <node ref="U2" pin="59"/>
+    </net>
+    <net code="9" name="Net-(FLUXL21-Pad1)">
+      <node ref="FLUXL21" pin="1"/>
+      <node ref="U2" pin="60"/>
+    </net>
+    <net code="10" name="Net-(FLUXL6-Pad1)">
+      <node ref="FLUXL6" pin="1"/>
+      <node ref="U2" pin="61"/>
+    </net>
+    <net code="11" name="Net-(FLUXL14-Pad1)">
+      <node ref="FLUXL14" pin="1"/>
+      <node ref="U2" pin="62"/>
+    </net>
+    <net code="12" name="Net-(FLUXL22-Pad1)">
+      <node ref="FLUXL22" pin="1"/>
+      <node ref="U2" pin="63"/>
+    </net>
+    <net code="13" name="Net-(FLUXL30-Pad1)">
+      <node ref="FLUXL30" pin="1"/>
+      <node ref="U2" pin="64"/>
+    </net>
+    <net code="14" name="Net-(FLUXL7-Pad1)">
+      <node ref="FLUXL7" pin="1"/>
+      <node ref="U2" pin="65"/>
+    </net>
+    <net code="15" name="Net-(FLUXL16-Pad1)">
+      <node ref="FLUXL16" pin="1"/>
+      <node ref="U2" pin="66"/>
+    </net>
+    <net code="16" name="Net-(FLUXL24-Pad1)">
+      <node ref="FLUXL24" pin="1"/>
+      <node ref="U2" pin="67"/>
+    </net>
+    <net code="17" name="Net-(FLUXL19-Pad1)">
+      <node ref="U2" pin="52"/>
+      <node ref="FLUXL19" pin="1"/>
+    </net>
+    <net code="18" name="Net-(FLUXL15-Pad1)">
+      <node ref="U2" pin="69"/>
+      <node ref="FLUXL15" pin="1"/>
+    </net>
+    <net code="19" name="Net-(FLUXL8-Pad1)">
+      <node ref="FLUXL8" pin="1"/>
+      <node ref="U2" pin="70"/>
+    </net>
+    <net code="20" name="Net-(FLUXL32-Pad1)">
+      <node ref="FLUXL32" pin="1"/>
+      <node ref="U2" pin="71"/>
+    </net>
+    <net code="21" name="Net-(FLUXL31-Pad1)">
+      <node ref="U2" pin="72"/>
+      <node ref="FLUXL31" pin="1"/>
+    </net>
+    <net code="22" name="Net-(FLUXL39-Pad1)">
+      <node ref="U2" pin="73"/>
+      <node ref="FLUXL39" pin="1"/>
+    </net>
+    <net code="23" name="Net-(FLUXL40-Pad1)">
+      <node ref="FLUXL40" pin="1"/>
+      <node ref="U2" pin="74"/>
+    </net>
+    <net code="24" name="Net-(FLUXL64-Pad1)">
+      <node ref="U2" pin="75"/>
+      <node ref="FLUXL64" pin="1"/>
+    </net>
+    <net code="25" name="Net-(FLUXL55-Pad1)">
+      <node ref="FLUXL55" pin="1"/>
+      <node ref="U2" pin="76"/>
+    </net>
+    <net code="26" name="Net-(FLUXL48-Pad1)">
+      <node ref="FLUXL48" pin="1"/>
+      <node ref="U2" pin="77"/>
+    </net>
+    <net code="27" name="Net-(FLUXL47-Pad1)">
+      <node ref="FLUXL47" pin="1"/>
+      <node ref="U2" pin="78"/>
+    </net>
+    <net code="28" name="Net-(FLUXL56-Pad1)">
+      <node ref="FLUXL56" pin="1"/>
+      <node ref="U2" pin="79"/>
+    </net>
+    <net code="29" name="Net-(FLUXL63-Pad1)">
+      <node ref="U2" pin="80"/>
+      <node ref="FLUXL63" pin="1"/>
+    </net>
+    <net code="30" name="Net-(FLUXL38-Pad1)">
+      <node ref="U2" pin="1"/>
+      <node ref="FLUXL38" pin="1"/>
+    </net>
+    <net code="31" name="Net-(FLUXL46-Pad1)">
+      <node ref="U2" pin="2"/>
+      <node ref="FLUXL46" pin="1"/>
+    </net>
+    <net code="32" name="Net-(FLUXL54-Pad1)">
+      <node ref="FLUXL54" pin="1"/>
+      <node ref="U2" pin="3"/>
+    </net>
+    <net code="33" name="Net-(C7-Pad2)">
+      <node ref="S1" pin="3"/>
+      <node ref="C7" pin="2"/>
+    </net>
+    <net code="34" name="Net-(FLUXL62-Pad1)">
+      <node ref="U2" pin="4"/>
+      <node ref="FLUXL62" pin="1"/>
+    </net>
+    <net code="35" name="Net-(FLUXL25-Pad1)">
+      <node ref="U2" pin="41"/>
+      <node ref="FLUXL25" pin="1"/>
+    </net>
+    <net code="36" name="Net-(FLUXL17-Pad1)">
+      <node ref="U2" pin="42"/>
+      <node ref="FLUXL17" pin="1"/>
+    </net>
+    <net code="37" name="Net-(FLUXL9-Pad1)">
+      <node ref="U2" pin="43"/>
+      <node ref="FLUXL9" pin="1"/>
+    </net>
+    <net code="38" name="Net-(FLUXL1-Pad1)">
+      <node ref="FLUXL1" pin="1"/>
+      <node ref="U2" pin="44"/>
+    </net>
+    <net code="39" name="Net-(FLUXL26-Pad1)">
+      <node ref="U2" pin="45"/>
+      <node ref="FLUXL26" pin="1"/>
+    </net>
+    <net code="40" name="Net-(FLUXL18-Pad1)">
+      <node ref="FLUXL18" pin="1"/>
+      <node ref="U2" pin="46"/>
+    </net>
+    <net code="41" name="Net-(FLUXL2-Pad1)">
+      <node ref="U2" pin="47"/>
+      <node ref="FLUXL2" pin="1"/>
+    </net>
+    <net code="42" name="Net-(FLUXL10-Pad1)">
+      <node ref="U2" pin="48"/>
+      <node ref="FLUXL10" pin="1"/>
+    </net>
+    <net code="43" name="Net-(FLUXL27-Pad1)">
+      <node ref="FLUXL27" pin="1"/>
+      <node ref="U2" pin="49"/>
+    </net>
+    <net code="44" name="Net-(FLUXL11-Pad1)">
+      <node ref="U2" pin="50"/>
+      <node ref="FLUXL11" pin="1"/>
+    </net>
+    <net code="45" name="Net-(FLUXL3-Pad1)">
+      <node ref="U2" pin="51"/>
+      <node ref="FLUXL3" pin="1"/>
+    </net>
+    <net code="46" name="Net-(FLUXL87-Pad1)">
+      <node ref="FLUXL87" pin="1"/>
+      <node ref="U4" pin="63"/>
+    </net>
+    <net code="47" name="Net-(FLUXL72-Pad1)">
+      <node ref="U4" pin="48"/>
+      <node ref="FLUXL72" pin="1"/>
+    </net>
+    <net code="48" name="Net-(FLUXL73-Pad1)">
+      <node ref="U4" pin="49"/>
+      <node ref="FLUXL73" pin="1"/>
+    </net>
+    <net code="49" name="Net-(FLUXL74-Pad1)">
+      <node ref="U4" pin="50"/>
+      <node ref="FLUXL74" pin="1"/>
+    </net>
+    <net code="50" name="Net-(FLUXL75-Pad1)">
+      <node ref="U4" pin="51"/>
+      <node ref="FLUXL75" pin="1"/>
+    </net>
+    <net code="51" name="Net-(FLUXL76-Pad1)">
+      <node ref="U4" pin="52"/>
+      <node ref="FLUXL76" pin="1"/>
+    </net>
+    <net code="52" name="Net-(FLUXL77-Pad1)">
+      <node ref="U4" pin="53"/>
+      <node ref="FLUXL77" pin="1"/>
+    </net>
+    <net code="53" name="Net-(FLUXL78-Pad1)">
+      <node ref="FLUXL78" pin="1"/>
+      <node ref="U4" pin="54"/>
+    </net>
+    <net code="54" name="Net-(FLUXL79-Pad1)">
+      <node ref="FLUXL79" pin="1"/>
+      <node ref="U4" pin="55"/>
+    </net>
+    <net code="55" name="Net-(FLUXL80-Pad1)">
+      <node ref="U4" pin="56"/>
+      <node ref="FLUXL80" pin="1"/>
+    </net>
+    <net code="56" name="Net-(FLUXL81-Pad1)">
+      <node ref="U4" pin="57"/>
+      <node ref="FLUXL81" pin="1"/>
+    </net>
+    <net code="57" name="Net-(FLUXL82-Pad1)">
+      <node ref="U4" pin="58"/>
+      <node ref="FLUXL82" pin="1"/>
+    </net>
+    <net code="58" name="Net-(FLUXL83-Pad1)">
+      <node ref="U4" pin="59"/>
+      <node ref="FLUXL83" pin="1"/>
+    </net>
+    <net code="59" name="Net-(FLUXL84-Pad1)">
+      <node ref="U4" pin="60"/>
+      <node ref="FLUXL84" pin="1"/>
+    </net>
+    <net code="60" name="Net-(FLUXL85-Pad1)">
+      <node ref="U4" pin="61"/>
+      <node ref="FLUXL85" pin="1"/>
+    </net>
+    <net code="61" name="Net-(FLUXL86-Pad1)">
+      <node ref="FLUXL86" pin="1"/>
+      <node ref="U4" pin="62"/>
+    </net>
+    <net code="62" name="Net-(FLUXL71-Pad1)">
+      <node ref="U4" pin="47"/>
+      <node ref="FLUXL71" pin="1"/>
+    </net>
+    <net code="63" name="Net-(FLUXL88-Pad1)">
+      <node ref="U4" pin="64"/>
+      <node ref="FLUXL88" pin="1"/>
+    </net>
+    <net code="64" name="Net-(FLUXL89-Pad1)">
+      <node ref="FLUXL89" pin="1"/>
+      <node ref="U4" pin="65"/>
+    </net>
+    <net code="65" name="Net-(FLUXL90-Pad1)">
+      <node ref="FLUXL90" pin="1"/>
+      <node ref="U4" pin="66"/>
+    </net>
+    <net code="66" name="Net-(FLUXL91-Pad1)">
+      <node ref="FLUXL91" pin="1"/>
+      <node ref="U4" pin="67"/>
+    </net>
+    <net code="67" name="Net-(FLUXL92-Pad1)">
+      <node ref="FLUXL92" pin="1"/>
+      <node ref="U4" pin="68"/>
+    </net>
+    <net code="68" name="Net-(FLUXL93-Pad1)">
+      <node ref="FLUXL93" pin="1"/>
+      <node ref="U4" pin="69"/>
+    </net>
+    <net code="69" name="Net-(FLUXL94-Pad1)">
+      <node ref="FLUXL94" pin="1"/>
+      <node ref="U4" pin="70"/>
+    </net>
+    <net code="70" name="Net-(FLUXL95-Pad1)">
+      <node ref="U4" pin="71"/>
+      <node ref="FLUXL95" pin="1"/>
+    </net>
+    <net code="71" name="Net-(FLUXL96-Pad1)">
+      <node ref="FLUXL96" pin="1"/>
+      <node ref="U4" pin="72"/>
+    </net>
+    <net code="72" name="Net-(FLUXL97-Pad1)">
+      <node ref="FLUXL97" pin="1"/>
+      <node ref="U4" pin="73"/>
+    </net>
+    <net code="73" name="Net-(FLUXL98-Pad1)">
+      <node ref="U4" pin="74"/>
+      <node ref="FLUXL98" pin="1"/>
+    </net>
+    <net code="74" name="Net-(FLUXL99-Pad1)">
+      <node ref="FLUXL99" pin="1"/>
+      <node ref="U4" pin="75"/>
+    </net>
+    <net code="75" name="Net-(FLUXL100-Pad1)">
+      <node ref="FLUXL100" pin="1"/>
+      <node ref="U4" pin="76"/>
+    </net>
+    <net code="76" name="Net-(FLUXL101-Pad1)">
+      <node ref="FLUXL101" pin="1"/>
+      <node ref="U4" pin="77"/>
+    </net>
+    <net code="77" name="Net-(FLUXL102-Pad1)">
+      <node ref="FLUXL102" pin="1"/>
+      <node ref="U4" pin="78"/>
+    </net>
+    <net code="78" name="Net-(FLUXL34-Pad1)">
+      <node ref="U2" pin="20"/>
+      <node ref="FLUXL34" pin="1"/>
+    </net>
+    <net code="79" name="Net-(FLUXL45-Pad1)">
+      <node ref="U2" pin="5"/>
+      <node ref="FLUXL45" pin="1"/>
+    </net>
+    <net code="80" name="Net-(FLUXL53-Pad1)">
+      <node ref="FLUXL53" pin="1"/>
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="81" name="Net-(FLUXL61-Pad1)">
+      <node ref="U2" pin="7"/>
+      <node ref="FLUXL61" pin="1"/>
+    </net>
+    <net code="82" name="Net-(FLUXL37-Pad1)">
+      <node ref="U2" pin="8"/>
+      <node ref="FLUXL37" pin="1"/>
+    </net>
+    <net code="83" name="Net-(FLUXL44-Pad1)">
+      <node ref="U2" pin="9"/>
+      <node ref="FLUXL44" pin="1"/>
+    </net>
+    <net code="84" name="Net-(FLUXL52-Pad1)">
+      <node ref="FLUXL52" pin="1"/>
+      <node ref="U2" pin="10"/>
+    </net>
+    <net code="85" name="Net-(FLUXL60-Pad1)">
+      <node ref="U2" pin="11"/>
+      <node ref="FLUXL60" pin="1"/>
+    </net>
+    <net code="86" name="Net-(FLUXL36-Pad1)">
+      <node ref="FLUXL36" pin="1"/>
+      <node ref="U2" pin="12"/>
+    </net>
+    <net code="87" name="Net-(FLUXL43-Pad1)">
+      <node ref="U2" pin="13"/>
+      <node ref="FLUXL43" pin="1"/>
+    </net>
+    <net code="88" name="Net-(FLUXL59-Pad1)">
+      <node ref="U2" pin="14"/>
+      <node ref="FLUXL59" pin="1"/>
+    </net>
+    <net code="89" name="Net-(FLUXL51-Pad1)">
+      <node ref="FLUXL51" pin="1"/>
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="90" name="Net-(FLUXL35-Pad1)">
+      <node ref="U2" pin="16"/>
+      <node ref="FLUXL35" pin="1"/>
+    </net>
+    <net code="91" name="Net-(FLUXL50-Pad1)">
+      <node ref="U2" pin="17"/>
+      <node ref="FLUXL50" pin="1"/>
+    </net>
+    <net code="92" name="Net-(FLUXL58-Pad1)">
+      <node ref="U2" pin="18"/>
+      <node ref="FLUXL58" pin="1"/>
+    </net>
+    <net code="93" name="Net-(FLUXL42-Pad1)">
+      <node ref="U2" pin="19"/>
+      <node ref="FLUXL42" pin="1"/>
+    </net>
+    <net code="94" name="Net-(FLUXL57-Pad1)">
+      <node ref="U2" pin="21"/>
+      <node ref="FLUXL57" pin="1"/>
+    </net>
+    <net code="95" name="Net-(FLUXL49-Pad1)">
+      <node ref="U2" pin="22"/>
+      <node ref="FLUXL49" pin="1"/>
+    </net>
+    <net code="96" name="Net-(FLUXL41-Pad1)">
+      <node ref="U2" pin="23"/>
+      <node ref="FLUXL41" pin="1"/>
+    </net>
+    <net code="97" name="Net-(FLUXL33-Pad1)">
+      <node ref="FLUXL33" pin="1"/>
+      <node ref="U2" pin="24"/>
+    </net>
+    <net code="98" name="Net-(FLUXL65-Pad1)">
+      <node ref="U4" pin="41"/>
+      <node ref="FLUXL65" pin="1"/>
+    </net>
+    <net code="99" name="Net-(FLUXL66-Pad1)">
+      <node ref="U4" pin="42"/>
+      <node ref="FLUXL66" pin="1"/>
+    </net>
+    <net code="100" name="Net-(FLUXL67-Pad1)">
+      <node ref="FLUXL67" pin="1"/>
+      <node ref="U4" pin="43"/>
+    </net>
+    <net code="101" name="Net-(FLUXL68-Pad1)">
+      <node ref="FLUXL68" pin="1"/>
+      <node ref="U4" pin="44"/>
+    </net>
+    <net code="102" name="Net-(FLUXL69-Pad1)">
+      <node ref="FLUXL69" pin="1"/>
+      <node ref="U4" pin="45"/>
+    </net>
+    <net code="103" name="Net-(FLUXL70-Pad1)">
+      <node ref="FLUXL70" pin="1"/>
+      <node ref="U4" pin="46"/>
+    </net>
+    <net code="104" name="Net-(C1-Pad1)">
+      <node ref="U1" pin="2"/>
+      <node ref="L1" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="C2" pin="1"/>
+      <node ref="SW5" pin="1"/>
+    </net>
+    <net code="105" name="Net-(C3-Pad1)">
+      <node ref="C3" pin="1"/>
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="106" name="Net-(RSENSE1-Pad1)">
+      <node ref="RSENSE1" pin="1"/>
+      <node ref="U1" pin="8"/>
+      <node ref="T1" pin="3"/>
+    </net>
+    <net code="107" name="Net-(T1-Pad1)">
+      <node ref="T1" pin="1"/>
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="108" name="Net-(D2-Pad2)">
+      <node ref="S1" pin="13"/>
+      <node ref="D2" pin="2"/>
+      <node ref="R11" pin="2"/>
+    </net>
+    <net code="109" name="DISP_RES">
+      <node ref="D3" pin="1"/>
+      <node ref="U3" pin="18"/>
+    </net>
+    <net code="110" name="DISP_CS">
+      <node ref="U3" pin="17"/>
+      <node ref="D2" pin="1"/>
+    </net>
+    <net code="111" name="SW1">
+      <node ref="SW1" pin="1"/>
+      <node ref="U3" pin="13"/>
+    </net>
+    <net code="112" name="SW2">
+      <node ref="SW2" pin="1"/>
+      <node ref="U3" pin="26"/>
+    </net>
+    <net code="113" name="SW3">
+      <node ref="SW3" pin="1"/>
+      <node ref="U3" pin="12"/>
+    </net>
+    <net code="114" name="SW4">
+      <node ref="SW4" pin="1"/>
+      <node ref="U3" pin="25"/>
+    </net>
+    <net code="115" name="+5V">
+      <node ref="U3" pin="29"/>
+      <node ref="R8" pin="1"/>
+      <node ref="U4" pin="31"/>
+      <node ref="U2" pin="29"/>
+      <node ref="U4" pin="29"/>
+      <node ref="R5" pin="2"/>
+      <node ref="U2" pin="31"/>
+      <node ref="R9" pin="1"/>
+      <node ref="C13" pin="1"/>
+      <node ref="C12" pin="1"/>
+      <node ref="R4" pin="1"/>
+    </net>
+    <net code="116" name="Net-(Q3-Pad3)">
+      <node ref="R5" pin="1"/>
+      <node ref="Q3" pin="3"/>
+    </net>
+    <net code="117" name="CLK">
+      <node ref="U2" pin="37"/>
+      <node ref="U3" pin="34"/>
+      <node ref="U4" pin="37"/>
+    </net>
+    <net code="118" name="DI1">
+      <node ref="U4" pin="26"/>
+      <node ref="U3" pin="1"/>
+    </net>
+    <net code="119" name="LE">
+      <node ref="U3" pin="9"/>
+      <node ref="U4" pin="38"/>
+      <node ref="U2" pin="38"/>
+    </net>
+    <net code="120" name="DI2">
+      <node ref="U2" pin="26"/>
+      <node ref="U3" pin="7"/>
+    </net>
+    <net code="121" name="POL">
+      <node ref="U3" pin="8"/>
+      <node ref="U2" pin="30"/>
+      <node ref="U4" pin="30"/>
+    </net>
+    <net code="122" name="DISP_SCL">
+      <node ref="U3" pin="15"/>
+      <node ref="R9" pin="2"/>
+      <node ref="Q1" pin="3"/>
+    </net>
+    <net code="123" name="VIN">
+      <node ref="J1" pin="3"/>
+      <node ref="SW5" pin="2"/>
+      <node ref="U3" pin="32"/>
+    </net>
+    <net code="124" name="LED_LIGHT">
+      <node ref="U3" pin="10"/>
+      <node ref="Q3" pin="1"/>
+    </net>
+    <net code="125" name="Net-(C9-Pad2)">
+      <node ref="S1" pin="5"/>
+      <node ref="C9" pin="2"/>
+    </net>
+    <net code="126" name="Net-(R3-Pad1)">
+      <node ref="R3" pin="1"/>
+      <node ref="S1" pin="26"/>
+    </net>
+    <net code="127" name="Net-(C10-Pad1)">
+      <node ref="C10" pin="1"/>
+      <node ref="S1" pin="27"/>
+    </net>
+    <net code="128" name="Net-(C8-Pad1)">
+      <node ref="S1" pin="28"/>
+      <node ref="C8" pin="1"/>
+    </net>
+    <net code="129" name="Net-(POT1-Pad2)">
+      <node ref="POT1" pin="2"/>
+      <node ref="R1" pin="1"/>
+      <node ref="POT1" pin="3"/>
+    </net>
+    <net code="130" name="Net-(D1-Pad2)">
+      <node ref="L1" pin="2"/>
+      <node ref="T1" pin="2"/>
+      <node ref="D1" pin="2"/>
+    </net>
+    <net code="131" name="Net-(FLUXL103-Pad1)">
+      <node ref="U4" pin="79"/>
+      <node ref="FLUXL103" pin="1"/>
+    </net>
+    <net code="132" name="V_HV">
+      <node ref="U2" pin="25"/>
+      <node ref="R2" pin="1"/>
+      <node ref="U4" pin="40"/>
+      <node ref="D1" pin="1"/>
+      <node ref="C4" pin="1"/>
+      <node ref="C6" pin="1"/>
+    </net>
+    <net code="133" name="V_READ_HV">
+      <node ref="R2" pin="2"/>
+      <node ref="U3" pin="21"/>
+      <node ref="POT1" pin="1"/>
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="134" name="Net-(C7-Pad1)">
+      <node ref="C7" pin="1"/>
+      <node ref="S1" pin="2"/>
+    </net>
+    <net code="135" name="Net-(C9-Pad1)">
+      <node ref="C9" pin="1"/>
+      <node ref="S1" pin="4"/>
+    </net>
+    <net code="136" name="Net-(P1-Pad1)">
+      <node ref="U3" pin="22"/>
+      <node ref="P1" pin="1"/>
+    </net>
+    <net code="137" name="Net-(P3-Pad1)">
+      <node ref="P3" pin="1"/>
+      <node ref="U3" pin="24"/>
+    </net>
+    <net code="138" name="Net-(P2-Pad1)">
+      <node ref="P2" pin="1"/>
+      <node ref="U3" pin="23"/>
+    </net>
+    <net code="139" name="SPK">
+      <node ref="U3" pin="11"/>
+      <node ref="SP1" pin="2"/>
+    </net>
+    <net code="140" name="GND">
+      <node ref="C12" pin="2"/>
+      <node ref="U3" pin="31"/>
+      <node ref="C11" pin="2"/>
+      <node ref="P5" pin="1"/>
+      <node ref="P4" pin="1"/>
+      <node ref="LED8" pin="1"/>
+      <node ref="U2" pin="34"/>
+      <node ref="LED6" pin="1"/>
+      <node ref="U2" pin="33"/>
+      <node ref="U3" pin="6"/>
+      <node ref="C13" pin="2"/>
+      <node ref="SW4" pin="2"/>
+      <node ref="U5" pin="7"/>
+      <node ref="U4" pin="34"/>
+      <node ref="U4" pin="32"/>
+      <node ref="U4" pin="33"/>
+      <node ref="LED1" pin="1"/>
+      <node ref="S1" pin="22"/>
+      <node ref="J1" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="C5" pin="2"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C3" pin="2"/>
+      <node ref="U1" pin="4"/>
+      <node ref="S1" pin="23"/>
+      <node ref="U1" pin="6"/>
+      <node ref="SP1" pin="1"/>
+      <node ref="S1" pin="12"/>
+      <node ref="S1" pin="21"/>
+      <node ref="S1" pin="11"/>
+      <node ref="S1" pin="30"/>
+      <node ref="S1" pin="10"/>
+      <node ref="S1" pin="8"/>
+      <node ref="U1" pin="7"/>
+      <node ref="J1" pin="1"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="SW2" pin="2"/>
+      <node ref="SW3" pin="2"/>
+      <node ref="LED5" pin="1"/>
+      <node ref="LED2" pin="1"/>
+      <node ref="LED3" pin="1"/>
+      <node ref="LED4" pin="1"/>
+      <node ref="LED7" pin="1"/>
+      <node ref="S1" pin="24"/>
+      <node ref="S1" pin="25"/>
+      <node ref="S1" pin="16"/>
+      <node ref="S1" pin="17"/>
+      <node ref="S1" pin="29"/>
+      <node ref="C10" pin="2"/>
+      <node ref="C8" pin="2"/>
+      <node ref="R3" pin="2"/>
+      <node ref="RSENSE1" pin="2"/>
+      <node ref="R1" pin="2"/>
+      <node ref="C6" pin="2"/>
+      <node ref="C4" pin="2"/>
+      <node ref="U2" pin="32"/>
+    </net>
+    <net code="141" name="Net-(D4-Pad2)">
+      <node ref="R14" pin="2"/>
+      <node ref="D4" pin="2"/>
+      <node ref="S1" pin="15"/>
+    </net>
+    <net code="142" name="DISP_DC">
+      <node ref="D4" pin="1"/>
+      <node ref="U3" pin="16"/>
+    </net>
+    <net code="143" name="Net-(R7-Pad1)">
+      <node ref="R7" pin="1"/>
+    </net>
+    <net code="144" name="Net-(R7-Pad2)">
+      <node ref="R7" pin="2"/>
+    </net>
+    <net code="145" name="Net-(R15-Pad1)">
+      <node ref="R15" pin="1"/>
+    </net>
+    <net code="146" name="Net-(R15-Pad2)">
+      <node ref="R15" pin="2"/>
+    </net>
+    <net code="147" name="Net-(R16-Pad1)">
+      <node ref="R16" pin="1"/>
+    </net>
+    <net code="148" name="Net-(R16-Pad2)">
+      <node ref="R16" pin="2"/>
+    </net>
+    <net code="149" name="Net-(R17-Pad1)">
+      <node ref="R17" pin="1"/>
+    </net>
+    <net code="150" name="Net-(R17-Pad2)">
+      <node ref="R17" pin="2"/>
+    </net>
+    <net code="151" name="Net-(LED8-Pad2)">
+      <node ref="R6" pin="2"/>
+      <node ref="LED8" pin="2"/>
+    </net>
+    <net code="152" name="RX_LED">
+      <node ref="U3" pin="2"/>
+      <node ref="R6" pin="1"/>
+    </net>
+    <net code="153" name="Net-(FLUXL119-Pad1)">
+      <node ref="FLUXL119" pin="1"/>
+      <node ref="U4" pin="15"/>
+    </net>
+    <net code="154" name="Net-(FLUXL104-Pad1)">
+      <node ref="U4" pin="80"/>
+      <node ref="FLUXL104" pin="1"/>
+    </net>
+    <net code="155" name="Net-(FLUXL105-Pad1)">
+      <node ref="FLUXL105" pin="1"/>
+      <node ref="U4" pin="1"/>
+    </net>
+    <net code="156" name="Net-(FLUXL106-Pad1)">
+      <node ref="FLUXL106" pin="1"/>
+      <node ref="U4" pin="2"/>
+    </net>
+    <net code="157" name="Net-(FLUXL107-Pad1)">
+      <node ref="U4" pin="3"/>
+      <node ref="FLUXL107" pin="1"/>
+    </net>
+    <net code="158" name="Net-(FLUXL108-Pad1)">
+      <node ref="U4" pin="4"/>
+      <node ref="FLUXL108" pin="1"/>
+    </net>
+    <net code="159" name="Net-(FLUXL109-Pad1)">
+      <node ref="FLUXL109" pin="1"/>
+      <node ref="U4" pin="5"/>
+    </net>
+    <net code="160" name="Net-(FLUXL110-Pad1)">
+      <node ref="U4" pin="6"/>
+      <node ref="FLUXL110" pin="1"/>
+    </net>
+    <net code="161" name="Net-(FLUXL111-Pad1)">
+      <node ref="FLUXL111" pin="1"/>
+      <node ref="U4" pin="7"/>
+    </net>
+    <net code="162" name="Net-(FLUXL112-Pad1)">
+      <node ref="U4" pin="8"/>
+      <node ref="FLUXL112" pin="1"/>
+    </net>
+    <net code="163" name="Net-(FLUXL113-Pad1)">
+      <node ref="FLUXL113" pin="1"/>
+      <node ref="U4" pin="9"/>
+    </net>
+    <net code="164" name="Net-(FLUXL114-Pad1)">
+      <node ref="FLUXL114" pin="1"/>
+      <node ref="U4" pin="10"/>
+    </net>
+    <net code="165" name="Net-(FLUXL115-Pad1)">
+      <node ref="U4" pin="11"/>
+      <node ref="FLUXL115" pin="1"/>
+    </net>
+    <net code="166" name="Net-(FLUXL116-Pad1)">
+      <node ref="U4" pin="12"/>
+      <node ref="FLUXL116" pin="1"/>
+    </net>
+    <net code="167" name="Net-(FLUXL117-Pad1)">
+      <node ref="FLUXL117" pin="1"/>
+      <node ref="U4" pin="13"/>
+    </net>
+    <net code="168" name="Net-(FLUXL118-Pad1)">
+      <node ref="FLUXL118" pin="1"/>
+      <node ref="U4" pin="14"/>
+    </net>
+    <net code="169" name="Net-(LED1-Pad2)">
+      <node ref="R4" pin="2"/>
+      <node ref="LED1" pin="2"/>
+    </net>
+    <net code="170" name="Net-(FLUXL120-Pad1)">
+      <node ref="U4" pin="16"/>
+      <node ref="FLUXL120" pin="1"/>
+    </net>
+    <net code="171" name="Net-(FLUXL121-Pad1)">
+      <node ref="FLUXL121" pin="1"/>
+      <node ref="U4" pin="17"/>
+    </net>
+    <net code="172" name="Net-(FLUXL122-Pad1)">
+      <node ref="FLUXL122" pin="1"/>
+      <node ref="U4" pin="18"/>
+    </net>
+    <net code="173" name="Net-(FLUXL123-Pad1)">
+      <node ref="U4" pin="19"/>
+      <node ref="FLUXL123" pin="1"/>
+    </net>
+    <net code="174" name="Net-(FLUXL124-Pad1)">
+      <node ref="U4" pin="20"/>
+      <node ref="FLUXL124" pin="1"/>
+    </net>
+    <net code="175" name="Net-(FLUXL125-Pad1)">
+      <node ref="FLUXL125" pin="1"/>
+      <node ref="U4" pin="21"/>
+    </net>
+    <net code="176" name="Net-(FLUXL126-Pad1)">
+      <node ref="U4" pin="22"/>
+      <node ref="FLUXL126" pin="1"/>
+    </net>
+    <net code="177" name="Net-(FLUXL127-Pad1)">
+      <node ref="FLUXL127" pin="1"/>
+      <node ref="U4" pin="23"/>
+    </net>
+    <net code="178" name="Net-(FLUXL128-Pad1)">
+      <node ref="U4" pin="24"/>
+      <node ref="FLUXL128" pin="1"/>
+    </net>
+    <net code="179" name="3.3V">
+      <node ref="R14" pin="1"/>
+      <node ref="U5" pin="2"/>
+      <node ref="R11" pin="1"/>
+      <node ref="R10" pin="1"/>
+      <node ref="R12" pin="1"/>
+      <node ref="S1" pin="6"/>
+      <node ref="Q1" pin="1"/>
+      <node ref="R13" pin="1"/>
+      <node ref="C11" pin="1"/>
+      <node ref="U3" pin="19"/>
+      <node ref="Q2" pin="1"/>
+      <node ref="S1" pin="9"/>
+    </net>
+    <net code="180" name="Net-(D3-Pad2)">
+      <node ref="S1" pin="14"/>
+      <node ref="D3" pin="2"/>
+      <node ref="R10" pin="2"/>
+    </net>
+    <net code="181" name="Net-(Q1-Pad2)">
+      <node ref="S1" pin="18"/>
+      <node ref="Q1" pin="2"/>
+      <node ref="R13" pin="2"/>
+    </net>
+    <net code="182" name="Net-(Q2-Pad2)">
+      <node ref="S1" pin="19"/>
+      <node ref="Q2" pin="2"/>
+      <node ref="R12" pin="2"/>
+    </net>
+    <net code="183" name="DISP_SDA">
+      <node ref="U3" pin="14"/>
+      <node ref="Q2" pin="3"/>
+      <node ref="R8" pin="2"/>
+    </net>
+    <net code="184" name="Net-(U2-Pad36)">
+      <node ref="U2" pin="36"/>
+    </net>
+    <net code="185" name="Net-(U2-Pad27)">
+      <node ref="U2" pin="27"/>
+    </net>
+    <net code="186" name="Net-(U2-Pad28)">
+      <node ref="U2" pin="28"/>
+    </net>
+    <net code="187" name="Net-(U2-Pad39)">
+      <node ref="U2" pin="39"/>
+    </net>
+    <net code="188" name="Net-(S1-Pad1)">
+      <node ref="S1" pin="1"/>
+    </net>
+    <net code="189" name="Net-(S1-Pad7)">
+      <node ref="S1" pin="7"/>
+    </net>
+    <net code="190" name="Net-(S1-Pad20)">
+      <node ref="S1" pin="20"/>
+    </net>
+    <net code="191" name="Net-(U2-Pad35)">
+      <node ref="U2" pin="35"/>
+    </net>
+    <net code="192" name="Net-(U2-Pad40)">
+      <node ref="U2" pin="40"/>
+    </net>
+    <net code="193" name="Net-(U3-Pad33)">
+      <node ref="U3" pin="33"/>
+    </net>
+    <net code="194" name="Net-(U3-Pad27)">
+      <node ref="U3" pin="27"/>
+    </net>
+    <net code="195" name="Net-(U3-Pad28)">
+      <node ref="U3" pin="28"/>
+    </net>
+    <net code="196" name="Net-(LED2-Pad2)">
+      <node ref="LED4" pin="2"/>
+      <node ref="LED7" pin="2"/>
+      <node ref="LED6" pin="2"/>
+      <node ref="Q3" pin="2"/>
+      <node ref="LED3" pin="2"/>
+      <node ref="LED2" pin="2"/>
+      <node ref="LED5" pin="2"/>
+    </net>
+    <net code="197" name="Net-(U5-Pad1)">
+      <node ref="U5" pin="1"/>
+    </net>
+    <net code="198" name="Net-(U5-Pad3)">
+      <node ref="U5" pin="3"/>
+    </net>
+    <net code="199" name="Net-(U5-Pad4)">
+      <node ref="U5" pin="4"/>
+    </net>
+    <net code="200" name="Net-(U5-Pad5)">
+      <node ref="U5" pin="5"/>
+    </net>
+    <net code="201" name="Net-(U5-Pad6)">
+      <node ref="U5" pin="6"/>
+    </net>
+    <net code="202" name="Net-(U5-Pad8)">
+      <node ref="U5" pin="8"/>
+    </net>
+    <net code="203" name="Net-(U4-Pad39)">
+      <node ref="U4" pin="39"/>
+    </net>
+    <net code="204" name="Net-(U3-Pad3)">
+      <node ref="U3" pin="3"/>
+    </net>
+    <net code="205" name="Net-(U3-Pad4)">
+      <node ref="U3" pin="4"/>
+    </net>
+    <net code="206" name="Net-(U3-Pad5)">
+      <node ref="U3" pin="5"/>
+    </net>
+    <net code="207" name="Net-(U3-Pad20)">
+      <node ref="U3" pin="20"/>
+    </net>
+    <net code="208" name="Net-(U3-Pad30)">
+      <node ref="U3" pin="30"/>
+    </net>
+    <net code="209" name="Net-(U4-Pad28)">
+      <node ref="U4" pin="28"/>
+    </net>
+    <net code="210" name="Net-(U4-Pad25)">
+      <node ref="U4" pin="25"/>
+    </net>
+    <net code="211" name="Net-(U4-Pad35)">
+      <node ref="U4" pin="35"/>
+    </net>
+    <net code="212" name="Net-(U4-Pad36)">
+      <node ref="U4" pin="36"/>
+    </net>
+    <net code="213" name="Net-(U4-Pad27)">
+      <node ref="U4" pin="27"/>
+    </net>
+  </nets>
+</export>
