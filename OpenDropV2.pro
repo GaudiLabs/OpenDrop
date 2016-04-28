@@ -1,4 +1,4 @@
-update=Thu 03 Dec 2015 11:17:35 AM CET
+update=Thu 28 Apr 2016 08:28:38 PM CEST
 version=1
 last_client=kicad
 [pcbnew]
@@ -25,11 +25,21 @@ version=1
 NetIExt=net
 [general]
 version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
 [eeschema]
 version=1
 LibDir=
 [eeschema/libraries]
-LibName1=/home/gaudi/Documents/Projekte/KiCadLibrary/GaudiLabsPartsLibrary
+LibName1=OpenDropV2-rescue
 LibName2=power
 LibName3=device
 LibName4=transistors
@@ -59,14 +69,5 @@ LibName27=opto
 LibName28=atmel
 LibName29=contrib
 LibName30=valves
-LibName31=/home/gaudi/Documents/Projekte/KiCadLibrary/arduino_micro_shield-master/arduino_micro_shield
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
+LibName31=KiCadLibrary/GaudiLabsPartsLibrary
+LibName32=KiCadLibrary/arduino_micro_shield-master/arduino_micro_shield
