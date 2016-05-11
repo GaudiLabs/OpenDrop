@@ -1,8 +1,8 @@
-(module FLUXPAD_2_75_4MIL_4_5 (layer F.Cu) (tedit 57332E01)
-  (fp_text reference REF** (at 0.49 2.21) (layer F.SilkS) hide
+(module FLUXPAD_2_75_4MIL_FINAL (layer F.Cu) (tedit 57332AA9)
+  (fp_text reference REF** (at 0.49 2.21) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_text value FLUX_PAD_2_75_4MIL (at 1.14 -2.07) (layer F.Fab) hide
+  (fp_text value FLUX_PAD_2_75_4MIL (at 0.89662 -2.46888) (layer F.Cu)
     (effects (font (size 1 1) (thickness 0.15)))
   )
   (fp_line (start -1.375 1.375) (end 1.375 1.375) (layer F.CrtYd) (width 0.05))

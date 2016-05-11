@@ -30,6 +30,16 @@ D 64-Channel High Voltage Push-Pull, PQFP-80
 K HVOUT
 $ENDCMP
 #
+$CMP JACK_3_5_5PINS
+D audio jack TRS 6 pins
+K audio jack connector TRS
+$ENDCMP
+#
+$CMP JACK_TRS_6PINS
+D audio jack TRS 6 pins
+K audio jack connector TRS
+$ENDCMP
+#
 $CMP MAX1771ESA
 D Cold Junction K-type Termocouple Interface, SPI, SO8
 K Cold Junction Termocouple Interface SPI
