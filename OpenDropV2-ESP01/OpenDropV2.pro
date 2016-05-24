@@ -1,4 +1,4 @@
-update=Wed 11 May 2016 06:41:18 PM CEST
+update=Tue 24 May 2016 02:33:25 PM CEST
 version=1
 last_client=kicad
 [pcbnew]
@@ -69,5 +69,4 @@ LibName27=opto
 LibName28=atmel
 LibName29=contrib
 LibName30=valves
-LibName31=KiCadLibrary/GaudiLabsPartsLibrary
-LibName32=KiCadLibrary/arduino_micro_shield-master/arduino_micro_shield
+LibName31=/home/gaudi/Documents/Projekte/OpenDrop/git/OpenDrop/KiCadLibrary/GaudiLabsPartsLibrary
