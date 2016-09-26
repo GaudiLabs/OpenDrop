@@ -39,6 +39,8 @@ Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 #define SW2_pin         A5           // Buton 1 pin
 #define SW3_pin         7           // Buton 1 pin
 #define JOY_pin         A4           // Buton 1 pin
+#define FEEDBACK_pin    A2           // Buton 1 pin
+
 
 #define ESP_RESET_pin   A3           // Buton 1 pin
 #define ESP_GPIO0_pin   10           // Buton 1 pin
@@ -52,6 +54,7 @@ Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 boolean sound_flag=true;           // Digital Out Pin 2
 boolean light_flag=true;           // Digital Out Pin 2
 int JOY_value;
+int FEEDBACK_value;
 
   Drop drop[] = {Drop(1),Drop(1),Drop(1)};
   bool Fluxls[FluxlPad_width][FluxlPad_heigth];
@@ -68,8 +71,8 @@ void setup() {
   digitalWrite(LE_pin, LOW);   // set LE 
   pinMode(CLK_pin, OUTPUT); //SCK pin
   digitalWrite(CLK_pin, LOW);   // set SCK 
-  pinMode(DI_pin, OUTPUT); //LE pin
-  digitalWrite(DI_pin, LOW);   // set LE 
+  pinMode(DI_pin, OUTPUT); //DI pin
+  digitalWrite(DI_pin, LOW);   // DI LE 
 
   pinMode(LED_LIGHT_pin, OUTPUT); //SCK pin
   
@@ -95,6 +98,7 @@ void setup() {
 
   // Clear the buffer.
   display.clearDisplay();
+display.dim(false);
 
 display.setTextSize(1);
   display.setTextColor(WHITE);
@@ -200,22 +204,28 @@ for (int i = 0; i <3 ; i++)
 
 // clear Display
   display.clearDisplay();
+// write coordinates
+ display.setCursor(18,4);
+  display.print("X: ");
+  display.print(drop[0].position_x());
+  display.print(" Y: ");
+  display.print(drop[0].position_y());
 
 // draw Grid
   for (int x = 1; x <FluxlPad_width ; x++) 
     for (int y = 1; y <FluxlPad_heigth ; y++) 
-  display.drawPixel(x*7+4,y*7+4,WHITE);
+  display.drawPixel(x*6+16,y*6+16,WHITE);
   
   
 // draw Fluxels
       for (int x = 0; x <FluxlPad_width ; x++) 
     for (int y = 0; y <FluxlPad_heigth ; y++) 
    if (Fluxls[x][y]) {
-           display.fillRect(x*7+5, y*7+5, 6,6, 1);
+           display.fillRect(x*6+17, y*6+17, 5,5, 1);
     }
      
 // draw Rect
-     display.drawRect(4, 4, 114,58, 1);
+     display.drawRect(16, 16, 97,48, 1);
 
 // update display
     display.display();
@@ -253,7 +263,10 @@ for (int i = 0; i <3 ; i++)
     digitalWrite(LE_pin, HIGH);   // set LE 
     digitalWrite(LE_pin, LOW);   // set LE 
     
- if(sound_flag)   tone(SPK_pin,2400,50);  
+FEEDBACK_value=analogRead(FEEDBACK_pin);
+
+    
+ if(sound_flag)   tone(SPK_pin,FEEDBACK_value*2,50);  
   
 };
 
