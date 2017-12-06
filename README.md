@@ -12,7 +12,7 @@ OpenDrop is a new design for an open source digital microfludics platform for re
 
 For more info on the open source project see:
 
-http://www.gaudi.ch/GaudiLabs/?page_id=392
+http://www.gaudi.ch/OpenDrop
 
 ### License
 

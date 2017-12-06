@@ -1,5 +1,16 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP 74xx14
+D Hex Inverseur
+K HCTMOS not inv
+$ENDCMP
+#
+$CMP AP2112K-3.3
+D Ultra Low Power 100mA Low Drop Out Regulator 1.2V, SOT-23-5
+K Ultra Low Power Fixed LDO 100mA
+F http://www.ti.com/lit/ds/symlink/tps769.pdf
+$ENDCMP
+#
 $CMP ARDUINO_MICRO
 D Arduino Micro shield
 K arduino, micro
@@ -23,6 +34,18 @@ $ENDCMP
 $CMP FX
 D Fluxl Pad
 K F
+$ENDCMP
+#
+$CMP HCPL0534
+D Low Input Current high Gain Split Darlington Optocouplers
+K darlington optocoupler
+F http://www.mouser.com/ds/2/149/HCPL2731-188691.pdf
+$ENDCMP
+#
+$CMP HCPL2730
+D Low Input Current high Gain Split Darlington Optocouplers
+K darlington optocoupler
+F http://www.mouser.com/ds/2/149/HCPL2731-188691.pdf
 $ENDCMP
 #
 $CMP HV507
@@ -54,6 +77,11 @@ $ENDCMP
 #
 $CMP OLED_DISPLAY
 D DISPLAY EA7123-12C
+$ENDCMP
+#
+$CMP micro_USB
+D USB Type B connector
+K connector USB
 $ENDCMP
 #
 #End Doc Library

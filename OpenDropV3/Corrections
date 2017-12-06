@@ -1,0 +1,75 @@
+- Through hole zu nah am Carrier
+- Spannungsteiler in Audio
+-> PAD DESIGN 4mil
+- Beschriftung C26 / C24 - schon korrigiert
+- Dioden zu gross (BOM)
+- 22uF/16V footprint zu klein
+- Index bei ISP steckern + anschreiben 
+- Pseudo AC Pad
+- SAM Index besser machen
+- Joy auf A4?
+- Readback von Data Out zum schauen ob chips defekt
+- Datalines Widerstände für Optocopler? 7mA pro pin -> 270 Ohm (jetzt 220), Pull up 2.2k oder 10k
+- Put VCLK on real clock / SPI pin (PA16..19) (SERCOM_RX_PAD_2  SPI_PAD_0_SCK_3) (SPI_PAD_2_SCK_3 SERCOM_RX_PAD_0) ->  (PA18 MISO / PA16 MOSI / PA19 SCK) /  (PA19 SCK / PA18 MOSI / PA16 MISO)
+- VSens auf A3?
+- Auryn Logo
+- OLED Connector seiten pads anpassen
+- Dickere GND und VDD lines, grössere througholes - vorallem zum Prozessor
+- Mehr 4x Entkoplungskondensator um Prozessor
+- Sternförmige separate Zuleitungen VCC GND
+- PCB Carrier ausschnitt grösser machen (rundum 14mm)
+
+
+- Überspannungsschutz   ??????
+- HV Messpunkt (anschreiben)
+- Carrier Sensor - 
+- Widerstand an GND pin
+- ESC protection
+- Spannungsschutzdioden
+- Eine Electrode für AC rausführen
+
+
+- HCP falscher Footprint - ok
+- AQY zu nahme beeinander - ok
+- R48 etc widerstände Verbindung zu +5V // oder 3.3V?
+- Pullups R38 etc kleiner (2.2k) - ok
+- AC controll pin verbinden - ok
+
+- Rahmen Rundherum Berücksichtigen - ok
+- ggf Speaker in Boden oder Rahmen - ok
+
+- ISP - ok
+- zweiter USB für isolated power - nicht 
+
+- Displaystecker unten (durch schlitz) - ok
+- AC soft switch, soft poti - ok
+
+- Crocodile Plug GND - ok
+- Banana Ground -ok
+
+- Smaller C4 - ok
+- Poly Speaker mit SAM auf A0 - ok
+- Oben mehr Platz für Elektronik - ok
+
+
+- AC schaltung - ok
+- M0 / M4 Prozessor (feather)  -ok
+- Optokopler, galvanic isolation -ok
+- Alles 5V powered - nops
+- kleinere HV schaltung -ok
+- LEDs? - weg
+- Polyphonic speaker - ok
+- Reset taster? - ok
+- Connect Pol Pin - ok
+
+- Design Reservoirs CT - ok
+
+
+
+
+- Deck-Haube?
+- Ein / Aus Schalter? - 
+- AC pin?
+- Power/Signal Lines to Carrier 
+- 16x16
+- ggf 2.54 raster
