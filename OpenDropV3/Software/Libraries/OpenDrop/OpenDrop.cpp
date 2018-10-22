@@ -40,12 +40,12 @@ void TC4_Handler (void) {
   if(state == true) {
       digitalWrite(AC_pin, LOW);
       delayMicroseconds(60); //67
-      digitalWrite(POL_pin, LOW);
+      digitalWrite(POL_pin, INVERTED2);
    // digitalWrite(LED_D13_pin,LOW);
   } else {
       digitalWrite(AC_pin, HIGH);
       delayMicroseconds(60); 
-      digitalWrite(POL_pin, HIGH);
+      digitalWrite(POL_pin, !INVERTED2);
    // digitalWrite(LED_D13_pin,HIGH);
   }
 
@@ -53,7 +53,7 @@ void TC4_Handler (void) {
 
  {
    digitalWrite(AC_pin, HIGH);
-   digitalWrite(POL_pin, HIGH);
+   digitalWrite(POL_pin, !INVERTED2);
   
   }
 
@@ -327,6 +327,7 @@ if (feedback_flag) {
     }
     }
 //draw cursor
+if (_show_joy)
  display.drawRect(_joy_x*6+17, _joy_y*6+17, 5,3, 1);
      
 // draw Rect
@@ -370,44 +371,44 @@ const int chip_delay=5;
 
     noInterrupts(); // Stop AC while writing.
    digitalWrite(AC_pin, HIGH);
-   digitalWrite(POL_pin, HIGH);
+   digitalWrite(POL_pin, !INVERTED2);
     delayMicroseconds(chip_delay);
 
-    digitalWrite(LE_pin, HIGH);   // set LE 
-    digitalWrite(CLK_pin, HIGH);   // set SCK 
+    digitalWrite(LE_pin, !INVERTED);   // set LE 
+    digitalWrite(CLK_pin, !INVERTED);   // set SCK 
     delayMicroseconds(chip_delay);
  
     for (int i = 0; i <64 ; i++) 
 
-{ digitalWrite(DI_pin,Fluxls[pgm_read_byte_near(pad_lookup_x+i)][pgm_read_byte_near(pad_lookup_y+i)]);
+{ digitalWrite(DI_pin,!Fluxls[pgm_read_byte_near(pad_lookup_x+i)][pgm_read_byte_near(pad_lookup_y+i)]);
    delayMicroseconds(chip_delay);
 
-   digitalWrite(CLK_pin, LOW);   // set LE
+   digitalWrite(CLK_pin, INVERTED);   // set LE
        delayMicroseconds(chip_delay);
-   digitalWrite(CLK_pin, HIGH);   // set LE
+   digitalWrite(CLK_pin, !INVERTED);   // set LE
        delayMicroseconds(chip_delay);
   };
    
     for (int i = 0; i <64 ; i++) 
 {
-   digitalWrite(DI_pin,Fluxls[15-pgm_read_byte_near(pad_lookup_x+i)][7-pgm_read_byte_near(pad_lookup_y+i)]);
+   digitalWrite(DI_pin,!Fluxls[15-pgm_read_byte_near(pad_lookup_x+i)][7-pgm_read_byte_near(pad_lookup_y+i)]);
    delayMicroseconds(chip_delay);
 
-   digitalWrite(CLK_pin, LOW);   // set LE
+   digitalWrite(CLK_pin, INVERTED);   // set LE
        delayMicroseconds(chip_delay);
-   digitalWrite(CLK_pin, HIGH);   // set LE
+   digitalWrite(CLK_pin, !INVERTED);   // set LE
     delayMicroseconds(chip_delay);
  
    };
    
   
-    digitalWrite(LE_pin, LOW);   // set LE 
+    digitalWrite(LE_pin, INVERTED);   // set LE 
         delayMicroseconds(chip_delay);
 
-    digitalWrite(LE_pin, HIGH);   // set LE 
+    digitalWrite(LE_pin, !INVERTED);   // set LE 
        delayMicroseconds(chip_delay);
 
-    digitalWrite(BL_pin, LOW); // turn on
+    digitalWrite(BL_pin, INVERTED2); // turn on
        delayMicroseconds(chip_delay);
 
    interrupts();
@@ -420,22 +421,22 @@ void OpenDrop::read_Fluxels(void)
   bool reading;
 
 // clear driver chip
-digitalWrite(BL_pin, LOW);
- digitalWrite(DI_pin,LOW);
+digitalWrite(BL_pin, INVERTED2);
+ digitalWrite(DI_pin,INVERTED);
      for (int i = 0; i <128 ; i++) 
-     {   digitalWrite(CLK_pin, HIGH);   // set LE
-   digitalWrite(CLK_pin, LOW);   // set LE
+     {   digitalWrite(CLK_pin, !INVERTED);   // set LE
+   digitalWrite(CLK_pin, INVERTED);   // set LE
      }
 
 // turn first Electrode on
- digitalWrite(DI_pin,HIGH);
+ digitalWrite(DI_pin,!INVERTED);
 
-   digitalWrite(CLK_pin, HIGH);   // set LE
-   digitalWrite(CLK_pin, LOW);   // set LE
-       digitalWrite(LE_pin, HIGH);   // set LE 
-    digitalWrite(LE_pin, LOW);   // set LE 
+   digitalWrite(CLK_pin, !INVERTED);   // set LE
+   digitalWrite(CLK_pin, INVERTED);   // set LE
+       digitalWrite(LE_pin, !INVERTED);   // set LE 
+    digitalWrite(LE_pin, INVERTED);   // set LE 
     
- digitalWrite(DI_pin,LOW);
+ digitalWrite(DI_pin,INVERTED);
 
 // read them one by one
      for (int i = 0; i <128 ; i++) 
@@ -443,18 +444,18 @@ digitalWrite(BL_pin, LOW);
 
 delayMicroseconds(10);
 
-digitalWrite(BL_pin, HIGH);
+digitalWrite(BL_pin, !INVERTED2);
 
 reading=digitalRead(FEEDBACK_pin);
 pad_feedback[127-i]=reading;
 
-  digitalWrite(BL_pin, LOW);
+  digitalWrite(BL_pin, INVERTED2);
 
-  digitalWrite(CLK_pin, HIGH);   // set LE
-  digitalWrite(CLK_pin, LOW);   // set LE
+  digitalWrite(CLK_pin, !INVERTED);   // set LE
+  digitalWrite(CLK_pin, INVERTED);   // set LE
    
-  digitalWrite(LE_pin, HIGH);   // set LE 
-  digitalWrite(LE_pin, LOW);   // set LE 
+  digitalWrite(LE_pin, !INVERTED);   // set LE 
+  digitalWrite(LE_pin, INVERTED);   // set LE 
       
    };
    
@@ -470,23 +471,23 @@ void OpenDrop::begin(uint16_t freq) {
 // Initialize HV Chip
 
  pinMode(BL_pin, OUTPUT);      //BL pin
-  digitalWrite(BL_pin, LOW);   // set BL 
+  digitalWrite(BL_pin, INVERTED2);   // set BL 
   pinStr(BL_pin,1);       //Set Pin output current to 7mA (bug in the Arduino library?)
   
   pinMode(POL_pin, OUTPUT);     //POL pin
-  digitalWrite(POL_pin, HIGH);   // clr POL 
+  digitalWrite(POL_pin, !INVERTED2);   // clr POL 
   pinStr(POL_pin,1);
     
   pinMode(LE_pin, OUTPUT);      //LE pin
-  digitalWrite(LE_pin, HIGH);   // clr LE 
+  digitalWrite(LE_pin, !INVERTED);   // clr LE 
   pinStr(LE_pin,1);
     
   pinMode(CLK_pin, OUTPUT);     //SCK pin
-  digitalWrite(CLK_pin, HIGH);   // clr SCK 
+  digitalWrite(CLK_pin, !INVERTED);   // clr SCK 
   pinStr(CLK_pin,1);
     
   pinMode(DI_pin, OUTPUT);      //DI pin
-  digitalWrite(DI_pin, HIGH);   // clr DI 
+  digitalWrite(DI_pin, !INVERTED);   // clr DI 
   pinStr(DI_pin,1);
 
 // Initialize  AC
@@ -534,25 +535,28 @@ void OpenDrop::begin(uint16_t freq) {
   // Show image buffer on the display hardware.
   // Since the buffer is intialized with an Adafruit splashscreen
   // internally, this will display the splashscreen.
+ display.setTextSize(1);
+ display.setCursor(1,55);
+  display.setTextColor(WHITE);
+  display.println("V3.2");
   display.display();
-  delay(2000);
+  delay(2500);
 
   // Clear the buffer.
   display.clearDisplay();
 display.dim(false);
 
-display.setTextSize(1);
-  display.setTextColor(WHITE);
+
   display.setCursor(5,20);
-  display.println("Loading protocol...");
+  display.println("Loading protocol.");
   display.display();
-  delay(500);
+  //delay(500);
   display.setCursor(5,29);
-  display.println("Press SW2 to start");
+  display.println("Please wait...");
 display.display();
 
 this->set_joy(1,0);
-
+this->show_joy(false);
 
 
 }
@@ -708,6 +712,11 @@ void OpenDrop::set_joy(uint8_t x,uint8_t y)
 {
   _joy_x=x;
   _joy_y=y;
+}
+
+void OpenDrop::show_joy(boolean val)
+{
+ _show_joy=val;
 }
 
 void Drop::begin(int x,int y) {

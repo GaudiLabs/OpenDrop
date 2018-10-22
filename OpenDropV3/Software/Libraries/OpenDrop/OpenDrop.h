@@ -57,6 +57,7 @@ uint8_t _next_y;
 uint8_t _dropnum;
 bool _moving;
 
+
 };
 
 
@@ -75,6 +76,7 @@ class OpenDrop
   void drive_Fluxels(void);
   void read_Fluxels(void);
   void set_joy(uint8_t x,uint8_t y);
+  void show_joy(boolean val);
   void set_voltage(uint16_t voltage, bool AC_on,uint16_t frequence);
   void setPin(uint8_t pin, boolean val);
   Drop *getDrop();
@@ -88,7 +90,7 @@ class OpenDrop
     int _runing;
     uint8_t _joy_x;
     uint8_t _joy_y;
-
+    bool _show_joy;
   //  PWM _pwm;
 };
 

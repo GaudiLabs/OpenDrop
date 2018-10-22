@@ -19,8 +19,7 @@
 OpenDrop OpenDropDevice = OpenDrop(); 
 
 Drop *myDrop = OpenDropDevice.getDrop();
-Drop *myDrop2 = OpenDropDevice.getDrop();
-Drop *myDrop3 = OpenDropDevice.getDrop();
+
 
 bool FluxCom[16][8];
 
@@ -29,7 +28,7 @@ int JOY_value;
 int joy_x,joy_y;
 int x,y;
 int del_counter=0;
-
+int del_counter2=0;
 
 bool SWITCH_state=true;
 bool SWITCH_state2=true;
@@ -43,18 +42,22 @@ Serial.begin(115200);
 OpenDropDevice.begin();
 OpenDropDevice.set_voltage(240,false,1000);
 
-
 OpenDropDevice.set_Fluxels(FluxCom);
+
+
 
 pinMode(JOY_pin, INPUT);  
                 
 OpenDropAudio.begin(16000);
 OpenDropAudio.playMe(2);
+delay (2000);
  
 OpenDropDevice.drive_Fluxels();
 OpenDropDevice.update_Display();
   Serial.println("Welcome to OpenDrop");
 
+myDrop->begin(7,4);
+OpenDropDevice.update();
 
 }
 
@@ -86,6 +89,7 @@ x=0;
 } else digitalWrite(LED_Rx_pin,LOW); 
 
    del_counter--;
+
  if (del_counter<0) {
    OpenDropDevice.update_Display();
    del_counter=1000;
@@ -98,8 +102,40 @@ if (!SWITCH_state)
   OpenDropAudio.playMe(1);
   Menu(OpenDropDevice);
   OpenDropDevice.update_Display();
+del_counter2=200;
 
   }
+
+
+JOY_value = analogRead(JOY_pin);
+
+if ((JOY_value<950)&(del_counter2==0))
+{
+if  (JOY_value<256)
+ { myDrop->move_right();Serial.println("right");
+}
+
+if  ((JOY_value>725)&&(JOY_value<895))
+ { myDrop->move_up();    Serial.println("up");
+
+}
+  
+if  ((JOY_value>597)&&(JOY_value<725))
+  {myDrop->move_left();Serial.println("left");
+}
+  
+if  ((JOY_value>256)&&(JOY_value<597))
+  {myDrop->move_down();Serial.println("down");
+}
+
+  OpenDropDevice.update_Drops();
+    OpenDropDevice.update(); 
+del_counter2=200;
+del_counter=1000;
+} 
+
+if (JOY_value>950) del_counter2=0;
+if (del_counter2>0) del_counter2--;
 
 }
 

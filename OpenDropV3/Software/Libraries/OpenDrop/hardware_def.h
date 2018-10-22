@@ -19,6 +19,9 @@
 #define POL_pin         2         // POL Pin
 #define AC_pin         A1         // AC Pin  10
 
+#define INVERTED	true	//Invert the Opto-Coupler pins
+#define INVERTED2	true	//Invert the Opto-Coupler pins
+
 #define SW1_pin         8           // Buton 1 pin
 #define SW2_pin         6           // Buton 2 pin
 #define SW3_pin         7           // Buton 3 pin

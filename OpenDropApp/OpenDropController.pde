@@ -46,10 +46,10 @@ int boxSize = 21;     // Diameter of rect
 
 
 int csize = 10;
-float[][] data = new float[xsize+1][ysize+1];
+float[][] data = new float[xsize+2][ysize+1];
 float[] control_data_in = new float[csize];
 float[] control_data_out = new float[csize];
-boolean[][][] fluxels = new boolean[xsize][ysize][101];
+boolean[][][] fluxels = new boolean[xsize+2][ysize][101];
 
 int time_start=0;
 
@@ -70,9 +70,16 @@ boolean changed=true;
 
 JSONArray values;
   
+  int cornerX;
+  int cornerY;
+    
+  
 void setup() {
 
-control_data_out[0]=xsize;
+
+
+
+control_data_out[0]=xsize+2;
 
 printArray(PFont.list());
   f = createFont("Ubuntu Medium", 32);
@@ -226,13 +233,12 @@ if (changed&&life)
 {
 changed=false;
 
-for (int x=0; x < 16; x++)
+for (int x=0; x < xsize+2; x++)
  for (int y=0; y < 8; y++)
  {
-   if((x>0)&(x<15))
-  myPort.write(int(fluxels[x-1][y][frame_no])); 
-  else myPort.write(0);
-  
+
+  myPort.write(int(fluxels[x][y][frame_no])); 
+ 
  }
  }
 
@@ -248,9 +254,41 @@ void mousePressed() {
 if ((cont_flag)&(frame_no<100)) frame_no++;
   int mx=floor((mouseX-(width/2-xsize*0.5*eSize))/eSize);
   int my=floor((mouseY-(80+img.height*imgScale*0.5-ysize*0.5*eSize))/eSize);
-
 if ((mx>=0 & mx<xsize)&(my>=0 & my<ysize))
- if ((fluxels[mx][my][frame_no]==false)|(cont_flag)) fluxels[mx][my][frame_no]=true; else fluxels[mx][my][frame_no]=false;
+ if ((fluxels[mx+1][my][frame_no]==false)|(cont_flag)) fluxels[mx+1][my][frame_no]=true; else fluxels[mx+1][my][frame_no]=false;
+
+if (mx==-1 & my==1) if ((fluxels[0][0][frame_no]==false)|(cont_flag)) fluxels[0][0][frame_no]=true; else fluxels[0][0][frame_no]=false;
+if (mx==-1 & my==6) if ((fluxels[0][7][frame_no]==false)|(cont_flag)) fluxels[0][7][frame_no]=true; else fluxels[0][7][frame_no]=false;
+if (mx==14 & my==1) if ((fluxels[15][0][frame_no]==false)|(cont_flag)) fluxels[15][0][frame_no]=true; else fluxels[15][0][frame_no]=false;
+if (mx==14 & my==6) if ((fluxels[15][7][frame_no]==false)|(cont_flag)) fluxels[15][7][frame_no]=true; else fluxels[15][7][frame_no]=false;
+
+mx=floor((mouseX-(width/2-eSize/2-xsize*0.5*eSize))/eSize);
+if (mx==-1 & my==0) if ((fluxels[0][1][frame_no]==false)|(cont_flag)) fluxels[0][1][frame_no]=true; else fluxels[0][1][frame_no]=false;
+if (mx==-1 & my==2) if ((fluxels[0][1][frame_no]==false)|(cont_flag)) fluxels[0][1][frame_no]=true; else fluxels[0][1][frame_no]=false;
+if (mx==-1 & my==5) if ((fluxels[0][6][frame_no]==false)|(cont_flag)) fluxels[0][6][frame_no]=true; else fluxels[0][6][frame_no]=false;
+if (mx==-1 & my==7) if ((fluxels[0][6][frame_no]==false)|(cont_flag)) fluxels[0][6][frame_no]=true; else fluxels[0][6][frame_no]=false;
+if (mx==15 & my==0) if ((fluxels[15][1][frame_no]==false)|(cont_flag)) fluxels[15][1][frame_no]=true; else fluxels[15][1][frame_no]=false;
+if (mx==15 & my==2) if ((fluxels[15][1][frame_no]==false)|(cont_flag)) fluxels[15][1][frame_no]=true; else fluxels[15][1][frame_no]=false;
+if (mx==15 & my==5) if ((fluxels[15][6][frame_no]==false)|(cont_flag)) fluxels[15][6][frame_no]=true; else fluxels[15][6][frame_no]=false;
+if (mx==15 & my==7) if ((fluxels[15][6][frame_no]==false)|(cont_flag)) fluxels[15][6][frame_no]=true; else fluxels[15][6][frame_no]=false;
+
+if ((mx==-3 & my>=0 & my<=2)|(mx==-2 & (my==0 | my==2))) if ((fluxels[0][3][frame_no]==false)|(cont_flag)) fluxels[0][3][frame_no]=true; else fluxels[0][3][frame_no]=false;
+if ((mx==-3 & my>=5 & my<=7)|(mx==-2 & (my==5 | my==7))) if ((fluxels[0][4][frame_no]==false)|(cont_flag)) fluxels[0][4][frame_no]=true; else fluxels[0][4][frame_no]=false;
+if ((mx==17 & my>=0 & my<=2)|(mx==16 & (my==0 | my==2))) if ((fluxels[15][3][frame_no]==false)|(cont_flag)) fluxels[15][3][frame_no]=true; else fluxels[15][3][frame_no]=false;
+if ((mx==17 & my>=5 & my<=7)|(mx==16 & (my==5 | my==7))) if ((fluxels[15][4][frame_no]==false)|(cont_flag)) fluxels[15][4][frame_no]=true; else fluxels[15][4][frame_no]=false;
+
+mx=floor((mouseX-(width/2-xsize*0.5*eSize))/(eSize/2));
+if (mx>=-5 & mx<=-3 & my==1) if ((fluxels[0][2][frame_no]==false)|(cont_flag)) fluxels[0][2][frame_no]=true; else fluxels[0][2][frame_no]=false;
+if (mx>=-5 & mx<=-3 & my==6) if ((fluxels[0][5][frame_no]==false)|(cont_flag)) fluxels[0][5][frame_no]=true; else fluxels[0][5][frame_no]=false;
+if (mx>=30 & mx<=32 & my==1) if ((fluxels[15][2][frame_no]==false)|(cont_flag)) fluxels[15][2][frame_no]=true; else fluxels[15][2][frame_no]=false;
+if (mx>=30 & mx<=32 & my==6) if ((fluxels[15][5][frame_no]==false)|(cont_flag)) fluxels[15][5][frame_no]=true; else fluxels[15][5][frame_no]=false;
+
+
+
+   mx=floor((mouseX-(width/2-xsize*0.5*eSize))/eSize);
+   my=floor((mouseY-(80+img.height*imgScale*0.5-ysize*0.5*eSize))/eSize);
+  
+ // rect(cornerX+(16.5)*eSize,cornerY+0*eSize,eSize,eSize*3);
 
 changed=true;
 
@@ -259,7 +297,7 @@ changed=true;
    fill(255, 255, 255);
  rect(width/2-xsize*0.5+650,80+img.height*imgScale*0.5-ysize*0.5+320,40,40);
 //boolean[][][] fluxels = new boolean[xsize][ysize][101];
- for (int x=0; x < xsize; x++)
+ for (int x=0; x < xsize+2; x++)
  for (int y=0; y < ysize; y++)
   for (int z=0; z < 101; z++)
   fluxels[x][y][z]=false;
@@ -343,60 +381,81 @@ void drawPlane(float[][] vals, int sizeX, int sizeY,int indexY) {
 
 
  
- 
    image(img, width/2-img.width*imgScale*0.5, 80, img.width*imgScale, img.height*imgScale);
 
+
+
+ 
       stroke(255,255,255);
      // rect(displayX,displayY,sizeX*rectsize,sizeY*rectsize);
       
        fill(255, 200, 0);
         textSize(11);
        strokeWeight(4);
+ cornerX=int(width/2-sizeX*0.5*eSize);
+ cornerY=int(80+img.height*imgScale*0.5-sizeY*0.5*eSize);
 
   for (int i=0; i<sizeX; i++) 
     for (int j=0; j<sizeY; j++) {
-      if (fluxels[i][j][frame_no]) {fill(0, 200, 0);} else 
-        { if (fluxels[i][j][frame_no-1]) {fill(210, 200, 0);} else fill(255, 200, 0);}
- rect(width/2-sizeX*0.5*eSize+i*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+j*eSize,eSize,eSize);
+     fillColorFlux(i+1,j,frame_no);
+ rect(cornerX+i*eSize,cornerY+j*eSize,eSize,eSize);
  }
 
- rect(width/2-sizeX*0.5*eSize+(-1)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+1*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(-1)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+6*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(14)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+1*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(14)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+6*eSize,eSize,eSize);
+fillColorFlux(0,0,frame_no);
+ rect(cornerX+(-1)*eSize,cornerY+1*eSize,eSize,eSize);
+fillColorFlux(0,7,frame_no);
+rect(cornerX+(-1)*eSize,cornerY+6*eSize,eSize,eSize);
+fillColorFlux(15,0,frame_no);
+rect(cornerX+(14)*eSize,cornerY+1*eSize,eSize,eSize);
+fillColorFlux(15,7,frame_no);
+rect(cornerX+(14)*eSize,cornerY+6*eSize,eSize,eSize);
  
- rect(width/2-sizeX*0.5*eSize+(-1.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+0*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(-1.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+2*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(-1.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+5*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(-1.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+7*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(14.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+0*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(14.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+2*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(14.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+5*eSize,eSize,eSize);
- rect(width/2-sizeX*0.5*eSize+(14.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+7*eSize,eSize,eSize);
+fillColorFlux(0,1,frame_no);
+ rect(cornerX+(-1.5)*eSize,cornerY+0*eSize,eSize,eSize);
+ rect(cornerX+(-1.5)*eSize,cornerY+2*eSize,eSize,eSize);
+fillColorFlux(0,6,frame_no);
+ rect(cornerX+(-1.5)*eSize,cornerY+5*eSize,eSize,eSize);
+ rect(cornerX+(-1.5)*eSize,cornerY+7*eSize,eSize,eSize);
+fillColorFlux(15,1,frame_no);
+ rect(cornerX+(14.5)*eSize,cornerY+0*eSize,eSize,eSize);
+ rect(cornerX+(14.5)*eSize,cornerY+2*eSize,eSize,eSize);
+fillColorFlux(15,6,frame_no);
+ rect(cornerX+(14.5)*eSize,cornerY+5*eSize,eSize,eSize);
+ rect(cornerX+(14.5)*eSize,cornerY+7*eSize,eSize,eSize);
 
- rect(width/2-sizeX*0.5*eSize+(-2.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+1*eSize,eSize*1.5,eSize);
- rect(width/2-sizeX*0.5*eSize+(-2.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+6*eSize,eSize*1.5,eSize);
- rect(width/2-sizeX*0.5*eSize+(15)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+1*eSize,eSize*1.5,eSize);
- rect(width/2-sizeX*0.5*eSize+(15)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+6*eSize,eSize*1.5,eSize);
- 
- rect(width/2-sizeX*0.5*eSize+(-2.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+1*eSize,eSize*1.5,eSize);
- rect(width/2-sizeX*0.5*eSize+(-2.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+6*eSize,eSize*1.5,eSize);
- rect(width/2-sizeX*0.5*eSize+(15)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+1*eSize,eSize*1.5,eSize);
- rect(width/2-sizeX*0.5*eSize+(15)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+6*eSize,eSize*1.5,eSize);
- 
- rect(width/2-sizeX*0.5*eSize+(-3.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+0*eSize,eSize*2,eSize);
- rect(width/2-sizeX*0.5*eSize+(-3.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+2*eSize,eSize*2,eSize);
- rect(width/2-sizeX*0.5*eSize+(-3.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+5*eSize,eSize*2,eSize);
- rect(width/2-sizeX*0.5*eSize+(-3.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+7*eSize,eSize*2,eSize);
- rect(width/2-sizeX*0.5*eSize+(15.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+0*eSize,eSize*2,eSize);
- rect(width/2-sizeX*0.5*eSize+(15.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+2*eSize,eSize*2,eSize);
- rect(width/2-sizeX*0.5*eSize+(15.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+5*eSize,eSize*2,eSize);
- rect(width/2-sizeX*0.5*eSize+(15.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+7*eSize,eSize*2,eSize);
+
+
+fillColorFlux(0,2,frame_no);
+ rect(cornerX+(-2.5)*eSize,cornerY+1*eSize,eSize*1.5,eSize);
+ fillColorFlux(0,5,frame_no);
+ rect(cornerX+(-2.5)*eSize,cornerY+6*eSize,eSize*1.5,eSize);
+ fillColorFlux(15,2,frame_no);
+ rect(cornerX+(15)*eSize,cornerY+1*eSize,eSize*1.5,eSize);
+fillColorFlux(15,5,frame_no);
+ rect(cornerX+(15)*eSize,cornerY+6*eSize,eSize*1.5,eSize);
+
+fillColorFlux(0,3,frame_no);
+ rect(cornerX+(-3.5)*eSize,cornerY+0*eSize,eSize*2,eSize);
+ rect(cornerX+(-3.5)*eSize,cornerY+2*eSize,eSize*2,eSize);
+ rect(cornerX+(-3.5)*eSize,cornerY+0*eSize,eSize,eSize*3);
+
+fillColorFlux(0,4,frame_no);
+ rect(cornerX+(-3.5)*eSize,cornerY+5*eSize,eSize*2,eSize);
+ rect(cornerX+(-3.5)*eSize,cornerY+7*eSize,eSize*2,eSize);
+ rect(cornerX+(-3.5)*eSize,cornerY+5*eSize,eSize,eSize*3);
+
+fillColorFlux(15,3,frame_no);
+ rect(cornerX+(15.5)*eSize,cornerY+0*eSize,eSize*2,eSize);
+ rect(cornerX+(15.5)*eSize,cornerY+2*eSize,eSize*2,eSize);
+  rect(cornerX+(16.5)*eSize,cornerY+0*eSize,eSize,eSize*3);
+
+fillColorFlux(15,4,frame_no);
+ rect(cornerX+(15.5)*eSize,cornerY+5*eSize,eSize*2,eSize);
+ rect(cornerX+(15.5)*eSize,cornerY+7*eSize,eSize*2,eSize);
+ rect(cornerX+(16.5)*eSize,cornerY+5*eSize,eSize,eSize*3);
+
  //strokeWeight(0);
- rect(width/2-sizeX*0.5*eSize+(-3.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+0*eSize,eSize,eSize*3);
- rect(width/2-sizeX*0.5*eSize+(-3.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+5*eSize,eSize,eSize*3);
- rect(width/2-sizeX*0.5*eSize+(16.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+0*eSize,eSize,eSize*3);
- rect(width/2-sizeX*0.5*eSize+(16.5)*eSize,80+img.height*imgScale*0.5-sizeY*0.5*eSize+5*eSize,eSize,eSize*3);
+
 
   textSize(32);
   fill(255, 255, 255);
@@ -530,21 +589,21 @@ void fileLoad(File selection) {
     JSONObject item = values.getJSONObject(i); 
 
     String name = item.getString("y0");
-  for (int j = 0; j < xsize; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j-1][0][i+1]=true;}
+  for (int j = 0; j < xsize+2; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j+1][0][i+1]=true;}
    name = item.getString("y1");
-  for (int j = 0; j < xsize; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j-1][1][i+1]=true;}
+  for (int j = 0; j < xsize+2; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j+1][1][i+1]=true;}
    name = item.getString("y2");
-  for (int j = 0; j < xsize; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j-1][2][i+1]=true;}
+  for (int j = 0; j < xsize+2; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j+1][2][i+1]=true;}
      name = item.getString("y3");
-  for (int j = 0; j < xsize; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j-1][3][i+1]=true;}
+  for (int j = 0; j < xsize+2; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j+1][3][i+1]=true;}
      name = item.getString("y4");
-  for (int j = 0; j < xsize; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j-1][4][i+1]=true;}
+  for (int j = 0; j < xsize+2; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j+1][4][i+1]=true;}
      name = item.getString("y5");
-  for (int j = 0; j < xsize; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j-1][5][i+1]=true;}
+  for (int j = 0; j < xsize+2; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j+1][5][i+1]=true;}
      name = item.getString("y6");
-  for (int j = 0; j < xsize; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j-1][6][i+1]=true;}
+  for (int j = 0; j < xsize+2; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j+1][6][i+1]=true;}
      name = item.getString("y7");
-  for (int j = 0; j < xsize; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j-1][7][i+1]=true;}
+  for (int j = 0; j < xsize+2; j++) { if(name.charAt(15-j)=='1') fluxels[xsize-j+1][7][i+1]=true;}
   
   
     
@@ -565,6 +624,14 @@ void radioBut(int box,int boxX,int boxY, int box_size)
  }
 }
 
+
+void fillColorFlux(int x, int y, int f)
+
+{ if (fluxels[x][y][f]) {fill(0, 200, 0);} else 
+        { if (fluxels[x][y][f-1]) {fill(210, 200, 0);} else fill(255, 200, 0);}
+ 
+ }
+ 
 int frameMax()
 
 {
@@ -572,7 +639,7 @@ int frameMax()
   int y=0;
   int z=100;
  while (!fluxels[x][y][z]&&(z>1))
- {if (x<xsize-1) x++; else {x=0; if (y<ysize-1) y++; else {y=0;z--;}}}
+ {if (x<xsize+1) x++; else {x=0; if (y<ysize-1) y++; else {y=0;z--;}}}
  return z;
  
  }
@@ -582,8 +649,8 @@ int frameMax()
 int fluxValue(int y,int frame)
 {
   int val=0;
-  for (int j = 0; j < xsize; j++) {
-  val+=int(fluxels[xsize-j-1][y][frame])*pow(2,j);  };
+  for (int j = 0; j < xsize+2; j++) {
+  val+=int(fluxels[xsize-j+1][y][frame])*pow(2,j);  };
   return val;
   
 } 
