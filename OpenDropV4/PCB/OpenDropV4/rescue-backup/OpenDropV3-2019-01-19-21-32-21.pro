@@ -1,4 +1,4 @@
-update=Di 18 Feb 2020 16:02:02 CET
+update=Fre 14 Sep 2018 22:23:36 CEST
 version=1
 last_client=kicad
 [pcbnew]
@@ -27,9 +27,9 @@ NetIExt=net
 version=1
 [eeschema]
 version=1
-LibDir=
+LibDir=../../../KiCadLibrary
 [eeschema/libraries]
-LibName1=OpenDropV2-rescue
+LibName1=OpenDropV3-rescue
 LibName2=power
 LibName3=device
 LibName4=transistors
@@ -60,6 +60,7 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=/home/gaudi/Documents/Projekte/OpenDrop/git/OpenDrop/KiCadLibrary/GaudiLabsPartsLibrary
+LibName32=/home/gaudi/Documents/Projekte/KiCadLibrary/GaudiLabsPartsLibrary
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -67,6 +68,6 @@ PlotDirectoryName=
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=
-SpiceAjustPassiveValues=0
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
 LabSize=60
-ERC_TestSimilarLabels=1

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name OpenDropV3-rescue)(type Legacy)(uri ${KIPRJMOD}/OpenDropV3-rescue.lib)(options "")(descr ""))
+  (lib (name GaudiLabsPartsLibrary)(type Legacy)(uri /home/gaudi/Documents/Projekte/OpenDrop/git/OpenDrop/KiCadLibrary/GaudiLabsPartsLibrary.lib)(options "")(descr ""))
+)

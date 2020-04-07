@@ -37,7 +37,8 @@ int box1_size=5;
 int boxX1=20;
 int boxY1=hdispY_pos+320;
 
-int interval_ms=500;
+int interval=120;
+int interval_ms;
 int butX=180;
 final int butY=hdispY_pos+240;
 
@@ -47,10 +48,11 @@ int boxSize = 21;     // Diameter of rect
 
 
 int csize = 10;
+int max_frame_no = 200;
 float[][] data = new float[xsize][ysize+1];
 float[] control_data_in = new float[csize];
 float[] control_data_out = new float[csize];
-boolean[][] fluxels = new boolean[fluxel_number][101];
+boolean[][] fluxels = new boolean[fluxel_number][max_frame_no+1];
 
 int time_start=0;
 
@@ -98,7 +100,7 @@ void setup() {
   surface.setSize(1024, 768);
   surface.setLocation(100,100);
       
-
+  interval_ms= int(60000/interval);
   img = loadImage("OpenDropFrame.png");  // Load the image into the program  
 
 
@@ -199,12 +201,16 @@ image(img, width/2-img.width*imgScale/2, 0, img.width*imgScale, img.height*imgSc
   textSize(32*imgScale);
   fill(255, 255, 255);
   text(frame_no, coX(-12),coY(16)) ;   
+  text(interval, coX(+18),coY(16)) ;   
   text("play", coX(34),coY(7.5));    
   text("life", coX(34),coY(11.5));  
   text("clear all", coX(34),coY(15.5));  
   text("save", coX(32),coY(-18.5));  
   text("load", coX(38),coY(-18.5));     
   text("frame_no:", coX(-20),coY(16)) ; 
+  text("frames/min:", coX(+10),coY(16)) ; 
+
+
   
   stroke(255,255,255);
   // rect(displayX,displayY,sizeX*rectsize,sizeY*rectsize);
@@ -247,7 +253,7 @@ image(img, width/2-img.width*imgScale/2, 0, img.width*imgScale, img.height*imgSc
 
 void mousePressed() {
 
-  if ((cont_flag)&(frame_no<100)) frame_no++;
+  if ((cont_flag)&(frame_no<max_frame_no)) frame_no++;
   
   int mx=floor((mouseX-(width/2)+100*eSize*imgScale)/(imgScale*eSize/2))-200;
   int my=floor((mouseY-(img.height/2-imageShift)*imgScale+100*eSize*imgScale)/(imgScale*(eSize/2)))-200;
@@ -290,7 +296,7 @@ changed=true;
        fill(255, 255, 255);
         rect(coX(31),coY(14),eSize*imgScale,eSize*imgScale);
        for (int x=0; x < fluxel_number; x++)
-       for (int z=0; z < 101; z++)
+       for (int z=0; z < (max_frame_no+1); z++)
        fluxels[x][z]=false;
        frame_no=1;
      }
@@ -314,7 +320,7 @@ changed=true;
 
 void keyPressed() 
   {
-    if  ((keyCode == RIGHT)&(frame_no<100)) frame_no++;
+    if  ((keyCode == RIGHT)&(frame_no<max_frame_no)) frame_no++;
     if  ((keyCode == LEFT)&(frame_no>1)) frame_no--;
     if (keyCode==SHIFT) cont_flag=true;
     changed=true;
@@ -331,13 +337,17 @@ void mouseWheel(MouseEvent event) {
   //println(e);
   if (play)
    {
-    float v=(exp((log(interval_ms)*10+e)/10));
-    if((v>50)&(v<3000)) interval_ms=int(v);
+   interval=int(interval-e*5);
+   if (interval<5) interval=5;
+   if (interval>600) interval=600;
+   interval_ms= int(60000/interval);
+    //float v=(exp((log(interval_ms)*10+e)/10));
+   // if((v>50)&(v<3000)) interval_ms=int(v);
     //interval_ms=int(v);
     println(interval_ms);
    } else 
    {
-    if ((e==-1)&(frame_no<100)) frame_no++;
+    if ((e==-1)&(frame_no<max_frame_no)) frame_no++;
     if ((e==1)&(frame_no>1)) frame_no--;
     changed=true;
    }
@@ -473,7 +483,7 @@ boolean inRect(int mx, int my, int x,int y, int h, int v)
 int frameMax()
 {
   int x=0;
-  int z=100;
+  int z=max_frame_no;
    while (!fluxels[x][z]&&(z>1))
    {if (x<fluxel_number-1) x++;  else {x=0;z--;}}
   return z;

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg6121"
+   inkscape:version="0.92.4 (fd57863, 2020-04-02)"
+   sodipodi:docname="Outline.svg">
+  <defs
+     id="defs6115" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="313.68697"
+     inkscape:cy="786.25313"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:window-width="1975"
+     inkscape:window-height="1097"
+     inkscape:window-x="73"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6118">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#994949;fill-opacity:0;stroke:#4d4a4a;stroke-width:0.10000005;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="path6064"
+       d="m 36.556647,101.94958 5.999734,0.001 c 2.322602,0.001 4.468545,-1.23779 5.625465,-3.248969 1.156939,-2.010998 3.302752,-3.249861 5.624449,-3.250871 l 65.499615,-3.81e-4 c 2.32365,7.5e-4 4.46967,1.23991 5.6308,3.251327 1.16111,2.007824 3.30519,3.243694 5.62115,3.244974 l 5.99859,0.003 V 32.429784 H 36.556647 Z"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc" />
+    <circle
+       style="fill:none;fill-opacity:0;stroke:#4d4a4a;stroke-width:0.10000005;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="circle6072"
+       r="1.0500004"
+       cy="72.951675"
+       cx="120.05686" />
+    <circle
+       style="fill:none;fill-opacity:0;stroke:#4d4a4a;stroke-width:0.10000005;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="circle6074"
+       r="1.0000005"
+       cy="72.951675"
+       cx="53.05674" />
+    <path
+       style="fill:#848484;fill-opacity:0;stroke:#4d4a4a;stroke-width:0.09999994;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 44.056642,89.451744 a 1.499998,1.499998 0 0 1 -1.499998,1.499998 1.499998,1.499998 0 0 1 -1.499998,-1.499998 1.499998,1.499998 0 0 1 1.499998,-1.499998 1.499998,1.499998 0 0 1 1.499998,1.499998 z"
+       id="circle8407" />
+    <path
+       style="fill:#848484;fill-opacity:0;stroke:#4d4a4a;stroke-width:0.09999994;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 132.05664,89.451744 a 1.499998,1.499998 0 0 1 -1.5,1.499998 1.499998,1.499998 0 0 1 -1.5,-1.499998 1.499998,1.499998 0 0 1 1.5,-1.499998 1.499998,1.499998 0 0 1 1.5,1.499998 z"
+       id="circle8409" />
+    <path
+       style="fill:#848484;fill-opacity:0;stroke:#4d4a4a;stroke-width:0.09999994;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 132.05664,38.4519 a 1.499998,1.499998 0 0 1 -1.5,1.499998 1.499998,1.499998 0 0 1 -1.5,-1.499998 1.499998,1.499998 0 0 1 1.5,-1.499997 1.499998,1.499998 0 0 1 1.5,1.499997 z"
+       id="circle8411" />
+    <path
+       style="fill:#848484;fill-opacity:0;stroke:#4d4a4a;stroke-width:0.09999994;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 44.056642,38.4519 A 1.499998,1.499998 0 0 1 42.556644,39.951898 1.499998,1.499998 0 0 1 41.056646,38.4519 1.499998,1.499998 0 0 1 42.556644,36.951903 1.499998,1.499998 0 0 1 44.056642,38.4519 Z"
+       id="circle8415" />
+  </g>
+</svg>
