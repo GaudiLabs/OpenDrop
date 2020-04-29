@@ -1636,13 +1636,13 @@ GND_C
 Text GLabel 16850 4800 2    60   Input ~ 0
 VDD_C
 Text GLabel 16850 3600 2    60   Input ~ 0
-BL_C2
+BL_C
 Text GLabel 16850 3900 2    60   Input ~ 0
 CLK_C
 Text GLabel 16850 4000 2    60   Input ~ 0
 LE_C
 Text GLabel 16850 3700 2    60   Input ~ 0
-POL_C2
+POL_C
 Text GLabel 16850 3800 2    60   Input ~ 0
 GND_C
 Wire Wire Line

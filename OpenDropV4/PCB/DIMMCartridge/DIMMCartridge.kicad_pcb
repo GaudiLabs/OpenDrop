@@ -13295,7 +13295,7 @@
   (segment (start 95.25 131.69) (end 95.2 131.64) (width 0.11) (layer F.Cu) (net 130))
   (segment (start 94.6 131.64) (end 95.2 131.64) (width 0.11) (layer F.Cu) (net 130))
 
-  (zone (net 0) (net_name "") (layer F.Mask) (tstamp 5E8C6B7E) (hatch edge 0.508)
+  (zone (net 0) (net_name "") (layer F.Mask) (tstamp 5E8F1592) (hatch edge 0.508)
     (connect_pads (clearance 0.508))
     (min_thickness 0.254)
     (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
