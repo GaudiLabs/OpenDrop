@@ -1,3 +1,196 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP 7400
+D Quad nand2
+K TTL nand2
+$ENDCMP
+#
+$CMP 74ABT00
+D Quad nand2
+K TTL nand2
+$ENDCMP
+#
+$CMP 74HC00
+D Quad nand2
+K HCMOS nand2
+$ENDCMP
+#
+$CMP 74HCT00
+D Quad nand2
+K HCTMOS nand2
+$ENDCMP
+#
+$CMP 74LS00
+D Quad nand2
+K TTL nand2
+$ENDCMP
+#
+$CMP 74LS37
+D Quad Buffer nand2
+K TTL nand2 buffer
+$ENDCMP
+#
+$CMP A6280
+D Arduino Micro shield
+K arduino, micro
+$ENDCMP
+#
+$CMP ARDUINO_MICRO
+D Arduino Micro shield
+K arduino, micro
+$ENDCMP
+#
+$CMP ARDUINO_MICRO_SHIELD
+D Arduino Micro shield
+K arduino, micro
+$ENDCMP
+#
+$CMP Battery_Cell_2x
+D single battery cell
+K battery cell
+$ENDCMP
+#
+$CMP DC_JACK
+D DC PLUG
+K plug
+$ENDCMP
+#
+$CMP DS1124
+D Timer, DIP-8/SOIC-8/SSOP-8
+K single timer
+F http://www.ti.com/lit/ds/symlink/lm555.pdf
+$ENDCMP
+#
+$CMP ESP8266_SMD
+D Arduino Micro shield
+K arduino, micro
+$ENDCMP
+#
+$CMP FX
+D Fluxl Pad
+K F
+$ENDCMP
+#
+$CMP HV507
+D 64-Channel High Voltage Push-Pull, PQFP-80
+K HVOUT
+$ENDCMP
+#
+$CMP JACK_3_5_5PINS
+D audio jack TRS 6 pins
+K audio jack connector TRS
+$ENDCMP
+#
+$CMP JACK_TRS_6PINS
+D audio jack TRS 6 pins
+K audio jack connector TRS
+$ENDCMP
+#
+$CMP LED_RGB_EP
+D LED RGB 6 pins, exposed pad
+$ENDCMP
+#
+$CMP MAX1771ESA
+D Cold Junction K-type Termocouple Interface, SPI, SO8
+K Cold Junction Termocouple Interface SPI
+F http://datasheets.maximintegrated.com/en/ds/MAX31855.pdf
+$ENDCMP
+#
+$CMP MAX31855EASA
+D Step-Up DC-DC Controller, SO8
+K Step-Up DC-DC Controller
+F http://datasheets.maximintegrated.com/en/ds/MAX1771.pdf
+$ENDCMP
+#
+$CMP MCP6001
+D 1MHz, Low-Power Op Amp, SOT-23-5/SC-70-5
+K single opamp
+F http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf
+$ENDCMP
+#
+$CMP MCP601-xOT
+D Single 2.7V to 6.0V Single Supply CMOS Op Amps, SOT-23-5
+K single opamp
+F http://ww1.microchip.com/downloads/en/DeviceDoc/21314g.pdf
+$ENDCMP
+#
+$CMP MCP6561
+D Single 1.8V Low-Power Push-Pull Output Comparator, SOT-23-5/SC-70-5
+K dual comparator
+F http://ww1.microchip.com/downloads/en/DeviceDoc/22139C.pdf
+$ENDCMP
+#
+$CMP OLED_DISPLAY
+D DISPLAY EA7123-12C
+$ENDCMP
+#
+$CMP OPA333xxDBV
+D Single 1.8V, microPower, CMOS Operational Amplifiers, Zero-Drift Series, SOT-23-5
+K single opamp
+F http://www.ti.com/lit/ds/symlink/opa333.pdf
+$ENDCMP
+#
+$CMP OPA340NA
+D Single Single-Supply, Rail-to-Rail Operational Amplifier, MicroAmplifier Series, SOT-23-5
+K single opamp
+F http://www.ti.com/lit/ds/symlink/opa340.pdf
+$ENDCMP
+#
+$CMP OPA376xxDBV
+D Single Low-Noise, Low Quiescent Current, Precision Operational Amplifier e-trim Series, SOT-23-5
+K single opamp
+F http://www.ti.com/lit/ds/symlink/opa376.pdf
+$ENDCMP
+#
+$CMP OPA656
+D Dual Op amp, rail-to-rail, 8MHz, MSOP8, SOIC8
+K opamp, rail-to-rail
+F http://www.st.com/resource/en/datasheet/tsv914a.pdf
+$ENDCMP
+#
+$CMP RGB_TOPLED
+D LED RGB 6 pins, exposed pad
+$ENDCMP
+#
+$CMP SW_2P3T
+D Single Pole Single Throw (SPST) switch, separate symbol
+K switch lever
+$ENDCMP
+#
+$CMP TCA0274
+D Dual Op amp, rail-to-rail, 8MHz, MSOP8, SOIC8
+K opamp, rail-to-rail
+F http://www.st.com/resource/en/datasheet/tsv914a.pdf
+$ENDCMP
+#
+$CMP TCA0372
+D Dual Op amp, rail-to-rail, 8MHz, MSOP8, SOIC8
+K opamp, rail-to-rail
+F http://www.st.com/resource/en/datasheet/tsv914a.pdf
+$ENDCMP
+#
+$CMP TCA0372_DWG
+D Dual Op amp, rail-to-rail, 8MHz, MSOP8, SOIC8
+K opamp, rail-to-rail
+F http://www.st.com/resource/en/datasheet/tsv914a.pdf
+$ENDCMP
+#
+$CMP TLV3501
+D 10 MHz, 850 µA Op Amps, SOT-23-5
+K single opamp
+F http://ww1.microchip.com/downloads/en/DeviceDoc/22141b.pdf
+$ENDCMP
+#
+$CMP TS881
+D Rail-to-rail 0.9 V nanopower comparator, SOT-23-5/SC-70-5
+K single comparator
+F www.st.com/resource/en/datasheet/ts881.pdf
+$ENDCMP
+#
+$CMP TSV911ILT
+D Single rail-to-rail input/output 8 MHz operational amplifiers, SOT-23-5
+K single opamp
+F www.st.com/resource/en/datasheet/tsv911.pdf
+$ENDCMP
+#
 #End Doc Library

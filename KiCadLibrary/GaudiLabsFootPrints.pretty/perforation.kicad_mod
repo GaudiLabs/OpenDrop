@@ -1,0 +1,9 @@
+(module perforation (layer F.Cu) (tedit 59881B5B)
+  (fp_text reference "" (at 0.25 3) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value "" (at 0 -2.75) (layer F.Fab) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (pad "" np_thru_hole circle (at 0 0) (size 0.6 0.6) (drill 0.6) (layers *.Cu *.SilkS))
+)

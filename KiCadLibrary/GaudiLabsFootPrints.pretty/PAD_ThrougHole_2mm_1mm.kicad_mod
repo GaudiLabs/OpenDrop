@@ -1,0 +1,9 @@
+(module PAD_ThrougHole_2mm_1mm (layer F.Cu) (tedit 5773909E)
+  (fp_text reference REF** (at -0.002 2.341) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value PAD_ThrougHole_2mm_1mm (at -0.299 -2.55) (layer F.Fab) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (pad 1 thru_hole oval (at 0 0) (size 2 2) (drill 1) (layers *.Cu *.Mask F.SilkS))
+)
