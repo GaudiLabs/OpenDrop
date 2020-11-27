@@ -7,6 +7,9 @@ import static javax.swing.JOptionPane.*;
 final int hdispY_pos=307;
 final boolean debug = true;
 
+String arrayLayout = "electrodes.json";
+boolean showNumbers = false;
+
 Serial myPort;  // Create object from Serial class
 float val;      // Data received from the serial port
 PImage img;  // Declare variable "a" of type PImage
@@ -103,49 +106,9 @@ void setup() {
   interval_ms= int(60000/interval);
   img = loadImage("OpenDropFrame.png");  // Load the image into the program  
 
-
-// Open Serial Port
-  String COMx, COMlist = "";
-
-  try {
-    if(debug) printArray(Serial.list());
-    int i = Serial.list().length;
-    if (i != 0) {
-    int p=0;
-       // need to check which port the inst uses -
-       // for now we'll just let the user decide
-        for (int j = 0; j < i;) {
-          if(Serial.list()[j].indexOf("/dev/ttyS")!=0){print("hello");
-          COMlist += char(10)+" "+char(p+'a')+" = " + Serial.list()[j];
-              ++p;
-          }
-          ++j ;
-      
-        }
-        
-        if (p>1){
-        COMx = showInputDialog("Which COM port is correct? (a,b,..):\n"+COMlist);
-        if (COMx == null) exit();
-        if (COMx.isEmpty()) exit();
-        p = int(COMx.toLowerCase().charAt(0) - 'a') + 1;
-        }
-      String portName = Serial.list()[p-1];
-      if(debug) println(portName);
-      myPort = new Serial(this, portName, 115200); // change baud rate to your liking
-      myPort.bufferUntil('\n'); // buffer until CR/LF appears, but not required..
-    }
-    else {
-      showMessageDialog(frame,"Device is not connected to the PC");
-      exit();
-    }
-   }
+myOpenSerialPort();
    
-  catch (Exception e)
-    { //Print the type of error
-    showMessageDialog(frame,"COM port is not available.\n(maybe in use by another program)");
-    println("Error:", e);
-    exit();
-    }
+
 
 
    init_flags=0;
@@ -202,9 +165,10 @@ image(img, width/2-img.width*imgScale/2, 0, img.width*imgScale, img.height*imgSc
   fill(255, 255, 255);
   text(frame_no, coX(-12),coY(16)) ;   
   text(interval, coX(+18),coY(16)) ;   
-  text("play", coX(34),coY(7.5));    
-  text("life", coX(34),coY(11.5));  
-  text("clear all", coX(34),coY(15.5));  
+  text("play", coX(38),coY(-4.5));    
+  text("life", coX(38),coY(-0.5));  
+  text("clear all", coX(38),coY(5.5));  
+  text("reconect", coX(38),coY(9.5));  
   text("save", coX(32),coY(-18.5));  
   text("load", coX(38),coY(-18.5));     
   text("frame_no:", coX(-20),coY(16)) ; 
@@ -229,13 +193,25 @@ image(img, width/2-img.width*imgScale/2, 0, img.width*imgScale, img.height*imgSc
   int boxSize=int(imgScale*eSize);
  
   if (play)  fill(255, 255, 255); else fill(255, 0, 0);
-  rect(coX(31),coY(6),boxSize,boxSize);
+  rect(coX(35),coY(-6),boxSize,boxSize);
   
   if (life)  fill(255, 255, 255); else fill(255, 0, 0);
-  rect(coX(31),coY(10),boxSize,boxSize);
+  rect(coX(35),coY(-2),boxSize,boxSize);
   
   fill(255, 0, 0);
-  rect(coX(31),coY(14),boxSize,boxSize);
+  rect(coX(35),coY(4),boxSize,boxSize);
+  
+  //reconect button
+    fill(255, 0, 0);
+  rect(coX(35),coY(8),boxSize,boxSize);
+  
+  // reservoir buttons
+    fill(255, 0, 0);
+  rect(coX(28),coY(-6),boxSize,boxSize);
+  rect(coX(28),coY(4),boxSize,boxSize);
+  rect(coX(-30),coY(-6),boxSize,boxSize);
+  rect(coX(-30),coY(4),boxSize,boxSize);
+  
   
   fill(150, 150, 150);
 
@@ -255,10 +231,10 @@ void mousePressed() {
 
   if ((cont_flag)&(frame_no<max_frame_no)) frame_no++;
   
-  int mx=floor((mouseX-(width/2)+100*eSize*imgScale)/(imgScale*eSize/2))-200;
-  int my=floor((mouseY-(img.height/2-imageShift)*imgScale+100*eSize*imgScale)/(imgScale*(eSize/2)))-200;
+  float mx=(mouseX-(width/2)+100*eSize*imgScale)/(imgScale*eSize/2)-200;
+  float my=(mouseY-(img.height/2-imageShift)*imgScale+100*eSize*imgScale)/(imgScale*(eSize/2))-200;
 
-  if ((mx>-22)&&(mx<22)&&(my>-10)&&(my<10))
+  if ((mx>-24)&&(mx<24)&&(my>-10)&&(my<10))
     {
      for (int i=0; i<electrodes_loaded; i++) 
        {
@@ -272,8 +248,9 @@ void mousePressed() {
 changed=true;
 
 // check life button
-  if(inRect(mx,my,31,10,2,2))
+  if(inRect(mx,my,35,-2,6,2))
      {
+       
       if (life) life=false; else 
         {
       life=true;  
@@ -281,7 +258,7 @@ changed=true;
      }
      
 // check play button
-  if  (inRect(mx,my,31,6,2,2))
+  if  (inRect(mx,my,35,-6,6,2))
      {
       if (play) play=false; else 
       {
@@ -291,15 +268,27 @@ changed=true;
      }
 
 // check clear button
-  if (inRect(mx,my,31,14,2,2))
+  if (inRect(mx,my,35,4,2,2))
      { print("clear");
        fill(255, 255, 255);
-        rect(coX(31),coY(14),eSize*imgScale,eSize*imgScale);
+        rect(coX(35),coY(4),eSize*imgScale,eSize*imgScale);
        for (int x=0; x < fluxel_number; x++)
        for (int z=0; z < (max_frame_no+1); z++)
        fluxels[x][z]=false;
        frame_no=1;
      }
+
+     // reconect button
+  if (inRect(mx,my,35,8,2,2))
+     { print("reconnect");
+      fill(255, 255, 255);
+        rect(coX(35),coY(8),eSize*imgScale,eSize*imgScale);
+       myPort.stop();
+       myOpenSerialPort();
+     }
+
+       
+       
 
 // check load button
  if(inRect(mx,my,38,-20,4,2))
@@ -315,6 +304,102 @@ changed=true;
       selectOutput("Select desination;", "fileSaved");
     }   
 
+
+  
+// check reservoir buttons
+
+  if(inRect(mx,my,28,-6,2,2))
+    {
+      
+      fluxels[15*ysize+3][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[15*ysize+3][frame_no]=true;
+      fluxels[15*ysize+2][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[15*ysize+2][frame_no]=true;
+      fluxels[15*ysize+1][frame_no]=true;
+      fluxels[15*ysize+0][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[15*ysize+0][frame_no]=true;
+      fluxels[14*ysize+1][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[14*ysize+1][frame_no]=true;
+      fluxels[15*ysize+3][frame_no]=true;
+      fluxels[15*ysize+2][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[14*ysize+1][frame_no]=true;
+      fluxels[15*ysize+3][frame_no]=true;
+    }   
+
+  if(inRect(mx,my,28,4,2,2))
+    {
+      
+      fluxels[15*ysize+4][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[15*ysize+4][frame_no]=true;
+      fluxels[15*ysize+5][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[15*ysize+5][frame_no]=true;
+      fluxels[15*ysize+6][frame_no]=true;
+      fluxels[15*ysize+7][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[15*ysize+7][frame_no]=true;
+      fluxels[14*ysize+6][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[14*ysize+6][frame_no]=true;
+      fluxels[15*ysize+4][frame_no]=true;
+      fluxels[15*ysize+5][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[14*ysize+6][frame_no]=true;
+      fluxels[15*ysize+4][frame_no]=true;
+    }   
+    
+      if(inRect(mx,my,-30,-6,2,2))
+      {
+      fluxels[0*ysize+3][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[0*ysize+3][frame_no]=true;
+      fluxels[0*ysize+2][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[0*ysize+2][frame_no]=true;
+      fluxels[0*ysize+1][frame_no]=true;
+      fluxels[0*ysize+0][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[0*ysize+0][frame_no]=true;
+      fluxels[1*ysize+1][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[1*ysize+1][frame_no]=true;
+      fluxels[0*ysize+3][frame_no]=true;
+      fluxels[0*ysize+2][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[1*ysize+1][frame_no]=true;
+      fluxels[0*ysize+3][frame_no]=true;
+    }   
+      if(inRect(mx,my,-30,4,2,2))
+{
+      
+      fluxels[0*ysize+4][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[0*ysize+4][frame_no]=true;
+      fluxels[0*ysize+5][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[0*ysize+5][frame_no]=true;
+      fluxels[0*ysize+6][frame_no]=true;
+      fluxels[0*ysize+7][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[0*ysize+7][frame_no]=true;
+      fluxels[1*ysize+6][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[1*ysize+6][frame_no]=true;
+      fluxels[0*ysize+4][frame_no]=true;
+      fluxels[0*ysize+5][frame_no]=true;
+      if (frame_no<max_frame_no) frame_no++;
+      fluxels[1*ysize+6][frame_no]=true;
+      fluxels[0*ysize+4][frame_no]=true;
+    }   
+    
+
+  
 } // mouse pressed
 
 
@@ -389,6 +474,53 @@ void fileSaved(File selection) {
   }
 } //fileSave
 
+void myOpenSerialPort()
+
+
+// Open Serial Port
+{
+  String COMx, COMlist = "";
+
+  try {
+    if(debug) printArray(Serial.list());
+    int i = Serial.list().length;
+    if (i != 0) {
+    int p=0;
+       // need to check which port the inst uses -
+       // for now we'll just let the user decide
+        for (int j = 0; j < i;) {
+          if(Serial.list()[j].indexOf("/dev/ttyS")!=0){print("hello");
+          COMlist += char(10)+" "+char(p+'a')+" = " + Serial.list()[j];
+              ++p;
+          }
+          ++j ;
+      
+        }
+        
+        if (p>1){
+        COMx = showInputDialog("Which COM port is correct? (a,b,..):\n"+COMlist);
+        if (COMx == null) exit();
+        if (COMx.isEmpty()) exit();
+        p = int(COMx.toLowerCase().charAt(0) - 'a') + 1;
+        }
+      String portName = Serial.list()[p-1];
+      if(debug) println(portName);
+      myPort = new Serial(this, portName, 115200); // change baud rate to your liking
+      myPort.bufferUntil('\n'); // buffer until CR/LF appears, but not required..
+    }
+    else {
+      showMessageDialog(frame,"Device is not connected to the PC");
+      exit();
+    }
+   }
+     catch (Exception e)
+    { //Print the type of error
+    showMessageDialog(frame,"COM port is not available.\n(maybe in use by another program)");
+    println("Error:", e);
+    exit();
+    }
+    
+   }
 void fileLoad(File selection) {
 
    if (selection == null) 
@@ -431,7 +563,7 @@ void fileLoad(File selection) {
 void electrodesLoad()
 {
   JSONArray electrodeJSON;
-  electrodeJSON = loadJSONArray("electrodes.json");
+  electrodeJSON = loadJSONArray(arrayLayout);
 
   // Get the first array of elements
   //JSONArray values = json.getJSONArray(0);
@@ -447,10 +579,10 @@ void electrodesLoad()
     JSONObject item = electrodeJSON.getJSONObject(i); 
     electrodeArray[i] = new Electrode(0,0,0,0,0);
 
-    electrodeArray[i].x = item.getInt("x");
-    electrodeArray[i].y = item.getInt("y");
-    electrodeArray[i].h = item.getInt("h");
-    electrodeArray[i].v = item.getInt("v");
+    electrodeArray[i].x = item.getFloat("x");
+    electrodeArray[i].y = item.getFloat("y");
+    electrodeArray[i].h = item.getFloat("h");
+    electrodeArray[i].v = item.getFloat("v");
     electrodeArray[i].e = item.getInt("e"); 
   }
 }// electrodesLoad
@@ -475,7 +607,7 @@ return int((img.height/2-imageShift)*imgScale+y*eSize/2*imgScale);
 }
 
 
-boolean inRect(int mx, int my, int x,int y, int h, int v)  
+boolean inRect(float mx, float my, float x,float y, float h, float v)  
 {
     return   ((mx>=x)&&(mx<x+h)&&(my>=y)&&(my<y+v));
 }
@@ -501,14 +633,14 @@ int fluxValue(int y,int frame)
 
 class Electrode 
 {
-           int x;
-           int y;
-           int h;
-           int v;
+           float x;
+           float y;
+           float h;
+           float v;
            int e;
     
     
-    Electrode(int xpos,int ypos, int xsize, int ysize, int no)
+    Electrode(float xpos,float ypos, float xsize, float ysize, int no)
     {
       x=xpos;
       y=ypos;
@@ -520,6 +652,8 @@ class Electrode
     void draw()
     {
     rect(width/2+(x*eSize/2)*imgScale,img.height*imgScale/2-imgScale*imageShift+(y*eSize/2)*imgScale,(h*eSize/2)*imgScale,(v*eSize/2)*imgScale);
+     fill(123, 123, 123);
+    if (showNumbers) text(e,  width/2+(x*eSize/2)*imgScale+(h*eSize/5)*imgScale,img.height*imgScale/2-imgScale*imageShift+(y*eSize/2)*imgScale+(v*eSize/4)*imgScale);
     }
     
 } //Electrode Object
