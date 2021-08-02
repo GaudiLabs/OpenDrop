@@ -21,7 +21,7 @@
 #include <SD.h>
 #include <SPI.h>
 
-#define SOUND_SD_pin        3           // Sound Chip ShutDown Pin
+
 
 
 class OpenDropAudioClass{

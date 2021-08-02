@@ -74,8 +74,7 @@ switch (soundNo) {
       __SampleIndex = 0;
 
 // Initialize SOUND
-  pinMode(SOUND_SD_pin,OUTPUT);
-  digitalWrite(SOUND_SD_pin,HIGH);
+
 	  
 	  /*once the buffer is filled for the first time the counter can be started*/
       tcStartCounter();
@@ -188,7 +187,7 @@ void Audio_Handler (void)
   {
     __StartFlag = false; 
     TC5->COUNT16.INTFLAG.bit.MC0 = 1;
-  digitalWrite(SOUND_SD_pin,HIGH);      // Turn amplifier of to reduce noice
+
 	}
 }
 

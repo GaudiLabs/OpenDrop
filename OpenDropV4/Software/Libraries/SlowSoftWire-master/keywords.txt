@@ -1,0 +1,13 @@
+SlowSoftWire	KEYWORD1
+begin		KEYWORD2
+end		KEYWORD2
+setClock	KEYWORD2
+beginTransmission	KEYWORD2
+endTransmission		KEYWORD2
+write			KEYWORD2
+requestFrom		KEYWORD2
+available		KEYWORD2
+read			KEYWORD2
+peek			KEYWORD2
+flush			KEYWORD2
+

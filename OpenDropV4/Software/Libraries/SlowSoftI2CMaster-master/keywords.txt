@@ -1,0 +1,8 @@
+SlowSoftI2CMaster	KEYWORD1
+i2c_init		KEYWORD2
+i2c_start		KEYWORD2
+i2c_start_wait		KEYWORD2
+i2c_rep_start		KEYWORD2
+i2c_stop		KEYWORD2
+i2c_write		KEYWORD2
+i2c_read		KEYWORD2

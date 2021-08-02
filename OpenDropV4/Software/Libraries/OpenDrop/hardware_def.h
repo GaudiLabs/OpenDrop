@@ -13,7 +13,7 @@
 #define OLED_RESET 5
 
 #define BL_pin         9           // BL Pin
-#define LE_pin          4          // LE Pin
+#define LE_pin          1          // LE Pin 1
 #define CLK_pin         24         // CLK Pin
 #define DI_pin         23          // Data Out Pin
 #define POL_pin         2         // POL Pin
@@ -22,7 +22,7 @@
 #define INVERTED	true	//Invert the Opto-Coupler pins
 #define INVERTED2	true	//Invert the Opto-Coupler pins
 
-#define P1_pin         1           // Extentsion pin 1
+#define P1_pin         4           // Extentsion pin 1  4
 #define P2_pin         3           // Extentsion pin 2
 
 #define SW1_pin         8           // Buton 1 pin
@@ -31,7 +31,8 @@
 #define JOY_pin         A4           // Jostic analog pin
 #define FEEDBACK_pin    A2           // Feedback Amplifier pin
 #define VSENS_pin       A3           // VSense pin
-#define SENSPAD_pin     10           // VSense pin
+#define SENSPAD_pin     10           // SensPad pin
+#define V_USB_pin     	 A5           // SensPad pin
 
 #define VSCK_pin        12           // Voltage set chip ckl      0 
 #define VSI_pin         11           // Voltage set chip serial out 22
@@ -44,8 +45,16 @@
 #define feedback_flag false           // Use Feedback information
         
 
+#define STBY_pin         6           // MCP23008 Pin
+#define MODE_pin         4           // MCP23008 Pin
+#define BOOST_pin        5           // MCP23008 Pin
+#define PHASE_A_pin      1           // MCP23008 Pin
+#define ENABLE_A_pin     0           // MCP23008 Pin
+#define PHASE_B_pin      3           // MCP23008 Pin
+#define ENABLE_B_pin     2           // MCP23008 Pin
 
-
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
 
 const byte FluxelID [16][8] PROGMEM ={
 {0,63,1,62,2,61,3,60},

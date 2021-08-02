@@ -66,7 +66,7 @@ class OpenDrop
  public:
   OpenDrop(uint8_t addr = 0x60);
   friend class Drop;
-  void begin(uint16_t freq = 1600);
+  void begin(char code_str[]);
 
   bool run(void);
   void dispense(int reservoir, int delay_us);
@@ -79,7 +79,10 @@ class OpenDrop
   void set_joy(uint8_t x,uint8_t y);
   void show_joy(boolean val);
   void set_voltage(uint16_t voltage, bool AC_on,uint16_t frequence);
-  void setPin(uint8_t pin, boolean val);
+  void set_Pin(uint8_t pin, boolean val);
+  void set_Magnet(uint8_t magnet, boolean state);
+  uint8_t get_ID(void);
+  
   Drop *getDrop();
 
 

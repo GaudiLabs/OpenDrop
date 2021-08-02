@@ -1,0 +1,12 @@
+{
+  "name": "SlowSoftI2CMaster",
+  "keywords": "i2c",
+  "description": "A bit-banging I2C library, very similar to SoftI2CMaster, allowing you to use any Arduino pins for SDA and SCL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felias-fogg/SlowSoftI2CMaster.git"
+  },
+  "version": "1.0.0",
+  "frameworks": "arduino",
+  "platforms": "*"
+}

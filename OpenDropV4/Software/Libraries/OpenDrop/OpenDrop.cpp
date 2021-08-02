@@ -11,7 +11,7 @@
 #include "Adafruit_GFX.h"
 #include <Adafruit_SSD1306.h>
 #include <OpenDropAudio.h>
-
+#include "Soft_Adafruit_MCP23008.h"
 
   bool Fluxls[FluxlPad_width][FluxlPad_heigth];
   byte pad_feedback [128];
@@ -20,21 +20,29 @@ uint32_t AC_frequency=1000; // Frequency in Hz
 uint16_t Voltage_set=240; // Voltage in Volt
 
 boolean AC_flag=false;     // AC or DC voltage selection
-boolean HV_enable=false;     // AC or DC voltage selection
+boolean HV_enable=false;     // enable high voltage 
+boolean HV_set_ok=false;     // is set voltage reached
+
 bool state = 0; //just for an example
 
 float VOLTAGE_value;
 long VOLTAGE_set_value;
 
 bool sound=sound_flag;
+
+bool hasMagnet=false;     // is a Magnet shield installed
+
 // used for SPI bitbang
 byte cmd_byte0 = B00010001; // command byte to write to pot 0, from the MCP42XXX datasheet
 byte work = B00000000; // setup a working byte, used to bit shift the data out
 
-char version_str[] ="V4.01";
+char version_str[] = "V4.1" ;
 
 
-Adafruit_SSD1306 display( OLED_MOSI,OLED_CLK,OLED_DC, OLED_RESET, OLED_CS);
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,OLED_MOSI,OLED_CLK,OLED_DC, OLED_RESET, OLED_CS);
+
+Adafruit_MCP23008 mcp;
+
 
 //********** Interupt Functions **********
 
@@ -44,12 +52,12 @@ void TC4_Handler (void) {
  if ((AC_flag==true)&&(HV_enable==true)){
   if(state == true) {
       digitalWrite(AC_pin, LOW);
-      delayMicroseconds(75); //67
+      delayMicroseconds(68); //67
       digitalWrite(POL_pin, INVERTED2);
    // digitalWrite(LED_D13_pin,LOW);
   } else {
       digitalWrite(AC_pin, HIGH);
-      delayMicroseconds(81); 
+      delayMicroseconds(74); 
       digitalWrite(POL_pin, !INVERTED2);
    // digitalWrite(LED_D13_pin,HIGH);
   }
@@ -357,9 +365,9 @@ display.drawBitmap(106,45,bitmap2,24,19,1);
 // Read SensPad
 if (digitalRead(SENSPAD_pin))
 {
-display.fillRect(8, 1, 115,12, 1);
+display.fillRect(4, 33, 121,12, 1);
  display.setTextColor(0); 
- display.setCursor(18,4);
+ display.setCursor(18,36);
   display.print("INSERT CARTRIDGE");
  display.setTextColor(1);
 HV_enable=false;
@@ -367,6 +375,21 @@ HV_enable=false;
 } else {HV_enable=true;
     digitalWrite(BL_pin, HV_enable); // set BL
 }
+
+
+// Volatge Check
+if (abs(VOLTAGE_value-Voltage_set)<15) HV_set_ok=true;
+if (analogRead(V_USB_pin)<800) HV_set_ok=false;
+
+if ((HV_set_ok)&&((abs(VOLTAGE_value-Voltage_set)>15)) ) 
+{display.fillRect(4, 33, 121,12, 1);
+ display.setTextColor(0); 
+ display.setCursor(18,36);
+  display.print("UNDER VOLTAGE!");
+}
+
+
+
 
 // update display
     display.display();
@@ -519,9 +542,15 @@ pad_feedback[127-i]=reading;
 
 
 
-void OpenDrop::begin(uint16_t freq) {
+void OpenDrop::begin(char code_str[]) {
 
 // Initialize HV Chip
+
+   //     pinStr(P1_pin,1);       //Set Pin output current to 7mA (bug in the Arduino library?)
+
+   //     pinStr(P2_pin,1);       //Set Pin output current to 7mA (bug in the Arduino library?)
+
+
 
  pinMode(BL_pin, OUTPUT);      //BL pin
   digitalWrite(BL_pin, HV_enable);   // set BL 
@@ -577,6 +606,35 @@ void OpenDrop::begin(uint16_t freq) {
   this->set_voltage(Voltage_set,AC_flag,AC_frequency);
   tcStartCounter(); //starts the timer
 
+// Init Magnet Shield
+
+ mcp.begin();      // use default address 0
+
+
+  mcp.pinModeMCP(STBY_pin, OUTPUT);
+  mcp.pinModeMCP(MODE_pin, OUTPUT);
+  mcp.pinModeMCP(BOOST_pin, INPUT);
+  mcp.pinModeMCP(PHASE_A_pin, OUTPUT);
+  mcp.pinModeMCP(ENABLE_A_pin, OUTPUT);
+  mcp.pinModeMCP(PHASE_B_pin, OUTPUT);
+  mcp.pinModeMCP(ENABLE_B_pin, OUTPUT);
+
+  mcp.digitalWrite(MODE_pin, HIGH);
+  mcp.digitalWrite(STBY_pin, HIGH);
+
+  hasMagnet=mcp.digitalRead(MODE_pin);
+
+
+  mcp.digitalWrite(PHASE_B_pin, LOW);
+  mcp.digitalWrite(PHASE_A_pin, LOW);
+
+  mcp.digitalWrite(ENABLE_A_pin, HIGH);
+  mcp.digitalWrite(ENABLE_B_pin, HIGH);
+    delay (300);
+
+  mcp.digitalWrite(ENABLE_A_pin, LOW);
+  mcp.digitalWrite(ENABLE_B_pin, LOW);
+  
 
 // Init Display
   display.begin(SSD1306_SWITCHCAPVCC);
@@ -589,7 +647,9 @@ void OpenDrop::begin(uint16_t freq) {
  display.setTextSize(1);
  display.setCursor(1,55);
   display.setTextColor(WHITE);
-  display.println(version_str);
+  display.print(version_str);
+  display.println(code_str);
+
   display.display();
   delay(500);
 
@@ -886,10 +946,33 @@ void OpenDrop::set_voltage(uint16_t voltage, bool AC_on,uint16_t frequence)
 AC_frequency=frequence;
 tcConfigure(AC_frequency); //configure the timer to run at <sampleRate>Hertz
 
- VOLTAGE_set_value=255*((1.5*1500000)/(voltage-1.5)-6800)/10000; // Calculate set value (max 255) for 10kOhm digial potentiometer from reference voltage 1.5V, voltage devider R1.5MOhm / 6.8kOhm, 
+ VOLTAGE_set_value=255*((1.5*1500000)/(voltage-1.5)-6800)/50000; // Calculate set value (max 255) for 10kOhm digial potentiometer from reference voltage 1.5V, voltage devider R1.5MOhm / 6.8kOhm, 
  spi_out(VCS_pin, cmd_byte0, VOLTAGE_set_value); // Set Voltage Level / send out data to chip 1, pot 0
 Voltage_set=voltage;
 AC_flag=AC_on;
+}
+
+
+void OpenDrop::set_Magnet(uint8_t magnet, boolean state)
+{ if (magnet==1)
+    {
+    mcp.digitalWrite(PHASE_A_pin, state);
+    mcp.digitalWrite(ENABLE_A_pin, HIGH);
+    delay (300);
+    mcp.digitalWrite(ENABLE_A_pin, LOW);
+    }
+    else
+    {mcp.digitalWrite(PHASE_B_pin, state);
+    mcp.digitalWrite(ENABLE_B_pin, HIGH);
+    delay (300);
+    mcp.digitalWrite(ENABLE_B_pin, LOW);
+    }
+}
+
+uint8_t OpenDrop::get_ID()
+{uint8_t ID=0;
+ID=ID+hasMagnet;
+return ID;
 }
 
 void OpenDrop::set_joy(uint8_t x,uint8_t y)
@@ -1186,8 +1269,8 @@ if  ((JOY_value>600)&&(JOY_value<730)) AC_state=false;
 break;
 
 case 2:
-if  ((JOY_value>600)&&(JOY_value<730)&&(v>160)) v=v-10;
-if  ((JOY_value<300)&&(v<300)) v=v+10;
+if  ((JOY_value>600)&&(JOY_value<730)&&(v>50)) v=v-10;
+if  ((JOY_value<300)&&(v<280)) v=v+10;
 break;
 
 case 3:
@@ -1217,7 +1300,8 @@ break;
  }
 if (set_confirm) {
     theOpenDrop.set_voltage(v,AC_state,f);
-	sound = set_sound;  }
+	sound = set_sound; 
+	HV_set_ok=false; }
  while(!digitalRead(SW1_pin));
 }
 
