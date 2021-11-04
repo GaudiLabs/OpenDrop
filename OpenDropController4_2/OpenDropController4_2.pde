@@ -562,6 +562,12 @@ void keyPressed()
     if  ((keyCode == RIGHT)&(frame_no<max_frame_no)) frame_no++;
     if  ((keyCode == LEFT)&(frame_no>1)) frame_no--;
     if (keyCode==SHIFT) cont_flag=true;
+    if  (key == ' '){
+      if (play) play=false; else 
+      {play=true;  time_start=millis(); 
+      frame_max=frameMax();}
+     };
+
     changed=true;
   } // keyPressed
 
@@ -663,13 +669,13 @@ void myOpenSerialPort()
       myPort.bufferUntil('\n'); // buffer until CR/LF appears, but not required..
     }
     else {
-      showMessageDialog(frame,"Device is not connected to the PC");
+      showMessageDialog(null,"Device is not connected to the PC");
       exit();
     }
    }
      catch (Exception e)
     { //Print the type of error
-    showMessageDialog(frame,"COM port is not available.\n(maybe in use by another program)");
+    showMessageDialog(null,"COM port is not available.\n(maybe in use by another program)");
     println("Error:", e);
     exit();
     }
