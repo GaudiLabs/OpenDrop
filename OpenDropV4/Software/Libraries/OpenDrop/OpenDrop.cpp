@@ -5,6 +5,8 @@
 
 
 
+
+
 #include "OpenDrop.h"
 #include "hardware_def.h"
 #include "bitmap.h"
@@ -12,12 +14,14 @@
 #include <Adafruit_SSD1306.h>
 #include <OpenDropAudio.h>
 #include "Soft_Adafruit_MCP23008.h"
+#include <SAMD_AnalogCorrection.h>
 
   bool Fluxls[FluxlPad_width][FluxlPad_heigth];
   byte pad_feedback [128];
 
 uint32_t AC_frequency=1000; // Frequency in Hz
 uint16_t Voltage_set=240; // Voltage in Volt
+uint16_t Volateg_tollerance=25;
 
 boolean AC_flag=false;     // AC or DC voltage selection
 boolean HV_enable=false;     // enable high voltage 
@@ -36,10 +40,10 @@ bool hasMagnet=false;     // is a Magnet shield installed
 byte cmd_byte0 = B00010001; // command byte to write to pot 0, from the MCP42XXX datasheet
 byte work = B00000000; // setup a working byte, used to bit shift the data out
 
-char version_str[] = "V4.1" ;
+char version_str[] = "V41.02." ;
 
 
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,OLED_MOSI,OLED_CLK,OLED_DC, OLED_RESET, OLED_CS);
+Adafruit_SSD1306 display(OLED_MOSI,OLED_CLK,OLED_DC, OLED_RESET, OLED_CS);
 
 Adafruit_MCP23008 mcp;
 
@@ -94,6 +98,25 @@ void pinStr( uint32_t ulPin, unsigned strength) // works like pinMode(), but to 
   PORT->Group[g_APinDescription[ulPin].ulPort].PINCFG[g_APinDescription[ulPin].ulPin].bit.DRVSTR = strength ;
 }
 
+
+// setting AnalogRead parameters , code by adamgarbo 
+void configureAdc()
+{
+  ADC->CTRLA.bit.ENABLE = 0;                      // Disable ADC
+  ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV512 |   // Divide Clock ADC GCLK by 512 (48MHz/512 = 93.7kHz)
+                   ADC_CTRLB_RESSEL_10BIT;        // Set ADC resolution to 12 bits
+  
+  while (ADC->STATUS.bit.SYNCBUSY);               // Wait for synchronization
+  ADC->SAMPCTRL.reg = ADC_SAMPCTRL_SAMPLEN(63);   // Set Sampling Time Length (341.33 us)
+  ADC->AVGCTRL.reg = ADC_AVGCTRL_SAMPLENUM_1 |  // Configure multisampling
+                     ADC_AVGCTRL_ADJRES(0);       // Configure averaging
+  while (ADC->STATUS.bit.SYNCBUSY);               // Wait for synchronization
+  ADC->CTRLA.bit.ENABLE = 1;                      // Enable ADC
+  while (ADC->STATUS.bit.SYNCBUSY);               // Wait for synchronization
+
+  // Apply ADC gain and offset error calibration correction
+  analogReadCorrection(23, 2060); //CORREN = 1
+}
 
 
 
@@ -378,14 +401,15 @@ HV_enable=false;
 
 
 // Volatge Check
-if (abs(VOLTAGE_value-Voltage_set)<15) HV_set_ok=true;
+if (abs(VOLTAGE_value-Voltage_set)<Volateg_tollerance) HV_set_ok=true;
 if (analogRead(V_USB_pin)<800) HV_set_ok=false;
 
-if ((HV_set_ok)&&((abs(VOLTAGE_value-Voltage_set)>15)) ) 
+if ((HV_set_ok)&&((abs(VOLTAGE_value-Voltage_set)>Volateg_tollerance)) ) 
 {display.fillRect(4, 33, 121,12, 1);
  display.setTextColor(0); 
  display.setCursor(18,36);
   display.print("UNDER VOLTAGE!");
+   display.setTextColor(1); 
 }
 
 
@@ -577,6 +601,10 @@ void OpenDrop::begin(char code_str[]) {
   pinMode(AC_pin, OUTPUT);     //AC pin
   digitalWrite(AC_pin, HIGH);   // set AC 
 
+// Initialize ADC
+
+  configureAdc();
+
 
 // Initialize LEDs
   pinMode(LED_D13_pin,OUTPUT); //this configures the LED pin
@@ -624,18 +652,11 @@ void OpenDrop::begin(char code_str[]) {
 
   hasMagnet=mcp.digitalRead(MODE_pin);
 
-
-  mcp.digitalWrite(PHASE_B_pin, LOW);
-  mcp.digitalWrite(PHASE_A_pin, LOW);
-
-  mcp.digitalWrite(ENABLE_A_pin, HIGH);
-  mcp.digitalWrite(ENABLE_B_pin, HIGH);
-    delay (300);
-
-  mcp.digitalWrite(ENABLE_A_pin, LOW);
-  mcp.digitalWrite(ENABLE_B_pin, LOW);
-  
-
+  if (hasMagnet) {
+  this->set_Magnet(0,LOW);
+  this->set_Magnet(1,LOW);
+ }
+ 
 // Init Display
   display.begin(SSD1306_SWITCHCAPVCC);
 
@@ -958,13 +979,22 @@ void OpenDrop::set_Magnet(uint8_t magnet, boolean state)
     {
     mcp.digitalWrite(PHASE_A_pin, state);
     mcp.digitalWrite(ENABLE_A_pin, HIGH);
-    delay (300);
+    delay (150);
+      mcp.digitalWrite(BOOST_pin, LOW);
+      mcp.pinModeMCP(BOOST_pin, OUTPUT);
+     delay (150);
+      mcp.pinModeMCP(BOOST_pin, INPUT);
     mcp.digitalWrite(ENABLE_A_pin, LOW);
+      
     }
     else
     {mcp.digitalWrite(PHASE_B_pin, state);
     mcp.digitalWrite(ENABLE_B_pin, HIGH);
-    delay (300);
+    delay (150);
+      mcp.digitalWrite(BOOST_pin, LOW);
+      mcp.pinModeMCP(BOOST_pin, OUTPUT);
+     delay (150);
+      mcp.pinModeMCP(BOOST_pin, INPUT);
     mcp.digitalWrite(ENABLE_B_pin, LOW);
     }
 }
