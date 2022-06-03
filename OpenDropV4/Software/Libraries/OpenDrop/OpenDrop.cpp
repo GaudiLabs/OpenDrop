@@ -1,10 +1,7 @@
 /*--------------------------------------------------------------------
   This file is part of the OpenDrop library
-  by Urs Gaudenz, GaudiLabs 2016
+  by Urs Gaudenz, GaudiLabs 2022
   --------------------------------------------------------------------*/
-
-
-
 
 
 #include "OpenDrop.h"
@@ -13,11 +10,28 @@
 #include "Adafruit_GFX.h"
 #include <Adafruit_SSD1306.h>
 #include <OpenDropAudio.h>
-#include "Soft_Adafruit_MCP23008.h"
 #include <SAMD_AnalogCorrection.h>
+#include "adapterI2C.h"
+#include "FlashStorage.h"
 
-  bool Fluxls[FluxlPad_width][FluxlPad_heigth];
-  byte pad_feedback [128];
+char version_str[] = "V42.10." ;
+
+uint8_t OpenDropID=0;     // defined in code
+
+bool Fluxls[FluxlPad_width][FluxlPad_heigth];
+bool Fluxls_feedback[FluxlPad_width][FluxlPad_heigth];
+byte pad_feedback [128];
+
+
+#define SETTING_Size 6
+typedef struct {
+int value[SETTING_Size];
+} EEprom;
+
+FlashStorage(my_flash_store, EEprom);
+EEprom settings;
+
+
 
 uint32_t AC_frequency=1000; // Frequency in Hz
 uint16_t Voltage_set=240; // Voltage in Volt
@@ -33,19 +47,19 @@ float VOLTAGE_value;
 long VOLTAGE_set_value;
 
 bool sound=sound_flag;
+bool feedback=feedback_flag;
 
-bool hasMagnet=false;     // is a Magnet shield installed
+
 
 // used for SPI bitbang
 byte cmd_byte0 = B00010001; // command byte to write to pot 0, from the MCP42XXX datasheet
 byte work = B00000000; // setup a working byte, used to bit shift the data out
 
-char version_str[] = "V41.02." ;
-
 
 Adafruit_SSD1306 display(OLED_MOSI,OLED_CLK,OLED_DC, OLED_RESET, OLED_CS);
 
-Adafruit_MCP23008 mcp;
+
+OpenAdapter Adapter;
 
 
 //********** Interupt Functions **********
@@ -57,12 +71,12 @@ void TC4_Handler (void) {
   if(state == true) {
       digitalWrite(AC_pin, LOW);
       delayMicroseconds(68); //67
-      digitalWrite(POL_pin, INVERTED2);
+      digitalWrite(POL_pin, opto_LOW);
    // digitalWrite(LED_D13_pin,LOW);
   } else {
       digitalWrite(AC_pin, HIGH);
       delayMicroseconds(74); 
-      digitalWrite(POL_pin, !INVERTED2);
+      digitalWrite(POL_pin, opto_HIGH);
    // digitalWrite(LED_D13_pin,HIGH);
   }
 
@@ -70,7 +84,7 @@ void TC4_Handler (void) {
 
  {
    digitalWrite(AC_pin, HIGH);
-   digitalWrite(POL_pin, !HV_enable);
+   digitalWrite(POL_pin, opto_HIGH);
   
   }
 
@@ -115,7 +129,7 @@ void configureAdc()
   while (ADC->STATUS.bit.SYNCBUSY);               // Wait for synchronization
 
   // Apply ADC gain and offset error calibration correction
-  analogReadCorrection(23, 2060); //CORREN = 1
+//  analogReadCorrection(23, 2060); //CORREN = 1
 }
 
 
@@ -281,8 +295,6 @@ return check;
 
 
 
-
-
 // *************** Definitions ****************
 
 OpenDrop::OpenDrop(uint8_t addr) {
@@ -346,22 +358,42 @@ void OpenDrop::update_Display(void) // Updated Display with Fluxls data
            display.drawRect(x*6+17, y*6+16, 5,5, 1);
     }
 
+ 
+  if (feedback) {  
+ this->read_Fluxels();
+  for (int x = 0; x <(FluxlPad_width) ; x++) 
+    for (int y = 0; y <FluxlPad_heigth ; y++) 
+   if (Fluxls_feedback[x][y]){
+       if (x==0)
+	{if (y==0) display.drawRect(x*6+18, 6+17, 3,3, 1);							          // Entrance
+            if (y==1) {display.drawRect(15, 17, 3,3, 1);display.drawRect(15, 29, 3,3, 1);}				  // Side Pads
+	    if (y==2) display.drawRect(10, 23, 5,3, 1);									  // Long Pad
+	    if (y==3) {display.drawRect(8, 17, 4,3, 1);display.drawRect(8, 29, 4,3, 1);display.drawRect(4, 17, 3,15, 1);} // Reservoir
+	    
+      	     if (y==4) {display.drawRect(8, 47, 4,3, 1);display.drawRect(8, 46+13, 4,3, 1);display.drawRect(4, 47, 3,15, 1);}
+	    if (y==5) display.drawRect(10, 46+7, 5,3, 1);
+            if (y==6) {display.drawRect(15, 47, 3,3, 1);display.drawRect(15, 46+13, 3,3, 1);}
+	    if (y==7) display.drawRect(x*6+17, 36+16, 5,5, 1);
 
-    
-if (feedback_flag) {
-// draw Feedback
-      for (int x = 0; x <64 ; x++) 
-   
-   if (pad_feedback[x]==1) {
-           display.fillRect(pgm_read_byte_near(pad_lookup_x+x)*6+18, pgm_read_byte_near(pad_lookup_y+x)*6+17, 3,3, 1);
+            } else
+           if (x==15)
+            {if (y==0) display.drawRect(x*6+18, 6+17, 3,3, 1);
+             if (y==1) {display.drawRect(111, 17, 3,3, 1);display.drawRect(111, 29, 3,3, 1);}
+	     if (y==2) display.drawRect(114, 23, 5,3, 1);
+	     if (y==3) {display.drawRect(117, 17, 4,3, 1);display.drawRect(117, 29, 4,3, 1);display.drawRect(122, 17, 3,15, 1);}
+
+       	     if (y==4) {display.drawRect(117, 47, 4,3, 1);display.drawRect(117, 46+13, 4,3, 1);display.drawRect(122, 47, 3,15, 1);}
+	     if (y==5) display.drawRect(114, 46+7, 5,3, 1);
+             if (y==6) {display.drawRect(111, 47, 3,3, 1);display.drawRect(111, 46+13, 3,3, 1);}
+	     if (y==7) display.drawRect(x*6+18, 36+17, 3,3, 1);
+
+            } else
+           display.drawRect(x*6+18, y*6+17, 3,3, 1);
+    }
     }
     
-          for (int x = 0; x <64 ; x++) 
-   
-   if (pad_feedback[x+64]==1) {
-           display.fillRect((15-pgm_read_byte_near(pad_lookup_x+x))*6+18, (7-pgm_read_byte_near(pad_lookup_y+x))*6+17, 3,3, 1);
-    }
-    }
+    
+    
 //draw cursor
 if (_show_joy)
  display.drawRect(_joy_x*6+17, _joy_y*6+17, 5,3, 1);
@@ -430,6 +462,13 @@ Fluxls[x][y]=fluxels_array[x][y];
 
 }
 
+bool OpenDrop::get_Fluxel(int x, int y)
+{
+return Fluxls_feedback[x][y];
+}
+
+
+
 
 void OpenDrop::drive_Fluxels(void)  // Fill the chip with Fluxls array data
 
@@ -438,41 +477,41 @@ const int chip_delay=5;
 
     noInterrupts(); // Stop AC while writing.
    digitalWrite(AC_pin, HIGH);
-   digitalWrite(POL_pin, !HV_enable);  // clear POL
+   digitalWrite(POL_pin, opto_HIGH);  // clear POL
     delayMicroseconds(chip_delay);
 
-    digitalWrite(LE_pin, !INVERTED);   // clear LE 
-    digitalWrite(CLK_pin, !INVERTED);   // clear SCK 
+    digitalWrite(LE_pin, opto_LOW);   
+    digitalWrite(CLK_pin, opto_LOW);    
     delayMicroseconds(chip_delay);
  
     for (int i = 0; i <64 ; i++) 
 
-{ digitalWrite(DI_pin,!Fluxls[pgm_read_byte_near(pad_lookup_x+i)][pgm_read_byte_near(pad_lookup_y+i)]);
+{ digitalWrite(DI_pin,Fluxls[pgm_read_byte_near(pad_lookup_x+i)][pgm_read_byte_near(pad_lookup_y+i)]);
    delayMicroseconds(chip_delay);
 
-   digitalWrite(CLK_pin, INVERTED);   // set clk
+   digitalWrite(CLK_pin, opto_HIGH);  
        delayMicroseconds(chip_delay);
-   digitalWrite(CLK_pin, !INVERTED);   // clear clk
+   digitalWrite(CLK_pin, opto_LOW);   
        delayMicroseconds(chip_delay);
   };
    
     for (int i = 0; i <64 ; i++) 
 {
-   digitalWrite(DI_pin,!Fluxls[15-pgm_read_byte_near(pad_lookup_x+i)][7-pgm_read_byte_near(pad_lookup_y+i)]);
+   digitalWrite(DI_pin,Fluxls[15-pgm_read_byte_near(pad_lookup_x+i)][7-pgm_read_byte_near(pad_lookup_y+i)]);
    delayMicroseconds(chip_delay);
 
-   digitalWrite(CLK_pin, INVERTED);   // set clk
+   digitalWrite(CLK_pin, opto_HIGH);   
        delayMicroseconds(chip_delay);
-   digitalWrite(CLK_pin, !INVERTED);  // clear clk
+   digitalWrite(CLK_pin, opto_LOW);  
     delayMicroseconds(chip_delay);
  
    };
    
   
-    digitalWrite(LE_pin, INVERTED);   // set LE 
+    digitalWrite(LE_pin, opto_HIGH);    
         delayMicroseconds(chip_delay);
 
-    digitalWrite(LE_pin, !INVERTED);   // clear LE 
+    digitalWrite(LE_pin, opto_LOW);    
        delayMicroseconds(chip_delay);
 
     digitalWrite(BL_pin, HV_enable); // set BL
@@ -486,115 +525,125 @@ void OpenDrop::read_Fluxels(void)
 
   bool reading;
   const int chip_delay=5;
+  
+  if (HV_enable){
+  
+   pinMode(FEEDBACK_pin, INPUT);
 
     noInterrupts(); // Stop AC while writing.
    digitalWrite(AC_pin, HIGH);
-   digitalWrite(POL_pin, INVERTED2);  // clear POL
+   
+   // clear driver chip
+   digitalWrite(POL_pin, opto_HIGH);  
+   digitalWrite(BL_pin, opto_LOW); 		//clear BL
+    	
+    digitalWrite(LE_pin, opto_LOW);   // clear LE 
+    digitalWrite(CLK_pin, opto_LOW);   // clear SCK 
+    digitalWrite(DI_pin, opto_LOW);		//clear DI
+     	
     delayMicroseconds(chip_delay);
 
-    digitalWrite(LE_pin, !INVERTED);   // clear LE 
-    digitalWrite(CLK_pin, !INVERTED);   // clear SCK 
-    delayMicroseconds(chip_delay);
-
-// clear driver chip
-
- 	digitalWrite(BL_pin, !INVERTED2); 		//clear BL
- 	digitalWrite(DI_pin, !INVERTED);		//clear DI
-   	delayMicroseconds(chip_delay);
 
      for (int i = 0; i <128 ; i++) 
      {   
-   digitalWrite(CLK_pin, INVERTED);   // set clk
+   digitalWrite(CLK_pin, opto_HIGH);   // set clk
        delayMicroseconds(chip_delay);
-   digitalWrite(CLK_pin, !INVERTED);   // clear clk
+   digitalWrite(CLK_pin, opto_LOW);   // clear clk
        delayMicroseconds(chip_delay);
      }
 
 // turn first Electrode on
- 	 digitalWrite(DI_pin, INVERTED);		//set DI
+ 	 digitalWrite(DI_pin, opto_HIGH);		//set DI
 
-   digitalWrite(CLK_pin, INVERTED);   // set clk
+   digitalWrite(CLK_pin, opto_HIGH);   // set clk
        delayMicroseconds(chip_delay);
-   digitalWrite(CLK_pin, !INVERTED);   // clear clk
+   digitalWrite(CLK_pin, opto_LOW);   // clear clk
        delayMicroseconds(chip_delay);
 
- 	 digitalWrite(DI_pin,!INVERTED);		// clear DI
+ 	 digitalWrite(DI_pin,opto_LOW);		// clear DI
    	 delayMicroseconds(chip_delay);
-// read them one by one
 
-   	 digitalWrite(LE_pin, INVERTED);   // set LE 
+
+   	 digitalWrite(LE_pin, opto_HIGH);   // set LE 
         delayMicroseconds(chip_delay);
 
-   	 digitalWrite(LE_pin, !INVERTED);   // clear LE 
+   	 digitalWrite(LE_pin, opto_LOW);   // clear LE 
        delayMicroseconds(chip_delay);
+
+// read them one by one
 
 
      for (int i = 0; i <128 ; i++)  //128
 {
 
-delayMicroseconds(10);
+digitalWrite(BL_pin, opto_HIGH);	//set BL
+delayMicroseconds(7);
 
-digitalWrite(BL_pin, INVERTED2);	//set BL
-
-
-reading=digitalRead(FEEDBACK_pin);
+reading=!digitalRead(FEEDBACK_pin);
 
 pad_feedback[127-i]=reading;
 
-  digitalWrite(BL_pin, !INVERTED2);	//clear BL
+if (i<64)
+Fluxls_feedback[15-pgm_read_byte_near(pad_lookup_x+63-i)][7-pgm_read_byte_near(pad_lookup_y+63-i)]=reading;
+else
+Fluxls_feedback[pgm_read_byte_near(pad_lookup_x+127-i)][pgm_read_byte_near(pad_lookup_y+127-i)]=reading;
 
-  digitalWrite(CLK_pin, !INVERTED);   // clear CLK
+
+  digitalWrite(BL_pin, opto_LOW);	//clear BL
+
+  digitalWrite(CLK_pin, opto_LOW);   // clear CLK
+   digitalWrite(LE_pin, opto_LOW);   // clear LE 
     delayMicroseconds(chip_delay);
-  digitalWrite(CLK_pin, INVERTED);   // set CLK
+  digitalWrite(CLK_pin, opto_HIGH);   // set CLK
     delayMicroseconds(chip_delay);
-   
-  digitalWrite(LE_pin, !INVERTED);   // clear LE 
-    delayMicroseconds(chip_delay);
-  digitalWrite(LE_pin, INVERTED);   // set LE 
+  digitalWrite(LE_pin, opto_HIGH);   // set LE 
     delayMicroseconds(chip_delay);
       
    };
   
+  this->drive_Fluxels();
+   
+  digitalWrite(POL_pin, opto_HIGH);   // clr POL 
+  digitalWrite(BL_pin, HV_enable); // set BL
 
-   digitalWrite(POL_pin, !INVERTED2);  // clear POL
-    digitalWrite(BL_pin, !INVERTED); // set BL
-       delayMicroseconds(chip_delay);
-
-  interrupts();
-
+    interrupts();
+    } // HVEnable
 }
 
 
 
 void OpenDrop::begin(char code_str[]) {
 
+
+
+
+  
 // Initialize HV Chip
 
    //     pinStr(P1_pin,1);       //Set Pin output current to 7mA (bug in the Arduino library?)
 
    //     pinStr(P2_pin,1);       //Set Pin output current to 7mA (bug in the Arduino library?)
 
-
-
- pinMode(BL_pin, OUTPUT);      //BL pin
+  pinMode(BL_pin, OUTPUT);      //BL pin
   digitalWrite(BL_pin, HV_enable);   // set BL 
   pinStr(BL_pin,1);       //Set Pin output current to 7mA (bug in the Arduino library?)
   
   pinMode(POL_pin, OUTPUT);     //POL pin
-  digitalWrite(POL_pin, !HV_enable);   // clr POL 
+  digitalWrite(POL_pin, opto_HIGH);   // clr POL 
   pinStr(POL_pin,1);
     
   pinMode(LE_pin, OUTPUT);      //LE pin
-  digitalWrite(LE_pin, !INVERTED);   // clr LE 
+  digitalWrite(LE_pin, opto_LOW);   // clr LE 
   pinStr(LE_pin,1);
     
   pinMode(CLK_pin, OUTPUT);     //SCK pin
-  digitalWrite(CLK_pin, !INVERTED);   // clr SCK 
+  digitalWrite(CLK_pin, opto_LOW);   // clr SCK 
   pinStr(CLK_pin,1);
     
   pinMode(DI_pin, OUTPUT);      //DI pin
-  digitalWrite(DI_pin, !INVERTED);   // clr DI 
+  digitalWrite(DI_pin, opto_LOW);   // clr DI 
   pinStr(DI_pin,1);
+
 
 // Initialize  AC
 
@@ -631,31 +680,27 @@ void OpenDrop::begin(char code_str[]) {
   pinMode(VSI_pin, OUTPUT); // set MOSI pin to output
   digitalWrite(VCS_pin, HIGH); // hold slave select 1 pin high, so that chip is not selected to begin with
 
-  this->set_voltage(Voltage_set,AC_flag,AC_frequency);
+
+    settings=my_flash_store.read();
+
+     if (settings.value[5]==0) {
+	settings.value[0]=AC_flag;
+	settings.value[1]=Voltage_set;
+	settings.value[2]=AC_frequency;
+	settings.value[3]=sound;
+	settings.value[4]=feedback;
+	settings.value[5]=1;
+	my_flash_store.write(settings);
+	
+     };
+
+    sound=settings.value[3];
+    feedback=settings.value[4];
+    
+  this->set_voltage(settings.value[1],settings.value[0],settings.value[2]);
   tcStartCounter(); //starts the timer
 
-// Init Magnet Shield
 
- mcp.begin();      // use default address 0
-
-
-  mcp.pinModeMCP(STBY_pin, OUTPUT);
-  mcp.pinModeMCP(MODE_pin, OUTPUT);
-  mcp.pinModeMCP(BOOST_pin, INPUT);
-  mcp.pinModeMCP(PHASE_A_pin, OUTPUT);
-  mcp.pinModeMCP(ENABLE_A_pin, OUTPUT);
-  mcp.pinModeMCP(PHASE_B_pin, OUTPUT);
-  mcp.pinModeMCP(ENABLE_B_pin, OUTPUT);
-
-  mcp.digitalWrite(MODE_pin, HIGH);
-  mcp.digitalWrite(STBY_pin, HIGH);
-
-  hasMagnet=mcp.digitalRead(MODE_pin);
-
-  if (hasMagnet) {
-  this->set_Magnet(0,LOW);
-  this->set_Magnet(1,LOW);
- }
  
 // Init Display
   display.begin(SSD1306_SWITCHCAPVCC);
@@ -672,7 +717,22 @@ void OpenDrop::begin(char code_str[]) {
   display.println(code_str);
 
   display.display();
-  delay(500);
+ 
+  
+// Init Adapters
+  Adapter.begin();
+  
+   pinMode(AC_pin, OUTPUT);     //Re-Init AC pin (gets messed up in getAdapterID)
+  digitalWrite(AC_pin, HIGH);   //Re-Init set AC  (gets messed up in getAdapterID)
+  
+  OpenDropID=(board_ID<<4)|Adapter.get_ID(); // OpenDrop ID = board_ID higher 4 bits, Adapter ID lower 4 bits 
+   display.setCursor(95,55);
+   display.print("ID:");
+   display.println(OpenDropID,HEX);
+   display.display(); 
+ 
+  
+  delay(400);
 
   // Clear the buffer.
   display.clearDisplay();
@@ -690,7 +750,7 @@ void OpenDrop::update_Drops(void) {
 for (int i = 0; i <this->drop_count ; i++) 
 {
 
-   if (feedback_flag){
+   if (closedloop_flag){
 
       if ((drops[i].position_x()!=drops[i].next_x())|(drops[i].position_y()!=drops[i].next_y()))
         {Serial.println("run");
@@ -718,8 +778,7 @@ for (int i = 0; i <this->drop_count ; i++)
   Fluxls[drops[i].next_x()][drops[i].next_y()]=true;
 };
 
-if (feedback_flag)
-this->read_Fluxels();
+
 
 this->drive_Fluxels();
 
@@ -967,43 +1026,31 @@ void OpenDrop::set_voltage(uint16_t voltage, bool AC_on,uint16_t frequence)
 AC_frequency=frequence;
 tcConfigure(AC_frequency); //configure the timer to run at <sampleRate>Hertz
 
- VOLTAGE_set_value=255*((1.5*1500000)/(voltage-1.5)-6800)/50000; // Calculate set value (max 255) for 10kOhm digial potentiometer from reference voltage 1.5V, voltage devider R1.5MOhm / 6.8kOhm, 
+#if OpenDropV40_downgrade
+ VOLTAGE_set_value=255*((1.5*1500000)/(voltage-1.5)-6800)/10000; // Calculate set value (max 255) for 10kOhm digial potentiometer from reference voltage 1.5V, voltage devider R1.5MOhm / 6.8kOhm, 
+#else
+ VOLTAGE_set_value=255*((1.5*1500000)/(voltage-1.5)-6800)/50000; // Calculate set value (max 255) for 50kOhm digial potentiometer from reference voltage 1.5V, voltage divider R1.5MOhm / 6.8kOhm, 
+ #endif
+ 
+ 
  spi_out(VCS_pin, cmd_byte0, VOLTAGE_set_value); // Set Voltage Level / send out data to chip 1, pot 0
 Voltage_set=voltage;
 AC_flag=AC_on;
 }
 
 
-void OpenDrop::set_Magnet(uint8_t magnet, boolean state)
-{ if (magnet==1)
-    {
-    mcp.digitalWrite(PHASE_A_pin, state);
-    mcp.digitalWrite(ENABLE_A_pin, HIGH);
-    delay (150);
-      mcp.digitalWrite(BOOST_pin, LOW);
-      mcp.pinModeMCP(BOOST_pin, OUTPUT);
-     delay (150);
-      mcp.pinModeMCP(BOOST_pin, INPUT);
-    mcp.digitalWrite(ENABLE_A_pin, LOW);
-      
-    }
-    else
-    {mcp.digitalWrite(PHASE_B_pin, state);
-    mcp.digitalWrite(ENABLE_B_pin, HIGH);
-    delay (150);
-      mcp.digitalWrite(BOOST_pin, LOW);
-      mcp.pinModeMCP(BOOST_pin, OUTPUT);
-     delay (150);
-      mcp.pinModeMCP(BOOST_pin, INPUT);
-    mcp.digitalWrite(ENABLE_B_pin, LOW);
-    }
+void OpenDrop::set_Magnet(uint8_t magnet, bool state)
+{ 
+Adapter.set_Magnet(magnet,state);
 }
 
 uint8_t OpenDrop::get_ID()
-{uint8_t ID=0;
-ID=ID+hasMagnet;
-return ID;
+{
+return OpenDropID;
 }
+
+
+
 
 void OpenDrop::set_joy(uint8_t x,uint8_t y)
 {
@@ -1015,6 +1062,28 @@ void OpenDrop::show_joy(boolean val)
 {
  _show_joy=val;
 }
+
+void OpenDrop::show_feedback(boolean val)
+{
+ feedback=val;
+}
+
+float OpenDrop::get_Temp_1(void){return Adapter.get_Temp_1();};
+float OpenDrop::get_Temp_2(void){return Adapter.get_Temp_2();};
+float OpenDrop::get_Temp_3(void){return Adapter.get_Temp_3();};
+
+void OpenDrop::set_Temp_1(uint8_t temperature){Adapter.set_Temp_1(temperature);};
+void OpenDrop::set_Temp_2(uint8_t temperature){Adapter.set_Temp_2(temperature);};
+void OpenDrop::set_Temp_3(uint8_t temperature){Adapter.set_Temp_3(temperature);};
+  
+uint8_t OpenDrop::get_Temp_L_1(void){return Adapter.get_Temp_L_1();};
+uint8_t OpenDrop::get_Temp_H_1(void){return Adapter.get_Temp_H_1();}; 
+uint8_t OpenDrop::get_Temp_L_2(void){return Adapter.get_Temp_L_2();};
+uint8_t OpenDrop::get_Temp_H_2(void){return Adapter.get_Temp_H_2();}; 
+uint8_t OpenDrop::get_Temp_L_3(void){return Adapter.get_Temp_L_3();};
+uint8_t OpenDrop::get_Temp_H_3(void){return Adapter.get_Temp_H_3();}; 
+  
+  
 
 void Drop::begin(int x,int y) {
   _pos_x=x;
@@ -1227,7 +1296,7 @@ bool Drop::is_moving(void) {
 }
 
 
-
+  
 
 void Menu(OpenDrop &theOpenDrop)
 {
@@ -1238,6 +1307,7 @@ int menu_position=1;
 bool AC_state=AC_flag;
 bool confirm=false;
 bool set_confirm=false;
+bool set_feedback=feedback;
 bool set_sound=sound;
 bool nav_release=true;
 bool but_release=false;
@@ -1249,44 +1319,47 @@ while (!confirm)
 display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(WHITE,BLACK);
-  display.setCursor(15,5);
+  display.setCursor(15,2);
 if (AC_state==true)
   display.print("MODE:     AC"); else
   display.print("MODE:     DC");
-  display.setCursor(15,15);
+  display.setCursor(15,12);
   display.print("VOLTAGE:  ");
   display.print(v);
   display.print(" V");
-  display.setCursor(15,25);
+  display.setCursor(15,22);
   display.print("FREQUENCY:");
  if (f<1000) display.print(" ");
   display.print(f);
   display.print(" Hz");
-  display.setCursor(15,35);
+  display.setCursor(15,32);
 if (set_sound==true)
   display.print("SOUND:    ON"); else
   display.print("SOUND:    OFF");
-
+  display.setCursor(15,42);
+if (set_feedback==true)
+  display.print("FEEDBACK: ON"); else
+  display.print("FEEDBACK: OFF");
 
 if (!set_confirm){
-display.setCursor(15,49);
+display.setCursor(15,55);
 display.println("SET:      CANCEL");
 }
 else 
 {
-display.setCursor(15,49);
+display.setCursor(15,55);
 display.println("SET:      OK");
 }
 
-display.setCursor(0,10*menu_position-5);
-if (menu_position==5)display.setCursor(0,49);
+display.setCursor(0,10*menu_position-8);
+if (menu_position==6)display.setCursor(0,55);
   display.print(">");
   display.display();
 
 JOY_value = analogRead(JOY_pin);
 
 if ((JOY_value>725)&&(JOY_value<895)&&(menu_position>1)&&(nav_release)) {menu_position--;nav_release=false;set_confirm=false;}
-if ((JOY_value>256)&&(JOY_value<597)&&(menu_position<5)&&(nav_release)) {menu_position++;nav_release=false;}
+if ((JOY_value>256)&&(JOY_value<597)&&(menu_position<6)&&(nav_release)) {menu_position++;nav_release=false;}
 if (JOY_value>950) nav_release=true;
 if (digitalRead(SW1_pin)) but_release=true;
 if (!digitalRead(SW1_pin)&&but_release) confirm=true;
@@ -1316,6 +1389,12 @@ if  ((JOY_value>600)&&(JOY_value<730)) set_sound=true;
 break;
 
 case 5:
+if  (JOY_value<300) set_feedback=true;
+if  ((JOY_value>600)&&(JOY_value<730)) set_feedback=false;
+
+break;
+
+case 6:
 if  (JOY_value<300) set_confirm=true;
 if  ((JOY_value>600)&&(JOY_value<730)) set_confirm=false;
 if (!digitalRead(SW3_pin)) confirm=true;
@@ -1331,7 +1410,16 @@ break;
 if (set_confirm) {
     theOpenDrop.set_voltage(v,AC_state,f);
 	sound = set_sound; 
-	HV_set_ok=false; }
+	feedback=set_feedback;
+	settings.value[0]=AC_state;
+	settings.value[1]=v;
+	settings.value[2]=f;
+	settings.value[3]=set_sound;
+	settings.value[4]=set_feedback;
+	my_flash_store.write(settings);
+	
+	HV_set_ok=false;
+	 }
  while(!digitalRead(SW1_pin));
 }
 

@@ -1,0 +1,86 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# C-DIMMCartridge-rescue
+#
+DEF C-DIMMCartridge-rescue C 0 10 N Y 1 F N
+F0 "C" 25 100 50 H V L CNN
+F1 "C-DIMMCartridge-rescue" 25 -100 50 H V L CNN
+F2 "" 38 -150 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ C_*
+$ENDFPLIST
+DRAW
+P 2 0 1 20 -80 -30 80 -30 N
+P 2 0 1 20 -80 30 80 30 N
+X ~ 1 0 150 110 D 50 50 1 1 P
+X ~ 2 0 -150 110 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# CONN_01X01-DIMMCartridge-rescue
+#
+DEF CONN_01X01-DIMMCartridge-rescue J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "CONN_01X01-DIMMCartridge-rescue" 100 0 50 V V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Pin_Header_Straight_1X*
+ Pin_Header_Angled_1X*
+ Socket_Strip_Straight_1X*
+ Socket_Strip_Angled_1X*
+$ENDFPLIST
+DRAW
+S -50 5 10 -5 0 1 0 N
+S -50 50 50 -50 0 1 0 N
+X P1 1 -200 0 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# FX-DIMMCartridge-rescue
+#
+DEF FX-DIMMCartridge-rescue FLUXL 0 40 Y N 1 F N
+F0 "FLUXL" 0 100 50 H V C CNN
+F1 "FX-DIMMCartridge-rescue" 0 0 50 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+DRAW
+S -50 50 50 -50 0 1 0 N
+X 1 1 0 -150 100 U 40 40 1 1 P
+ENDDRAW
+ENDDEF
+#
+# GND-DIMMCartridge-rescue
+#
+DEF GND-DIMMCartridge-rescue #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -250 50 H I C CNN
+F1 "GND-DIMMCartridge-rescue" 0 -150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
+X GND 1 0 0 0 D 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# R-DIMMCartridge-rescue
+#
+DEF R-DIMMCartridge-rescue R 0 0 N Y 1 F N
+F0 "R" 80 0 50 V V C CNN
+F1 "R-DIMMCartridge-rescue" 0 0 50 V V C CNN
+F2 "" -70 0 50 V I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ R_*
+ R_*
+$ENDFPLIST
+DRAW
+S -40 -100 40 100 0 1 10 N
+X ~ 1 0 150 50 D 50 50 1 1 P
+X ~ 2 0 -150 50 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+#End Library

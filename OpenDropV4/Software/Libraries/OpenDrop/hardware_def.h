@@ -1,5 +1,8 @@
-//OpenDrop V3 Hardware Definitions
+//OpenDrop V4.1 Hardware Definitions
 
+
+#define board_ID	0x1     // 0x1=V42 ,OpenDrop ID = board_ID higher 4 bits, Adapter ID lower 4 bits 
+#define OpenDropV40_downgrade 0  //use for V40
 
 #define FluxlPad_width 16
 #define FluxlPad_heigth 8
@@ -13,16 +16,27 @@
 #define OLED_RESET 5
 
 #define BL_pin         9           // BL Pin
-#define LE_pin          1          // LE Pin 1
+
+#if OpenDropV40_downgrade
+#define LE_pin          4          // LE Pin for V40
+#else
+#define LE_pin          1          // LE Pin 
+#endif
+
 #define CLK_pin         24         // CLK Pin
 #define DI_pin         23          // Data Out Pin
 #define POL_pin         2         // POL Pin
 #define AC_pin         A1         // AC Pin  10
 
-#define INVERTED	true	//Invert the Opto-Coupler pins
-#define INVERTED2	true	//Invert the Opto-Coupler pins
+#define opto_LOW	LOW	    //HIGH LOW for Opto-Couplers
+#define opto_HIGH	!opto_LOW   //can be used to invert Optos 
 
-#define P1_pin         4           // Extentsion pin 1  4
+#if OpenDropV40_downgrade
+#define P1_pin         1           // Extentsion pin 1  for V40
+#else
+#define P1_pin         4           // Extentsion pin 1  
+#endif
+
 #define P2_pin         3           // Extentsion pin 2
 
 #define SW1_pin         8           // Buton 1 pin
@@ -42,7 +56,8 @@
 #define LED_Rx_pin         25           // Rx LED
 
 #define sound_flag true           // Make Sound
-#define feedback_flag false           // Use Feedback information
+#define feedback_flag false           // Read pad feedback
+#define closedloop_flag false        // Use Feedback information for close loop control (experimental)
         
 
 #define STBY_pin         6           // MCP23008 Pin

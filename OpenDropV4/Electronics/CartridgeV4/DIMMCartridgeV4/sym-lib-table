@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name DIMMCartridge-rescue)(type Legacy)(uri ${KIPRJMOD}/DIMMCartridge-rescue.lib)(options "")(descr ""))
+  (lib (name DIMMCartridgeV4-rescue)(type Legacy)(uri ${KIPRJMOD}/DIMMCartridgeV4-rescue.lib)(options "")(descr ""))
+)

@@ -17,8 +17,6 @@
 #define max_drops   8          
 
 
-
-
 class OpenDrop;
 
 
@@ -72,16 +70,33 @@ class OpenDrop
   void dispense(int reservoir, int delay_us);
   void update(void);
   void set_Fluxels(bool fluxels_array[][8]);
+  bool get_Fluxel(int x, int y);
   void update_Display(void);
   void update_Drops(void);
   void drive_Fluxels(void);
   void read_Fluxels(void);
   void set_joy(uint8_t x,uint8_t y);
   void show_joy(boolean val);
+  void show_feedback(boolean val);
   void set_voltage(uint16_t voltage, bool AC_on,uint16_t frequence);
   void set_Pin(uint8_t pin, boolean val);
-  void set_Magnet(uint8_t magnet, boolean state);
+  void set_Magnet(uint8_t magnet, bool state);
   uint8_t get_ID(void);
+  
+  float get_Temp_1(void);
+  float get_Temp_2(void);
+  float get_Temp_3(void);
+  
+  void set_Temp_1(uint8_t temperature);
+  void set_Temp_2(uint8_t temperature);
+  void set_Temp_3(uint8_t temperature);
+  
+  uint8_t get_Temp_L_1(void);
+  uint8_t get_Temp_H_1(void);  
+  uint8_t get_Temp_L_2(void);
+  uint8_t get_Temp_H_2(void);  
+  uint8_t get_Temp_L_3(void);
+  uint8_t get_Temp_H_3(void);  
   
   Drop *getDrop();
 
