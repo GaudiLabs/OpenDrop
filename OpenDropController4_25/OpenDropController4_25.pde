@@ -130,7 +130,7 @@ void setup() {
   textFont(f);
   
  // pixelDensity(2);
-  size(1024, 768, P2D); //???
+  size(1024, 768); //P2D
   surface.setResizable(true);
   surface.setSize(1024, 768);
   surface.setLocation(100,100);
