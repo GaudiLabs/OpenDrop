@@ -64,7 +64,7 @@ class OpenDrop
  public:
   OpenDrop(uint8_t addr = 0x60);
   friend class Drop;
-  void begin(char code_str[]);
+  void begin(const char code_str[]);
 
   bool run(void);
   void dispense(int reservoir, int delay_us);

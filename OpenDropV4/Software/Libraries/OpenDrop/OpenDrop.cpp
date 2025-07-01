@@ -14,7 +14,7 @@
 #include "adapterI2C.h"
 #include "FlashStorage.h"
 
-char version_str[] = "V42.10." ;
+char version_str[] = "V42.11." ;
 
 uint8_t OpenDropID=0;     // defined in code
 
@@ -70,7 +70,7 @@ void TC4_Handler (void) {
  if ((AC_flag==true)&&(HV_enable==true)){
   if(state == true) {
       digitalWrite(AC_pin, LOW);
-      delayMicroseconds(68); //67
+      delayMicroseconds(68); //67 68
       digitalWrite(POL_pin, opto_LOW);
    // digitalWrite(LED_D13_pin,LOW);
   } else {
@@ -577,7 +577,7 @@ void OpenDrop::read_Fluxels(void)
 {
 
 digitalWrite(BL_pin, opto_HIGH);	//set BL
-delayMicroseconds(7);
+delayMicroseconds(7);   // 7 without resistors   37 with 3.3M resistor
 
 reading=!digitalRead(FEEDBACK_pin);
 
@@ -612,7 +612,7 @@ Fluxls_feedback[pgm_read_byte_near(pad_lookup_x+127-i)][pgm_read_byte_near(pad_l
 
 
 
-void OpenDrop::begin(char code_str[]) {
+void OpenDrop::begin(const char code_str[]) {
 
 
 
@@ -1373,12 +1373,12 @@ break;
 
 case 2:
 if  ((JOY_value>600)&&(JOY_value<730)&&(v>50)) v=v-10;
-if  ((JOY_value<300)&&(v<280)) v=v+10;
+if  ((JOY_value<300)&&(v<260)) v=v+10;
 break;
 
 case 3:
 if  ((JOY_value>600)&&(JOY_value<730)&&(f>100)) f=f-50;
-if  ((JOY_value<300)&&(f<1500)) f=f+50;
+if  ((JOY_value<300)&&(f<1000)) f=f+50;
 
 break;
 
@@ -1412,7 +1412,7 @@ if (set_confirm) {
 	sound = set_sound; 
 	feedback=set_feedback;
 	settings.value[0]=AC_state;
-	settings.value[1]=v;
+	if(v<=240)settings.value[1]=v; else settings.value[1]=240;
 	settings.value[2]=f;
 	settings.value[3]=set_sound;
 	settings.value[4]=set_feedback;
