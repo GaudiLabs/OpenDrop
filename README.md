@@ -8,7 +8,7 @@ Then unpack the archive.
 
 ### Open Source Digital Microfluidics Bio Lab
 
-OpenDrop is a new design for an open source digital microfludics platform for research purposes. The device uses recent electro-wetting technology to control small droplets of liquids. Potential applications are lab on a chip devices for automating processes of digital biology. How ever the present design should also open the technology to other field and allow experimentation to find new applications. Including the field of art, music, games and education.
+OpenDrop is a new open source digital microfludics platform for research purposes. The device uses recent electro-wetting technology to control small droplets of liquids. Potential applications include lab-on-a-chip devices for automating processes of digital biology. However, the present design should also open up the technology to other fields, such as art, music, games, and education. It should also allow experimentation for the purpose of finding new applications. 
 
 For more info on the open source project see:
 
